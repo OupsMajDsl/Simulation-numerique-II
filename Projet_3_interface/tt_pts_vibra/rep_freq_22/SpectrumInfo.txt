@@ -1,0 +1,17 @@
+channel name	cDAQ7Mod1/ai0	cDAQ7Mod1/ai1
+description		
+x-axis units	Frequency-CB (Hz)	Frequency-CB (Hz)
+spectrum type	Power [Magnitude^2]	Power [Magnitude^2]
+linear/dB	linear	linear
+window	0	0
+window size	51200	51200
+FFT size	51200	51200
+engineering units	V	V
+custom label	V	V
+dB reference	1.000000E+0	1.000000E+0
+peak units	rms	rms
+weighting filter	Linear	Linear
+spectral density?	False	False
+unit label	V^2 rms|SV Units|dB rms ref 1.0E+0 V	V^2 rms|SV Units|dB rms ref 1.0E+0 V
+spectrum skewed?	False	False
+complimentary spectrum units	none	none

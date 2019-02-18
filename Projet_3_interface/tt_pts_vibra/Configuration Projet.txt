@@ -1,0 +1,6 @@
+[Général]
+Version="5.3"
+Nom du projet="Vibration Plaque plexy"
+Date="12/02/2019"
+Auteur=""
+Commentaire=""
