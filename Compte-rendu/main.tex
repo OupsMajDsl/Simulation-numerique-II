@@ -3,22 +3,35 @@
 \usepackage[T1]{fontenc}
 \usepackage{titlesec}
 \usepackage[french]{babel}
+\usepackage{xcolor}
 \usepackage[runin]{abstract}
 \usepackage[top = 2.5cm, bottom = 2.5cm, left = 1.5cm, right = 1.5cm]{geometry}
-\usepackage{pgfplots, tikz, float, graphicx, appendix, subcaption, fancyhdr, footmisc, lmodern, amsmath, array}
+\usepackage{pgfplots, float, graphicx, appendix, subcaption, fancyhdr, footmisc, lmodern, amsmath, array}
 \pgfplotsset{compat = 1.15}
+\usepackage{newverbs}
 
-\renewcommand{\headrulewidth}{0.2pt}
-\renewcommand{\footrulewidth}{0.1pt}
-\renewcommand{\arraystretch}{1.5}
-%\renewcommand{\familydefault}{\sfdefault}
-\lfoot{} \rfoot{Page \thepage} \cfoot{}
-\rhead{Mathieu MARÉCHAL} \lhead{Simulation numérique II -- Compte-rendu des projets}
 \pagestyle{fancy}
 
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\renewcommand{\arraystretch}{1.5}
+\cfoot{}
+\lfoot{\textcolor{mycolor}{\textsf{L2 SPI \\ 2018-2019}}}
+ \rfoot{\textcolor{mycolor}{\textsf{Page \thepage}}}
+\rhead{
+	\textcolor{mycolor}{\textsf{Mathieu MARÉCHAL}}
+} 
 
-\titleformat{\section}{\normalfont\large\bfseries}{Projet \thesection}{1em}{}
-\makeatother
+\lhead{
+	\textcolor{mycolor}{\textsf{Simulation numérique II -- Compte-rendu des projets}}
+}
+
+
+\definecolor{mycolor}{RGB}{219, 80, 61}
+\titleformat
+{\section}
+{\color{mycolor}\normalfont\LARGE\sffamily\bfseries}
+{\textsf{Projet \thesection}}{1em}{}
 
 \begin{document}
 	\begin{titlepage}
@@ -74,11 +87,17 @@ Ensuite, on implémente les équations déterminant la position du projectile en
 
 Il est maintenant possible de calculer la trajectoire mais la première question qui se pose est: quand doit-on arrêter de tracer la trajectoire ? En effet, si on trace la trajectoire sur un temps \verb|t_balle| fixé, on observera la trajectoire avoir une position $d_y$ négative, avec une pente très élevé, ce qui n'a pas du tout la forme d'une parabole. C'est le premier problème que j'ai rencontré. C'est donc quand le projectile touche le sol qu'il faut arrêter de calculer la trajectoire, quand sa position en y vaut 0 $\Leftrightarrow d_y = 0$. Pour cela, il faut calculer le temps de course du projectile, en résolvant l'équation $d_y = 0$. Il est alors possible de désigner une variable \verb|t_max| qui calcule cette solution, ce qui permet de définir la limite du vecteur de temps \verb|t_balle|.
 	\begin{verbatim}
-		t_max = (2*v_0*np.sin(a_0))/g + t_0     
+		t_max = (2*v_0*np.sin(a_0))/g + t_0   
 		t_balle = np.arange(t_0, t_max, 0.1)
 	\end{verbatim}
-	
+
 Par la suite, on peut animer la trajectoire du projectile. Pour cela, c'est la \verb|FuncAnimation| du module \verb|matplotlib.animation| qui sera utilisée, car elle utilise une fonction pour animer les données calculées et non une boucle \verb|for| comme utilise l'\verb|ArtistAnimation|. Ce choix est justifié aussi par le fait que le programme sera mis sous la forme d'une classe par la suite. 
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=1]{imgtraject_fixe.pdf}
+	\label{fig:traject} \caption{Trajectoire fixe d'une balle}
+\end{figure}
 
 \subsection{Ajouter les rebonds}
 

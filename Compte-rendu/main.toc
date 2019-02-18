@@ -1,9 +1,9 @@
 \babel@toc {french}{}
 \contentsline {section}{\numberline {1}La balle}{2}
 \contentsline {subsection}{\numberline {1.1}Calculer la trajectoire}{2}
-\contentsline {subsection}{\numberline {1.2}Ajouter les rebonds}{2}
+\contentsline {subsection}{\numberline {1.2}Ajouter les rebonds}{3}
 \contentsline {subsection}{\numberline {1.3}Plus de balles}{3}
-\contentsline {section}{\numberline {2}Le tube de Kundt}{3}
-\contentsline {section}{\numberline {3}L'interface du reste de ma vie}{3}
-\contentsline {section}{\numberline {4}Traitement du signal et imagerie}{3}
-\contentsline {section}{\numberline {5}Optique g\IeC {\'e}om\IeC {\'e}trique}{3}
+\contentsline {section}{\numberline {2}Le tube de Kundt}{4}
+\contentsline {section}{\numberline {3}L'interface du reste de ma vie}{4}
+\contentsline {section}{\numberline {4}Traitement du signal et imagerie}{4}
+\contentsline {section}{\numberline {5}Optique g\IeC {\'e}om\IeC {\'e}trique}{4}
