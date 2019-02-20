@@ -26,6 +26,20 @@ def find_nearest(array, value):
     # càd qu'on retourne l'indice de la valeur la plus proche de value
     return (np.abs(array - value)).argmin() 
 
+def pre_treatment(time, amp, meth="pol_fit", lst_param=[0, 20]):
+    meths = ["diff", "filt", "moy_gliss", "pol_fit", "exp_fit"]
+    
+    if meth == meths[0]:
+        dt = np.abs(time[1] - time[0])
+        df = np.zeros(time.shape)
+        for t in range(len(time)):
+            if t != 0 and t != len(time)-1: 
+                df[t] = (amp[t + 1] - amp[t - 1]) / (2 * h)
+            elif t == 0: 
+                df[0] = (amp[1] - amp[0]) / (1 * h)
+            elif t == len(time) - 1:
+                df[-1] = (amp[-1] - amp[-2]) / (1 * h)
+
 filename = "time_rawsignals_84GPa_nice.txt"
 path = "/home/mathieu/OneDrive/Documents/S4/Sim_numerique/Projet_4_tds"
 # avec bad, pic impulsionnel beaucoup plus élevé donc variations moins visibles

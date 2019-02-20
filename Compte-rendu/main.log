@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2019/dev/Debian) (preloaded format=pdflatex 2018.12.29)  18 FEB 2019 14:13
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2019/dev/Debian) (preloaded format=pdflatex 2018.12.29)  18 FEB 2019 14:55
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -895,38 +895,44 @@ File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 File: imgtraject_fixe.pdf Graphic file (type pdf)
 <use imgtraject_fixe.pdf>
 Package pdftex.def Info: imgtraject_fixe.pdf  used on input line 98.
-(pdftex.def)             Requested size: 462.52684pt x 346.89516pt.
- [2] [3 <./imgtraject_fixe.pdf>]
-[4] (./main.aux)
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
- ) 
+(pdftex.def)             Requested size: 231.26341pt x 173.44757pt.
+File: imgtraject_fixe.pdf Graphic file (type pdf)
+<use imgtraject_fixe.pdf>
+Package pdftex.def Info: imgtraject_fixe.pdf  used on input line 106.
+(pdftex.def)             Requested size: 256.07481pt x 192.06375pt.
+<bug_classe_rebond.png, id=22, 553.06625pt x 437.635pt>
+File: bug_classe_rebond.png Graphic file (type png)
+<use bug_classe_rebond.png>
+Package pdftex.def Info: bug_classe_rebond.png  used on input line 112.
+(pdftex.def)             Requested size: 256.07481pt x 202.62338pt.
+ [2 <./imgtraject_fixe.pdf>]
+[3 <./bug_classe_rebond.png>] (./main.aux) ) 
 Here is how much of TeX's memory you used:
- 25778 strings out of 492641
- 632175 string characters out of 6131786
- 807064 words of memory out of 5000000
- 29191 multiletter control sequences out of 15000+600000
- 57193 words of font info for 41 fonts, out of 8000000 for 9000
+ 25795 strings out of 492641
+ 632491 string characters out of 6131786
+ 808064 words of memory out of 5000000
+ 29207 multiletter control sequences out of 15000+600000
+ 60183 words of font info for 42 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 69i,12n,119p,848b,609s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texmf/fonts/enc/dv
-ips/lm/lm-mathsy.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/s
-hare/texmf/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm
--mathex.enc}</usr/share/texmf/fonts/type1/public/lm/lmbx10.pfb></usr/share/texm
-f/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf/fonts/type1/public/lm/lmcs
-c10.pfb></usr/share/texmf/fonts/type1/public/lm/lmex10.pfb></usr/share/texmf/fo
-nts/type1/public/lm/lmmi10.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi6.pf
-b></usr/share/texmf/fonts/type1/public/lm/lmmi8.pfb></usr/share/texmf/fonts/typ
-e1/public/lm/lmr10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr12.pfb></usr/
-share/texmf/fonts/type1/public/lm/lmr17.pfb></usr/share/texmf/fonts/type1/publi
-c/lm/lmr8.pfb></usr/share/texmf/fonts/type1/public/lm/lmss10.pfb></usr/share/te
-xmf/fonts/type1/public/lm/lmssbx10.pfb></usr/share/texmf/fonts/type1/public/lm/
-lmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt10.pfb>
-Output written on main.pdf (5 pages, 324861 bytes).
+ 69i,11n,119p,848b,609s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texmf/fonts/enc/dvips/l
+m/lm-ec.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/share/texm
+f/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-rm.e
+nc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathex.enc}</usr/share/texmf/fonts/t
+ype1/public/lm/lmbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmbx12.pfb></
+usr/share/texmf/fonts/type1/public/lm/lmcsc10.pfb></usr/share/texmf/fonts/type1
+/public/lm/lmex10.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi10.pfb></usr/
+share/texmf/fonts/type1/public/lm/lmmi6.pfb></usr/share/texmf/fonts/type1/publi
+c/lm/lmmi8.pfb></usr/share/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/te
+xmf/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr
+17.pfb></usr/share/texmf/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf/fonts
+/type1/public/lm/lmss10.pfb></usr/share/texmf/fonts/type1/public/lm/lmssbx10.pf
+b></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/ty
+pe1/public/lm/lmtt10.pfb>
+Output written on main.pdf (4 pages, 340598 bytes).
 PDF statistics:
- 143 PDF objects out of 1000 (max. 8388607)
- 78 compressed objects within 1 object stream
+ 141 PDF objects out of 1000 (max. 8388607)
+ 76 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 23 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 28 words of extra memory for PDF output out of 10000 (max. 10000000)
 
