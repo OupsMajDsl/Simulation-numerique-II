@@ -3,8 +3,8 @@ import matplotlib.pyplot as plt
 import matplotlib.animation as animation
 
 # Constantes initialisation
-L = 2                           # Longueur du tube de Kundt en m
-r = 1                           # Diamètre du tube en m
+L = 10                          # Longueur du tube de Kundt en m
+r = 0.006                           # Diamètre du tube en m
 V_0 = 10                        # Vitesse d'oscillation du piston en x = 0
 f = 520                         # Fréquence du signal en Hz
 eta = 0.0						# tube ouvert pour 0
@@ -13,8 +13,12 @@ c = 340                         # Célérité de l'onde
 omega = 2 * np.pi * f           # Pulsation
 k = omega/c                     # Nombre d'onde
 z_c = rho* c					# Impédance acoustique dépendant du milieu
-R_p = 0.7						# Coefficient de réflexion
+R_p = 0						# Coefficient de réflexion
 A = 250							# Amplitude de l'onde incidente
+
+# Dispersion et atténuation
+alpha = 3e-5 * np.sqrt(f / r)
+k_d = k + (1 - 1j) * alpha
 
 # Variables temps, espace
 x = np.arange(0, L, 0.01)
@@ -31,15 +35,26 @@ v_r = - (A/z_c) * R_p * np.exp(1j * k * x)
 	# mêmes calculs pour la vitesse mais l'amplitude est A/z_c
 v_tot = np.asarray(v_i + v_r)
 
+
+# attén, dispers
+p_i_d = A * np.exp(-1j * k_d * x)
+p_r_d = A * R_p * np.exp(1j * k_d * x) 
+p_tot_d = np.asarray((p_i_d + p_r_d))
+
+v_i_d = (A/z_c) * np.exp(-1j * k_d * x)
+v_r_d = - (A/z_c) * R_p * np.exp(1j * k_d * x) 
+v_tot_d = np.asarray(v_i_d + v_r_d)
+
+
 if __name__ == "__main__":
 	# initialisation de la figure
 	fig, ax   = plt.subplots(2, 1)
 	lines     = []
 	# Styles de tracés identique pour les 2 subplots
-	plotStyle = ['b--', 'r--', 'k']
-	labels    = ["Onde incidente", "Onde réfléchie", "Somme des 2"]
+	plotStyle = ['b--', 'r--', 'k', 'g']
+	labels    = ["Onde incidente", "Onde réfléchie", "Somme des 2", "Dispersion"]
 	for i in range(2):
-		for j in range(3):
+		for j in range(4):
 			line, = ax[i].plot([], [], plotStyle[j], label = labels[j])
 			lines.append(line)
 
@@ -54,10 +69,13 @@ if __name__ == "__main__":
 				reel(p_i, t_var), 
 				reel(p_r, t_var), 
 				reel(p_tot, t_var), 
+				reel(p_tot_d, t_var), 
 				reel(v_i, t_var), 
 				reel(v_r, t_var), 
-				reel(v_tot, t_var)
+				reel(v_tot, t_var),
+				reel(v_tot_d, t_var),
 				]
+
 		# datas regroupe toutes les grandeurs calculées en partie réel
 		for i in range(len(datas)):
 			lines[i].set_data(x, datas[i])
@@ -77,7 +95,7 @@ if __name__ == "__main__":
 
 	ax[0].set_xticklabels([])
 	ax[1].set_xticklabels([r"$0$", r"$L/4$", r"$L/2$", r"$3L/4$", r"$L$"])
-	ax[0].set_title(r"[$f$ = {:.1f} Hz] - [$L$ = {:.2f} m] - [$\eta$ = {:.1f}] - [$R_p$ = {:.1f}]".format(f, L, eta, R_p))
+	ax[0].set_title(r"[$f$ = {:.1f} Hz] - [$L$ = {:.2f} m] - [$r$ = {} m] - [$\eta$ = {:.1f}] - [$R_p$ = {:.1f}]".format(f, L, r, eta, R_p))
 
 	ani = animation.FuncAnimation(fig, animate, frames = t, interval = 10, blit = True)
 	plt.show()

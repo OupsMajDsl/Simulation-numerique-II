@@ -78,10 +78,7 @@ class Balle():
             while len(pos_x) < len(self.t):      
                 pos_x.append(max(pos_x))
                 pos_y.append(0)
-# S'il y a des valeurs en trop par rapport au vecteur temps global, on les supprime
-            while len(pos_x) > len(self.t):
-                del pos_x[-1]
-                del pos_y[-1]
+
             self.balles_x.append(pos_x)             #on stocke les coordonnées x et y de toutes les balles
             self.balles_y.append(pos_y)
 
@@ -100,9 +97,7 @@ class Balle():
                 x = self.balles_x[nb]
                 y = self.balles_y[nb]
                 self.lines[nb].set_data(x[i], y[i])
-
-            if self.log:
-                print('time = {:.2f}/{:.0f}'.format(self.t[i], max(self.t)))
+            print('time = {:.2f}/{:.0f}'.format(self.t[i], max(self.t)))
             return self.lines
 
         if self.trace:                                  #permet d'avoir une fenêtre de la taille des trajectoires max

@@ -1,6 +1,8 @@
 import numpy as np
 import matplotlib.pyplot as plt 
 import matplotlib.gridspec as gridspec
+import scipy.signal as sig
+from scipy.optimize import curve_fit
 
 # Fonction qui importe un fichier à partir du nom et du chemin absolu
 def load_ExpData(filename, path):
@@ -28,71 +30,113 @@ def find_nearest(array, value):
 
 def pre_treatment(time, amp, meth="pol_fit", lst_param=[0, 20]):
     meths = ["diff", "filt", "moy_gliss", "pol_fit", "exp_fit"]
-    
+    dt = time[1] - time[0]
+    fs = 1/dt
+    nyq = 0.5 * fs
+
+    # méthode de la dérivée 
     if meth == meths[0]:
-        dt = np.abs(time[1] - time[0])
+        # variation de temps 
         df = np.zeros(time.shape)
         for t in range(len(time)):
             if t != 0 and t != len(time)-1: 
-                df[t] = (amp[t + 1] - amp[t - 1]) / (2 * h)
+                # formule discrétisée de la dérivée 
+                df[t] = (amp[t + 1] - amp[t - 1]) / (2 * dt)
+            # prendre en compte le début de la liste et la fin
             elif t == 0: 
-                df[0] = (amp[1] - amp[0]) / (1 * h)
+                df[0] = (amp[1] - amp[0]) / (1 * dt)
             elif t == len(time) - 1:
-                df[-1] = (amp[-1] - amp[-2]) / (1 * h)
+                df[-1] = (amp[-1] - amp[-2]) / (1 * dt)
+        return df
 
-filename = "time_rawsignals_84GPa_nice.txt"
+    # Filtrage avec scipy
+    if meth == meths[1]:    
+        lowcut = lst_param[0] / nyq
+        highcut = lst_param[1] / nyq
+        num, denom = sig.butter(3, [lowcut, highcut], btype="bandpass")
+        filtre = sig.filtfilt(num, denom, amp)
+        return filtre
+
+    # calcul de moyenne et filtrage
+    if meth == meths[2]:        
+        pass
+    
+    # Polyfit 
+    if meth == meths[3]:
+        polyfit = np.polyfit(time, amp, lst_param[1])
+        fitted_curve = np.poly1d(polyfit)
+        fitted_curve = fitted_curve(time)
+        return fitted_curve
+    
+
+# chemin du fichier à traiter
 path = "/home/mathieu/OneDrive/Documents/S4/Sim_numerique/Projet_4_tds"
+# nom du fichier à traiter
+filename = "time_rawsignals_84GPa_nice.txt"
 # avec bad, pic impulsionnel beaucoup plus élevé donc variations moins visibles
 # La fonction retourne un t-uple donc on unpack directement dans les variables dont on a besoin
 time, amp, spec, freq = load_ExpData(filename, path)
 
 # amplitudes en dB
 spec = np.abs(np.asarray(spec))
-
 spec = 20 * np.log10(spec / max(spec))
 
 # recherche de tous les indices recherchés pour les intervalles demandés
 i_015 = find_nearest(time, 0.15)
-i_04 = find_nearest(time, 0.4)
+i_04  = find_nearest(time, 0.4)
 i_045 = find_nearest(time, 0.45) 
-i_07 = find_nearest(time, 0.7)
-i_09 = find_nearest(time, 0.9)
-i_20 = find_nearest(time, 2.0)
+i_07  = find_nearest(time, 0.7)
+i_09  = find_nearest(time, 0.9)
+i_20  = find_nearest(time, 2.0)
 
-# pas temporel
+# pas temporel du signal
 dt = time[1] - time[0]
+fs = 1/dt
+nyq = 0.5 * fs
 
 # calcul des fft sur les intervalles demandés
 amp1 = np.abs(np.fft.fft(amp[i_015:i_04]))
 amp1 = 20 * np.log10(amp1 / max(amp1))
-fq1 = np.fft.fftfreq(len(time[i_015:i_04]), d=dt)
+fq1  = np.fft.fftfreq(len(time[i_015:i_04]), d=dt)
 amp2 = np.abs(np.fft.fft(amp[i_045:i_07]))
 amp2 = 20 * np.log10(amp2 / max(amp2))
-fq2 = np.fft.fftfreq(len(time[i_045:i_07]), d=dt)
+fq2  = np.fft.fftfreq(len(time[i_045:i_07]), d=dt)
 amp3 = np.abs(np.fft.fft(amp[i_09:i_20]))
 amp3 = 20 * np.log10(amp3 / max(amp3))
-fq3 = np.fft.fftfreq(len(time[i_09:i_20]), d=dt)
+fq3  = np.fft.fftfreq(len(time[i_09:i_20]), d=dt)
 
-
+fig = plt.figure(figsize=(20, 15), tight_layout=True)
 # Création d'une grille 3x3 pour tout tracer
 gs = gridspec.GridSpec(3, 3)
 # Toute la ligne 1
-ax_tp = plt.subplot(gs[0, :])
+ax_tp = fig.add_subplot(gs[0, :])
 # Toute la ligne 2
-ax_fq = plt.subplot(gs[1, :])
+ax_fq = fig.add_subplot(gs[1, :])
 # Les échantillons se partagent la ligne restante
-ax_spl1 = plt.subplot(gs[2, 0])             # 0.15 --> 0.4
-ax_spl2 = plt.subplot(gs[2, 1])             # 0.45 --> 0.7    
-ax_spl3 = plt.subplot(gs[2, 2])             # 0.9 --> 2     ns
+ax_spl1 = fig.add_subplot(gs[2, 0])             # 0.15 --> 0.4
+ax_spl2 = fig.add_subplot(gs[2, 1])             # 0.45 --> 0.7    
+ax_spl3 = fig.add_subplot(gs[2, 2])             # 0.9 --> 2     ns
 
+filt_temp = pre_treatment(time, amp, meth='pol_fit', lst_param=[40, 150])
+
+ax_tp.plot(time, filt_temp, 'k')
 ax_tp.plot(time, amp)
 ax_tp.set_xlabel("Temps [ns]")
 ax_tp.set_ylabel("Amplitude")
 
+filt_spec = np.fft.fft(filt_temp)
+filt_spec = np.abs(np.asarray(filt_spec[0:len(time)//2-1]))
+filt_spec = 20 * np.log10(filt_spec / max(filt_spec))
+
+freq = freq[0:len(time)//2-1]
+spec = spec[0:len(time)//2-1]
+
 # Pour tracer seulement les fréquences positives
-ax_fq.plot(freq[0:len(time)//2-1], spec[0:len(time)//2-1])
+ax_fq.plot(freq, spec)
+ax_fq.plot(freq, filt_spec)
 ax_fq.set_xlabel("Fréquence [GHz]")
 ax_fq.set_ylabel("Amplitude")
+
 
 ax_spl1.plot(fq1[0:len(time[i_015:i_04])//2-1], amp1[0:len(time[i_015:i_04])//2-1])
 ax_spl1.set_title("[0.15; 4]")
@@ -101,5 +145,4 @@ ax_spl2.set_title("[0.45; 0.7]")
 ax_spl3.plot(fq3[0:len(time[i_09:i_20])//2-1], amp3[0:len(time[i_09:i_20])//2-1])
 ax_spl3.set_title("[0.9; 2]")
 
-plt.tight_layout()
 plt.show()

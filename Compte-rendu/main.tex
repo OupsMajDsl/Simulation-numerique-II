@@ -8,16 +8,18 @@
 \usepackage[top = 2.5cm, bottom = 2.5cm, left = 1.5cm, right = 1.5cm]{geometry}
 \usepackage{pgfplots, float, graphicx, appendix, subcaption, fancyhdr, footmisc, lmodern, amsmath, array}
 \pgfplotsset{compat = 1.15}
+\usepackage{lastpage}
 \usepackage{newverbs}
-
+\usepackage{pythonhighlight}
 \pagestyle{fancy}
+
 
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}
 \renewcommand{\arraystretch}{1.5}
 \cfoot{}
 \lfoot{\textcolor{mycolor}{\textsf{L2 SPI \\ 2018-2019}}}
- \rfoot{\textcolor{mycolor}{\textsf{Page \thepage}}}
+ \rfoot{\textcolor{mycolor}{\textsf{Page \thepage / \pageref{LastPage}}}}
 \rhead{
 	\textcolor{mycolor}{\textsf{Mathieu MARÉCHAL}}
 } 
@@ -37,25 +39,25 @@
 	\begin{titlepage}
 		\begin{center}
 			\huge{Mathieu MARÉCHAL}
-			\vskip 3cm
+				\vskip 3cm
 			\Huge Simulation Numérique II
-			\vskip 0.25cm
+				\vskip 0.25cm
 			\Large{Nom de code: Dém***ez-vous !}
-			\vskip 3.5cm
-						\rule{\linewidth}{0.5mm}\vspace{6mm}\\
+				\vskip 3.5cm
+					\rule{\linewidth}{0.5mm}\vspace{6mm}\\
 			\textbf{\Huge{}}
-			\Huge{Compte-rendu des projets}
+			\Huge{\textsf{Compte-rendu des projets}}
 						\rule{\linewidth}{0.5mm}\vspace{3mm}\\
-			\vskip 4.5cm
-			\LARGE{Encadrants: C. Desjouy, Samuel Raetz\\L2 SPI\\ 2018 - 2019\\}
-			\vskip 2cm
+				\vskip 4.5cm
+			\LARGE{Encadrants: C. Desjouy, S. Raetz\\L2 SPI\\ 2018 - 2019\\}
+				\vskip 2cm
 			\begin{figure}[H]
-			\centering
-  						\includegraphics[width=200pt]{logo_univlemans.png}
+				\centering
+  				\includegraphics[width=200pt]{logo_univlemans.png}
+  				\setcounter{figure}{0}
+  				\setcounter{page}{2}
 			\end{figure}
 		\end{center}
-	    \newpage	
-	    \setcounter{figure}{0}
 	\end{titlepage}
 	
 \newpage
@@ -86,10 +88,11 @@ Ensuite, on implémente les équations déterminant la position du projectile en
 \right. \]
 
 Il est maintenant possible de calculer la trajectoire mais la première question qui se pose est: quand doit-on arrêter de tracer la trajectoire ? En effet, si on trace la trajectoire sur un temps \verb|t_balle| fixé, on observera la trajectoire avoir une position $d_y$ négative, avec une pente très élevé, ce qui n'a pas du tout la forme d'une parabole. C'est le premier problème que j'ai rencontré. C'est donc quand le projectile touche le sol qu'il faut arrêter de calculer la trajectoire, quand sa position en y vaut 0 $\Leftrightarrow d_y = 0$. Pour cela, il faut calculer le temps de course du projectile, en résolvant l'équation $d_y = 0$. Il est alors possible de désigner une variable \verb|t_max| qui calcule cette solution, ce qui permet de définir la limite du vecteur de temps \verb|t_balle|.
-	\begin{verbatim}
-		t_max = (2*v_0*np.sin(a_0))/g + t_0   
+	\begin{python}
+	
+		t_max = (2 * v_0 * np.sin(a_0)) / g + t_0   
 		t_balle = np.arange(t_0, t_max, 0.1)
-	\end{verbatim}
+	\end{python}
 
 Par la suite, on peut animer la trajectoire du projectile. Pour cela, c'est la \verb|FuncAnimation| du module \verb|matplotlib.animation| qui sera utilisée, car elle utilise une fonction pour animer les données calculées et non une boucle \verb|for| comme utilise l'\verb|ArtistAnimation|. Ce choix est justifié aussi par le fait que le programme sera mis sous la forme d'une classe par la suite. 
 
@@ -105,14 +108,76 @@ Implémenter les rebonds, paraît assez simple et c'est le cas! Il suffit de dé
 
 Ainsi, on met sous cette boucle la totalité de la section du code réservé au calcul de la trajectoire développé précédemment. A la fin de la boucle, la vitesse initiale est multipliée par un coefficient de restitution $r$, \verb|v_0 = r*v_0| caractérisant la rigidité du sol, et dans l'ensemble, l'élasticité du rebond, c'est-à-dire la quantité d'énergie de la balle absorbée par le sol. La vitesse de la balle va donc diminuer au fur et à mesure des rebonds successifs. L'autre donnée à conserver lors du calcul du rebond est la position horizontal de la trajectoire précédente. On stocke donc la dernière position en x telle que: \verb|d_0_x = d_x| et on ajoute \verb|d_0_x| en offset au calcul de la position. 
 
-Notre balle a donc obtenu la capacité de rebondir n fois, mais elle se sent toujours très seule.
+
+\subsubsection*{Bug rencontré}
+
+Néanmoins, dans cette partie du développement de ce programme, des difficultés ont été rencontrées. D'après la figure 2, on voit que la forme de la trajectoire correspond vaguement à la figure recherchée, mais l'amplitude de la trajectoire sur l'axe $y$ diminue très rapidement et la balle part dans les $y$ négatifs.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.4]{bug_classe_rebond.png}
+	\label{fig:bug_reb} \caption{Bug rebond balle}
+\end{figure}
+
+Cependant, il est possible de remarquer très vite le problème: le temps de la trajectoire \verb|t_max| est le même pour chaque rebond. En effet, cette variable était déterminé au début du programme et faisait partie des conditions initiales. Cependant, comme vu précédemment, \verb|t_max| dépend de l'angle initiale, mais surtout de la vitesse initiale. Comme la vitesse varie après chaque rebond, il faut recalculer \verb|t_max| après chaque rebond.
+
+Notre balle a donc obtenu la capacité de rebondir n fois, mais elle se sent toujours très seule. Nous allons donc adapter le programme pour pouvoir en afficher plusieurs en simultanée.
+
 
 \subsection{Plus de balles}
 
-Dans cette partie, l'objectif est de pouvoir modéliser la trajectoire de \textbf{n} balles en simultané en définissant des constantes initiales aléatoires. Pour cela, il est possible de les réinitialiser avant le début en leur donnant une valeur aléatoire avec le module \verb|random|.
+Dans cette partie, l'objectif est de pouvoir modéliser la trajectoire de \textbf{n} balles en simultané en définissant des constantes initiales aléatoires. Pour cela, il d'initialiser toutes ces conditions en leur donnant une valeur aléatoire avec le module \verb|random|.
 
-Afin de simplifier le programme dans son ensemble et l'implémentation de cette fonctionnalité, le code sera mis sous la forme d'une classe.
+Afin de simplifier le programme dans son ensemble et l'implémentation de cette fonctionnalité, le code sera mis sous la forme d'une classe. La première version de ce programme est  \verb|class_multiball.py|: ce programme contient une classe "Balle" avec une méthode \verb|setup| qui calcule la trajectoire de toutes les balles et une méthode \verb|draw| qui les anime sur une figure. Cette syntaxe n'est cependant pas très cohérente et n'optimise pas les possibilités d'une classe. De plus, chaque méthode exécute un grand nombre d'action au lieu d'une seule.
 
+Ainsi, une deuxième version a été créée: \verb|class_multiball_2.py|. Ce programme contient une classe qui renvoie seulement une liste contenant les positions décrivant la trajectoire d'une balle. Le tracé est effectué à l'extérieur de la classe et fait bien retourner à la classe un objet qui est une unique balle.
+
+Ce second programme m'a permis de bien comprendre le fonctionnement d'une classe: ici, la classe représente le "comportement" d'une balle. Néanmoins, l'animation est identique pour les 2 programmes, le seule changement étant la lisibilité et la logique derrière le calcul.
+
+
+\begin{figure}
+\centering
+
+\begin{python}
+class Balle_1():
+    def setup(self):
+        # calcule les trajectoires de n balles
+    def draw(self):
+        # trace toutes les balles
+
+b = Balle_1()
+b.setup()
+b.draw()
+
+#==========
+
+class Balle_2():
+    def __init__(self):
+        # conditions initiales
+    def get_tmax(self):
+        # retourne le temps de course de la balle
+    def change_speed(self): 
+        # fait diminuer la vitesse au moment du rebond
+    def get_x(self, t):  
+        # retourne la position en x de la balle à t secondes
+    def get_y(self, t):  
+        # retourne la position en y de la balle à t secondes
+    def get_parab(self): 
+        # retourne une liste contenant les positions pour une première parabole
+    def get_rebonds(self):  
+        # retourne la trajectoire complète de la balle
+    def get_traject(self):
+        # adapte la liste de la méthode get_rebonds pour que toutes les 
+        # instances de la classe Balle_2 aient la même longueur
+
+b = Balle_2()
+b.get_traject()
+# Animation 
+\end{python}
+\caption{Comparaison des 2 versions du programme animant plusieurs projectiles}
+\end{figure}
+
+\newpage
 
 \section{Le tube de Kundt}
 
