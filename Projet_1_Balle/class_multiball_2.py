@@ -75,7 +75,7 @@ class Balle():
 
 #============================
 def run():
-    tot_ball = 150
+    tot_ball = 50
     duree = 10
     balle_x = []
     balle_y = []
@@ -84,9 +84,9 @@ def run():
 
     for n_balle in range(tot_ball):
         b = Balle(duree)
-        b.get_traject()
-        balle_x.append(b[0])
-        balle_y.append(b[1])
+        b_traject = b.get_traject()
+        balle_x.append(b_traject[0])
+        balle_y.append(b_traject[1])
 
         line, = ax.plot([], [], 'o', markersize = 14)
         lines.append(line)
@@ -114,8 +114,9 @@ def run():
     plt.tight_layout()
     ani = animation.FuncAnimation(fig, animate, frames = np.arange(0, len(balle_x[1]) - 1, 1), 
                                                 interval = 10, blit = True, init_func=init)
-
-    #ani.save(filename="Projet_1_Balle/MULTIBALL.mp4", writer = 'ffmpeg', fps = 30, bitrate = 750)
+    save = False
+    if save:
+        ani.save(filename="Projet_1_Balle/MULTIBALL.mp4", writer = 'ffmpeg', fps = 30, bitrate = 750)
     plt.show()
 
 if __name__ == "__main__":

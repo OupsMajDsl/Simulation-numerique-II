@@ -12,9 +12,6 @@ class Balle():
         self.t = np.arange(0, duration, 0.01)
         self.fig, self.ax = plt.subplots(figsize = (15, 7))
         self.nb_balle = nb_balle
-        self.trace = True
-        self.save = save
-        self.log = log
         self.lines = []
         self.balles_x = []
         self.balles_y = []
@@ -82,7 +79,6 @@ class Balle():
             self.balles_x.append(pos_x)             #on stocke les coordonnées x et y de toutes les balles
             self.balles_y.append(pos_y)
 
-#===================
     def draw(self):                                 #fonction de tracé de la classe Balle
         """
         Plots the calculated data
@@ -100,9 +96,9 @@ class Balle():
             print('time = {:.2f}/{:.0f}'.format(self.t[i], max(self.t)))
             return self.lines
 
-        if self.trace:                                  #permet d'avoir une fenêtre de la taille des trajectoires max
-            for i in range(len(self.balles_x)):
-                self.ax.plot(self.balles_x[i], self.balles_y[i], alpha = 0)
+        #permet d'avoir une fenêtre de la taille des trajectoires max
+        for i in range(len(self.balles_x)):
+            self.ax.plot(self.balles_x[i], self.balles_y[i], alpha = 0)
         self.ax.set_ylim(bottom = 0)
         self.ax.set_xlim(left = 0)
         self.ax.set_xlabel('Position en x [m]')
@@ -112,8 +108,8 @@ class Balle():
         plt.tight_layout()
         ani = animation.FuncAnimation(self.fig, animate, frames = np.arange(0, len(self.balles_x[1]) - 1, 1), 
                                                     interval = 10, blit = True, init_func=init)
-        if self.save:
-            ani.save(filename="Projet_1_Balle/MULTIBALL.mp4", writer = 'ffmpeg', fps = 30, bitrate = 750)
+
+        # ani.save(filename="Projet_1_Balle/MULTIBALL.mp4", writer = 'ffmpeg', fps = 30, bitrate = 750)
         plt.show()
 
 
