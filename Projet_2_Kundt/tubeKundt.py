@@ -13,7 +13,7 @@ c = 340                         # Célérité de l'onde
 omega = 2 * np.pi * f           # Pulsation
 k = omega/c                     # Nombre d'onde
 z_c = rho* c					# Impédance acoustique dépendant du milieu
-R_p = 0						# Coefficient de réflexion
+R_p = 0.7						# Coefficient de réflexion
 A = 250							# Amplitude de l'onde incidente
 
 # Dispersion et atténuation

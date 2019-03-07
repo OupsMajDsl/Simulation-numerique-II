@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html><!-- InstanceBegin template="/Templates/mod_h.dwt" codeOutsideHTMLIsLocked="false" --><head>
+
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>Stigmatisme des miroirs sph�riques</title><!-- InstanceEndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<!-- InstanceBeginEditable name="head" -->
+<style type="text/css">
+            #commande{
+               width: 740px;
+               height: 40px;
+               margin-left: 5px;
+               font-family: Arial;
+               font-weight: bold;
+               font-size: 10pt;}
+
+            input[type=range] {
+                -webkit-appearance: none;
+                display: inline-block;
+                background-color: rgb(192,192,192);
+                width: 130px;
+                height:5px;
+                margin-left: 5px;
+                margin-right: 30px;}
+				
+            #canv{
+                width: 740px;
+                height: 460px;
+                float: none;
+                margin-left: 5px;
+                margin-top: 10px;}  
+             
+             #bl1 {
+                display: inline-block;
+                margin-left: 15px;
+				margin-right:25px;
+                width: 120px;}
+             
+             #bl3 {
+                display: inline-block;
+                margin-left:10px;
+                width: 150px;}
+            
+            #vR {
+                display: inline-block;
+                margin-bottom: 5px;
+                margin-left:30px;
+                width: 80px;}
+            
+            #vO {
+                display: inline-block;
+                margin-bottom: 5px;
+                margin-left:30px;
+                width: 80px;}
+        </style>
+ <!-- InstanceEndEditable -->
+<link rel="stylesheet" type="text/css" href="Stigmatisme%20des%20miroirs%20sph%C3%A9riques_fichiers/styles.css">
+</head>
+
+<div id="commande">
+    <label> <input type="radio" id="ra1" name="rad" onclick="choix1()" checked="checked">Miroir convexe</label>
+    <label>&nbsp;&nbsp;</label>
+    <label> <input type="radio" id="ra2" name="rad" onclick="choix2()">Miroir concave</label> 
+    <label>&nbsp;&nbsp;</label>
+    <div id="bl1"> 
+        <label id="vR">R = 40.0</label>
+        <input type="range" id="valR" min="10" max="40" step="0.1" value="40">                    
+    </div>
+    <div id="bl3"> 
+        <label id="vO">Ouv. = 24�</label>
+        <input type="range" id="valO" min="5" max="20" step="1" value="12">                    
+    </div>
+    <label> <input type="checkbox" id="chk" name="infi" onclick="choix3()">Objet � l'infini</label>   
+</div>
+<div id="canv">                                     
+   <canvas id="canvas" width="740" height="460" style="border: 3px solid rgb(0, 0, 0);"></canvas>
+</div>		  
+<script type="text/javascript">
+// N�30 12/4/2017 ***********************************************************************
+               	var nave=navigator.userAgent.toLowerCase(); 
+				if (nave.indexOf("firefox") > -1) nave="Firefox"; else nave="Autre";
+				var fenetre = document.getElementById('canvas'); 
+                var hh=canvas.getContext('2d');
+				hh.canvas.style.border="3px solid #000";
+                var Rinput = document.getElementById("valR");
+                var Oinput = document.getElementById("valO");
+                var conv=true,mouse=false,infini=false;
+                var xs,ys;
+                var r=30,Ouv=15; 
+                var Xd=20,Yd=40,Xc=370,Yc=240;
+                var xei,xef,yei,yef;
+                var Xo=-25,Yo=2.5,X,Y,Xi,Yi;
+                var beta,phi,psi,cos,sin;
+                var a,b;
+                trace();
+					  
+	// commandes *********************** 
+        
+            function choix1() {
+                conv=true;
+                trace();}
+
+            function choix2() {
+               conv=false;
+               trace();}
+           
+            function choix3() {
+                if (document.getElementById("chk").checked) infini=true; else infini=false;
+                trace();}
+
+            Rinput.addEventListener('mouseup', function() {
+                r=parseInt(document.getElementById('valR').value);
+                document.getElementById('vR').textContent="R = "+r.toFixed(1);
+                trace();}); 
+            
+            Oinput.addEventListener('mouseup', function() {
+                Ouv=parseFloat(document.getElementById('valO').value);
+                document.getElementById('vO').textContent="Ouv. = "+2*Ouv+"�";
+                trace();});
+            
+            document.addEventListener("mousedown",function(evt) {
+				if (nave==="Firefox"){
+					var x = evt.pageX;	
+					var y = evt.pageY;}
+				else{
+					var x = evt.clientX;
+					var y = evt.clientY;}
+				var node = evt.target;				
+				while (node) {
+					x -= node.offsetLeft - node.scrollLeft;
+					y -= node.offsetTop  - node.scrollTop;
+					node = node.offsetParent;}
+                xs=x-2;   ys=y-2;
+                x=Xc+10*Xo;     y=Yc-10*Yo;
+                if((xs>x-3)&&(xs<x+3)&&(ys>y-3)&&(ys<y+3))mouse=true; else mouse=false;
+                trace();});
+            
+            document.addEventListener("mouseup",function(evt) {
+		mouse=false;     
+		trace();});
+            
+            document.addEventListener("mousemove",function(evt) {
+			   if (nave==="Firefox"){
+					var x = evt.pageX;		//page avec firefox		client avec chrome
+					var y = evt.pageY;}
+				else{
+					var x = evt.clientX;		//page avec firefox		client avec chrome
+					var y = evt.clientY;}
+				var node = evt.target;	
+				while (node) {
+					x -= node.offsetLeft - node.scrollLeft;
+					y -= node.offsetTop  - node.scrollTop;
+					node = node.offsetParent;}
+                xs=x-2;   ys=y-2;
+                if (mouse){
+                    if (xs<30) xs=30;
+                    if (xs>=710) xs=710;
+                    if ((xs>340)&(xs<400)) xs=400;
+                    if (ys<140) ys=140;
+                    if (ys>=340) ys=340;
+                    Xo=(xs-Xc)/10;	//nouveau X quand on lache le bouton
+                    Yo=(Yc-ys)/10;}
+                trace();});
+            
+ // Utilitaires  ******************************************
+
+        function Droite(xi,yi,xf,yf){
+            hh.beginPath();
+            hh.moveTo(xi,yi);
+            hh.lineTo(xf,yf);
+            hh.stroke();}
+        
+        function droite(xi,yi,xf,yf){
+            xei=Xd + 10*(xi+35);
+            yei=Yd + 10*(20-yi);
+            xef=Xd + 10*(xf+35);
+            yef=Yd + 10*(20-yf);
+            Droite(xei,yei,xef,yef);}
+
+        function cercle(xc,yc,R,flag){
+            hh.beginPath();
+            hh.arc(xc,yc,R,0,Math.PI*2);
+            if (flag)hh.fill();
+            else hh.stroke();}
+        
+        function arc(xc,yc,R,d,f,flag){
+            hh.beginPath();
+            hh.arc(xc,yc,R,d,f,flag);
+            hh.stroke();}
+
+        function drawPoly(X,Y,n){            
+            hh.beginPath();
+            hh.moveTo(X[0],Y[0]);
+            for (var i=1; i<n; i++) hh.lineTo(X[i],Y[i]);
+            hh.stroke();}
+
+        function cadre3D(x,y,w,ha){
+            hh.strokeStyle="rgb(130,130,130)";  
+            Droite(x,y+1,w-1,y+1);	Droite(x,y,x,ha);
+            Droite(x+1,y,x+1,ha-1);     Droite(x,y,w,y);
+            hh.strokeStyle="rgb(230,230,230)";  		
+            Droite(x,ha,w,ha);		Droite(w,y+1,w,ha);
+            Droite(x+1,ha-1,w,ha-1);	Droite(w-1,y+2,w-1,ha);}
+
+    //******************************************
+    
+        function trace_miroir(){
+            hh.lineWidth="4";
+            var ouv=Ouv*Math.PI/180;
+            if (conv){
+                hh.strokeStyle="rgb(0,255,255)";
+                arc(Xc+10*r,Yc,10*r,Math.PI-ouv,Math.PI+ouv);
+                 hh.lineWidth="1";
+                 hh.strokeStyle="rgb(255,255,0)";
+                droite(r,0.5,r,-0.5);   	hh.fillText("C",xei-3,yef+20);
+                droite(r/2,0.5,r/2,-0.5);	hh.fillText("F",xei-3,yef+20);}
+            else{
+                hh.strokeStyle="rgb(0,255,255)";	
+                arc(Xc-10*r,Yc,10*r,ouv,-ouv,true);
+                 hh.lineWidth="1";
+                hh.strokeStyle="rgb(255,255,0)";
+                droite(-r,0.5,-r,-0.5); 	hh.fillText("C",xei-3,yef+20);
+                droite(-r/2.,0.5,-r/2.,-0.5);   hh.fillText("F",xei-3,yef+20);}
+            hh.lineWidth="1";}
+         
+        function rayon(phi){
+            hh.strokeStyle="rgb(255,0,0)";
+            hh.lineWidth="1";
+            cos=Math.cos(phi);	sin=Math.sin(phi);
+            if (conv)Xi=r*(cos+1); else Xi=r*(cos-1);
+            Yi=r*sin;
+            if (!infini){
+                X=Xo-Xi;	Y=Yo-Yi;
+                psi=Math.acos((X*cos+Y*sin)/(Math.sqrt(X*X+Y*Y)));		//angle incidence(PS)
+                if((X*sin-Y*cos)>0) psi=-psi;						//composante Z du PV
+                a=Math.tan(phi-psi);
+                b=Yi-a*Xi;
+                if (Xo<0){
+                    droite(Xo,Yo,Xi,Yi);
+                    Y=-35*a+b;		
+                    hh.strokeStyle="rgb(255,0,0)";	droite(Xi,Yi,-35,Y);
+                    Y=35*a+b;
+                    hh.setLineDash([8,4]);
+                    hh.strokeStyle="rgb(0,255,0)";
+                    droite(Xi,Yi,35,Y);
+                    hh.setLineDash([0]);}
+                else{
+                    hh.setLineDash([8,4]);
+                    hh.strokeStyle="rgb(0,255,0)";	droite(Xo,Yo,Xi,Yi);
+                    Y=35*a+b;	droite(Xi,Yi,35,Y);
+                    hh.setLineDash([0]);
+                    hh.strokeStyle="rgb(255,0,0)";
+                    Y=-35*a+b;	droite(Xi,Yi,-35,Y);
+                    a=Math.tan((Yo-Yi)/(Xo-Xi));	b=Yi-a*Xi;
+                    Y=-35*a+b;	droite(Xi,Yi,-35,Y);}}
+            else{	//objet � l'infini
+                a=Yo/Xo;	b=Yi-a*Xi;
+                beta=Math.atan2(Yo,Xo);
+                X=Math.cos(beta);	Y=Math.sin(beta);
+                psi=Math.acos((X*cos+Y*sin));		//angle incidence(PS)
+                if((X*sin-Y*cos)>0) psi=-psi;
+                if (Xo<0){
+                    X=-35;	Y=a*X+b;	//incident
+                    hh.strokeStyle="rgb(255,0,0)";	droite(Xi,Yi,X,Y);
+                    Y=35*a+b;
+                    hh.setLineDash([8,4]);
+                    hh.strokeStyle="rgb(0,255,0)";	droite(Xi,Yi,35,Y);
+                    hh.setLineDash([0]);}
+                else{
+                    hh.setLineDash([8,4]);
+                    hh.strokeStyle="rgb(0,255,0)";	//incident
+                    Y=35*a+b;	droite(Xi,Yi,35,Y);
+                    hh.setLineDash([0]);	hh.strokeStyle="rgb(255,0,0)";
+                    Y=-35*a+b;	droite(Xi,Yi,-35,Y);}		
+                a=Math.tan(phi-psi);
+                b=Yi-a*Xi;		Y=-35*a+b;		
+                hh.strokeStyle="rgb(255,0,0)";	
+                droite(Xi,Yi,-35,Y);
+                Y=35*a+b;
+                hh.strokeStyle="rgb(0,255,0)";		hh.setLineDash([8,4]);	
+                droite(Xi,Yi,35,Y);
+                 hh.setLineDash([0]);}}
+                
+        function convexe(){
+            var dphi=Math.PI*5/360;
+            for (var i=0; i<2*Ouv/5; i++){
+		rayon(Math.PI+i*dphi);
+		rayon(Math.PI-i*dphi);}}
+                
+        function concave(){
+            var dphi=Math.PI*5/360;
+            for (var i=0; i<2*Ouv/5; i++){
+		rayon(+i*dphi);
+		rayon(-i*dphi);}}
+            
+        function trace(){
+            hh.font="12px Arial";
+            hh.fillStyle="rgb(192,192,192)";    
+            hh.fillRect(0,0,740,460);
+            hh.rect(20,20,700,420);
+            hh.clip();
+            hh.fillStyle="rgb(0,0,0)";    //bleu fonc�
+            hh.fillRect(20,20,700,420);
+            hh.lineWidth="1";					
+            hh.fillStyle="rgb(255,255,255)";
+            hh.strokeStyle="rgb(255,255,255)";
+            droite(-35,0,35,0);
+            for (var i=-30; i<35; i+=5)droite(i,-0.25,i,0.25);	
+            //hh.fillText(""+xs+"  "+ys+"   "+mouse,20,20);
+            hh.strokeStyle="rgb(0,255,255)";
+            Droite(320,60,420,60);		Droite(420,60,400,55);
+            Droite(420,60,400,65);
+            if (conv)convexe(); else concave();		
+            droite(Xo,Yo,Xo,Yo);	//point objet
+            hh.strokeStyle="rgb(255,255,0)";
+            hh.lineWidth="3";
+            cercle(xei,yei,6);
+            hh.fillStyle="rgb(255,255,0)";
+            if (!infini) hh.fillText("Objet",xei-12,yef+20);	
+            trace_miroir();
+           cadre3D(21,21,719,440); }
+            </script>
+				  <!-- InstanceEndEditable -->
+							
+					<br>
+					<!-- InstanceBeginEditable name="applet_infos" -->
+
+					<!-- InstanceEndEditable -->
+				</div>
+		  </div>
+		</div>
+
+</body><!-- InstanceEnd --></html>

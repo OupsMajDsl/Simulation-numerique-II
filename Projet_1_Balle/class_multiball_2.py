@@ -4,7 +4,6 @@ import matplotlib.animation as animation
 import random
 
 class Balle():
-
     def __init__(self, duration):
         self.g = 9.8                              # accélération de la gravité
         self.r = 0.8                              # réaction du sol, amortissement de la balle
@@ -57,7 +56,7 @@ class Balle():
         self.d_0_x = d_x
 
     def get_rebonds(self):  # Calcul de la trajectoire pour n rebonds
-        for n in range(self.nb_rebond):
+        for _ in range(self.nb_rebond):
             self.get_parab()
             self.change_speed()
     

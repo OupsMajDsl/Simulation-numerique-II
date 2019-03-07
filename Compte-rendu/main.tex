@@ -181,7 +181,25 @@ b.get_traject()
 
 \section{Le tube de Kundt}
 
+ 
+
 \section{L'interface du reste de ma vie}
+
+Pour ce troisième projet, nous allons créer une interface permettant de charger un fichier généré par le logiciel \textit{INTAC} du CTTM et d'afficher les résultats. Pour cela, il s'agit de décomposer le travail en plusieurs étapes: créer les fonctions pour charger un fichier texte, puis le tracer, et ensuite créer une interface utilisateur avec des boutons et un espace d'affichage afin de pouvoir visualiser la courbe et interagir avec pour modifier par exemple l'affichage ou le type de tracé (temporel ou fréquentiel). 
+
+La première étape est assez simple: demander à l'utilisateur le chemin du fichier à charger et le tracer demande seulement quelques lignes en utilisant l'instruction \verb|data = np.loadtxt(filename)| où \verb|filename| est une chaîne de caractères contenant le chemin du fichier texte à charger. Ensuite, il suffit de créer une figure avec matplotlib pour la tracer.
+
+La seconde et principale étape est plus délicate: il faut utiliser un module permettant de créer une interface graphique pour qui utilise ces fonctions. Il existe de nombreux modules qui permettent de créer des GUI (graphical user interface) tels que Tkinter, PyQt, Kivy ou beaucoup d'autres. Mon choix s'est porté sur le module PyQt pour sa simplicité à utiliser avec des classes, et pour le fait qu'il permette de faire plus simplement une belle interface que Tkinter, qui est assez brut. La difficulté de ce module reste tout de même que la documentation est en C et non en python, mais de nombreux exemples et tutoriels existent pour prendre en main ce module. Enfin, il a été choisi car il comprend une intégration plutôt simple de Matplotlib, que ce soit pour la figure ou la barre d'outils.
+
+Le programme de l'interface est donc construit sous la forme d'une classe "GUI", initialisée avec des variables précisant la géométrie de la fenêtre, son titre, icône et des variables utiles au fonctionnement des différentes fonctions de l'interface. De façon générale, l'initialisation de cette classe doit comprendre tous les objets que l'on veut afficher dans l'interface. La création des objets et la disposition de ces derniers sont donc séparés dans 2 méthodes différentes appelées dans l'initialisation. Cette classe est de type \verb|QDialog|. Il y a plusieurs types de classe pour créer une interface dont: \verb|QWidget|, \verb|QDialog|, \verb|QMainWindow|. On utilise l'une ou l'autre de ces classes selon l'interface à créer: 
+\begin{itemize}
+	\item \verb|QMainWindow| permet la création d'une barre de manu, d'une barre d'outils et d'autres objets dont une fenêtre principal peut avoir besoin.
+	\item \verb|QDialog| est plus utile pour une petite interface. Elle est basée sur \verb|QWidget| et est designée pour apparaître comme une fenêtre. De plus, elle a des fonctions qui rendent la création de boutons assez basique simple et bien intégrée à la fenêtre.
+	\item Enfin \verb|QWidget| est la classe de base pour tout objet affichable sous Qt. Quand un objet widget n'a pas de fenêtre parent, il peut être affiché comme une fenêtre. 
+\end{itemize}
+
+Le choix d'utiliser \verb|QDialog| est relativement arbitraire mais est justifié par le fait que pour le développement de cette interface, il nous faut avoir la possibilité de faire afficher une fenêtre "enfant" pour afficher l'arborescence du disque et choisir un fichier à tracer au lieu de devoir chercher le chemin de chaque fichier, c'est l'objectif premier de cette interface. Il n'est pas possible d'ouvrir une boîte de dialogue avec \verb|QWidget|. Enfin, \verb|QMainWindow| paraît un peu exagéré: une barre d'outils/ de menus est inutile pour une interface de cette taille.
+
 
 \section{Traitement du signal et imagerie}
 \section{Optique géométrique}

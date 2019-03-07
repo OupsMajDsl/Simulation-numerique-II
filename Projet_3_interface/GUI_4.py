@@ -39,9 +39,13 @@ class GUI(QDialog):
         self.data = self.data_init
         self.MoreData = self.data_init
 
+        r = 180
+        g = 180
+        b = 255
         # initialisation de l'interface: création d'une figure avec des axes vides
         # Figure nous permettra de tracer des figures avec plusieurs subplots par la suite 
         self.fig = Figure(figsize=(8, 5), dpi=100)
+        self.fig.patch.set_facecolor((r / 255, g / 255, b / 255))
         ax = self.fig.add_subplot(111)
         self.fig.tight_layout()
 
@@ -53,7 +57,8 @@ class GUI(QDialog):
         # Couleur d'arrière plan en blanc
         self.setAutoFillBackground(True)
         background_color = self.palette()       # création d'un objet palette qui stockera une couleur
-        background_color.setColor(self.backgroundRole(), Qt.white)
+        self.setStyleSheet("background-color:rgb({}, {}, {})".format(r, g, b))
+        # background_color.setColor(self.backgroundRole(), Qt.blue)
         self.setPalette(background_color)
     
     def Objets(self):
