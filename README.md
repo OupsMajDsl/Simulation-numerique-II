@@ -2,8 +2,6 @@
 
 Reste à faire:
 
-- Fin projet 4 tracé image + fonction de filtrage
+- Projet 3: fixer les bugs (enlever des courbes)
 
-- Projet 3 ajouter fonctionnalité des modes de tracé
-
-- Projet 5
+- Projet 5: finir les tracés
