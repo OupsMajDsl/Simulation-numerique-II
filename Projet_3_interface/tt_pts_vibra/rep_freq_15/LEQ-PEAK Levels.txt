@@ -1,5 +1,0 @@
-accelerometre (dB Lin)	source
-source
-source(dB Lin)	First Raw = LEQ ; Second Raw = PEAK
-45.225544563532416E+0	53.753692314210390E+0
-60.404604766663432E+0	66.536835845734330E+0

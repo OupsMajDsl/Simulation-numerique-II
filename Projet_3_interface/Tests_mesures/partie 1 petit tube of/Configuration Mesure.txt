@@ -1,0 +1,11 @@
+[INFOS GENERALES]
+Nom du Projet = "Projet"
+Nom de la mesure = "partie 1 petit tube of"
+Date = "03/12/2018"
+Opérateur = ""
+Commentaires = ""
+
+[TYPE MESURE]
+Type = "Temporel"
+Fe (Hz) = 20000.000000
+Durée (s) = 10.000000

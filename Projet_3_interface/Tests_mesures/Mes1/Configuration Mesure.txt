@@ -1,0 +1,11 @@
+[INFOS GENERALES]
+Nom du Projet = "Projet"
+Nom de la mesure = "Mes1"
+Date = "05/02/2019"
+Opérateur = ""
+Commentaires = "La plaque est fléchie dans un sens avec petit effort et lachée."
+
+[TYPE MESURE]
+Type = "Temporel"
+Fe (Hz) = 50000.000000
+Durée (s) = 10.000000
