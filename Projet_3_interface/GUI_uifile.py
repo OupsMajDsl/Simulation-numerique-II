@@ -25,28 +25,36 @@ class GUI(QDialog):
         # icone de la fenêtre dans la barre des tâches
         self.setWindowIcon(QIcon('icon.png'))
 
-        self.init_vars()
-        self.connectSignals()
-
-    def showLoadError(self):
-        msg = QMessageBox.warning(self, 'Erreur', "Le dossier chargé ne contient pas ce type de données")
-
-    def NoDataLoaded(self):
-        msg = QMessageBox.warning(self, 'Erreur', "Aucune donnée n'a été chargée")
-
-    def init_vars(self):
-        # Initialisation des données
-        self.data_init = np.zeros((10, 2))
-        self.folder_1 = "Pas de données chargées"
-        self.loaded_1 = False
-        self.folder_2 = "Pas de données chargées"
-        self.loaded_2 = False
-
         # création de la figure
         self.fig = Figure(figsize=(20, 10), dpi=100)
         self.fig.tight_layout()
         # axe vide
         self.ax = self.fig.add_subplot(111)
+        self.data_init = np.zeros((10, 2))
+
+
+        self.init_vars_1()
+        self.init_vars_2()
+        self.connectSignals()
+
+
+# Messages d'erreurs
+    def showLoadError(self):
+        msg = QMessageBox.warning(self, 'Erreur', "Le dossier chargé ne contient pas ce type de données")
+    def NoDataLoaded(self):
+        msg = QMessageBox.warning(self, 'Erreur', "Aucune donnée n'a été chargée")
+
+    def init_vars_1(self):
+        self.folder_1 = ""
+        self.loaded_1 = False
+        self.data_folder_1 = [self.data_init, self.data_init]
+        self.ui.folder_status_1.setText("Aucun dossier chargé")
+
+    def init_vars_2(self):
+        self.folder_2 = ""
+        self.loaded_2 = False
+        self.data_folder_2 = [self.data_init, self.data_init]
+        self.ui.folder_status_2.setText("Aucun dossier chargé")
 
 
     def connectSignals(self):
@@ -57,7 +65,6 @@ class GUI(QDialog):
         # Ajout dans les layout prévus
         self.ui.toolbarLay.addWidget(self.toolbar)
         self.ui.canvasLay.addWidget(self.canvas)
-
         # Boutons de chargement de fichiers
         self.ui.folder_1.clicked.connect(self.getFolder)
         self.ui.folder_2.clicked.connect(self.getFolder)
@@ -89,51 +96,57 @@ class GUI(QDialog):
             self.loaded_2 = True
 
     def loadData(self):
-        self.data_folder_1 = []
-        self.data_folder_2 = []
         folder, data1, data2 = [[], [], []]
         noerror = True
         if self.loaded_1:
             folder.append(self.folder_1)
         if self.loaded_2:
             folder.append(self.folder_2)
+        
+        if folder == []:
+            self.NoDataLoaded()
 
-        for i in range(len(folder)):
-            if self.ui.comboBox.currentText() == "FRF":
-                try:
-                    data1 = np.loadtxt(folder[i]+"/FRF_ModPhase.txt", skiprows=1)
-                    data2 = np.loadtxt(folder[i]+"/Coherences.txt", skiprows=1)
-                    self.titles = ["FRF", "Cohérence"]
-                except OSError:
-                    noerror = False
-                    self.showLoadError()
+        else:
+            for i in range(len(folder)):
+                if self.ui.comboBox.currentText() == "FRF":
+                    try:
+                        data1 = np.loadtxt(folder[i]+"/FRF_ModPhase.txt", skiprows=1)
+                        data2 = np.loadtxt(folder[i]+"/Coherences.txt", skiprows=1)
+                        self.titles = ["FRF", "Cohérence"]
+                        self.ylabels = ["Amplitude", "Cohérence relative"]
+                        self.xlabels = ["Fréquence", "Fréquence"]
+                    except OSError:
+                        noerror = False
 
-            if self.ui.comboBox.currentText() == "Spectre":
-                try:
-                    data1 = np.loadtxt(folder[i]+"/PowerSpectrum.txt", skiprows=1)
-                    data2 = data1
-                    self.titles = ["Spectre", "Spectre"]
-                except OSError:
-                    noerror = False
-                    self.showLoadError()
+                if self.ui.comboBox.currentText() == "Spectre":
+                    try:
+                        data1 = np.loadtxt(folder[i]+"/PowerSpectrum.txt", skiprows=1)
+                        data2 = data1
+                        self.titles = ["Spectre", "Spectre"]
+                        self.ylabels = ["Amplitude", "Amplitude"]
+                        self.xlabels = ["Fréquence", "Fréquence"]
 
-            if self.ui.comboBox.currentText() == "Temporel":
-                try:
-                    data1 = np.loadtxt(folder[i]+"/TemporalData.txt", skiprows=1)
-                    data2 = self.fft(data1)
-                    self.titles = ["Temporel", "FFT"]
-                except OSError:
-                    noerror = False
-                    self.showLoadError()
-            if i == 0:
-                self.data_folder_1.append(data1)
-                self.data_folder_1.append(data2)
-            if i == 1:
-                self.data_folder_2.append(data1)
-                self.data_folder_2.append(data2)
+                    except OSError:
+                        noerror = False
 
-        if noerror:
-            self.plot()
+                if self.ui.comboBox.currentText() == "Temporel":
+                    try:
+                        data1 = np.loadtxt(folder[i]+"/TemporalData.txt", skiprows=1)
+                        data2 = self.fft(data1)
+                        self.titles = ["Temporel", "FFT"]
+                        self.ylabels = ["Amplitude", "Amplitude"]
+                        self.xlabels = ["Temps", "Fréquence"]
+                    except OSError:
+                        noerror = False
+                if i == 0:
+                    self.data_folder_1 = [data1, data2]
+                if i == 1:
+                    self.data_folder_2 = [data1, data2]
+
+            if noerror:
+                self.plot()
+            else:
+                self.showLoadError()
 
     def fft(self, data):
         amp = data[:, 1]
@@ -151,7 +164,6 @@ class GUI(QDialog):
         for x in range(len(data_out[:, 0])):
             data_out[x, 0] = freq[x]
             data_out[x, 1] = spec[x]
-        
         return data_out
 
 
@@ -164,43 +176,41 @@ class GUI(QDialog):
         ax = [ax1, ax2]
 
         for i in range(len(ax)):
-            if self.loaded_1:
-                data = self.data_folder_1[i]
-                if self.ui.dbX.isChecked() and self.ui.logY.isChecked():
-                    ax[i].loglog(data[:, 0], data[:, 1], label="Dossier 1")
-                elif self.ui.dbX.isChecked():
-                    ax[i].semilogx(data[:, 0], data[:, 1], label="Dossier 1")
-                elif self.ui.logY.isChecked():
-                    ax[i].semilogy(data[:, 0], data[:, 1], label="Dossier 1")
-                else:
-                    ax[i].plot(data[:, 0], data[:, 1], label="Dossier 1")
-            if self.loaded_2:
-                data = self.data_folder_2[i]
-                if self.ui.dbX.isChecked() and self.ui.logY.isChecked():
-                    ax[i].loglog(data[:, 0], data[:, 1], label="Dossier 2")
-                elif self.ui.dbX.isChecked():
-                    ax[i].semilogx(data[:, 0], data[:, 1], label="Dossier 2")
-                elif self.ui.logY.isChecked():
-                    ax[i].semilogy(data[:, 0], data[:, 1], label="Dossier 2")
-                else:
-                    ax[i].plot(data[:, 0], data[:, 1], label="Dossier 2")
+            data1 = self.data_folder_1[i]
+            data2 = self.data_folder_2[i]
+
+            if self.ui.dbX.isChecked() and self.ui.logY.isChecked():
+                ax[i].loglog(data1[:, 0], data1[:, 1], label="Dossier 1")
+                ax[i].loglog(data2[:, 0], data2[:, 1], label="Dossier 2")
+            elif self.ui.dbX.isChecked():
+                ax[i].semilogx(data1[:, 0], data1[:, 1], label="Dossier 1")
+                ax[i].semilogx(data2[:, 0], data2[:, 1], label="Dossier 2")
+            elif self.ui.logY.isChecked():
+                ax[i].semilogy(data1[:, 0], data1[:, 1], label="Dossier 1")
+                ax[i].semilogy(data2[:, 0], data2[:, 1], label="Dossier 2")
+            else:
+                ax[i].plot(data1[:, 0], data1[:, 1], label="Dossier 1")
+                ax[i].plot(data2[:, 0], data2[:, 1], label="Dossier 2")
+
             if self.ui.grid.isChecked():
                 ax[i].grid()
-            ax[i].set_title(self.titles[i])
+            try:
+                ax[i].set_title(self.titles[i])
+                ax[i].set_xlabel(self.xlabels[i])
+                ax[i].set_ylabel(self.ylabels[i])
+            except AttributeError:
+                pass
         ax[0].legend()
+
         self.fig.tight_layout()
         self.canvas.draw()
 
     def removeFolder(self):
         sender = self.sender()
         if sender.objectName() == "remove_1":
-            self.folder_1 = ""
-            self.data_1 = [self.data_init, self.data_init]
-            self.ui.folder_status_1.setText("Aucun dossier chargé")
+            self.init_vars_1()
         elif sender.objectName() == "remove_2":
-            self.folder_2 = ""
-            self.data_2 = [self.data_init, self.data_init]
-            self.ui.folder_status_2.setText("Aucun dossier chargé")
+            self.init_vars_2()
         self.plot()
 
 def main():
