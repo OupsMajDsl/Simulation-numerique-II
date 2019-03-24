@@ -40,4 +40,5 @@ for i in range(2):
         ax[i, j].set_ylabel(r"$\eta$")
 
 plt.tight_layout()
+plt.savefig("coef_refl.pdf")
 plt.show()

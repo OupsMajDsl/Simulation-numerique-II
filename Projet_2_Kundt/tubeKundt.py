@@ -75,7 +75,7 @@ if __name__ == "__main__":
 				reel(v_tot, t_var),
 				reel(v_tot_d, t_var),
 				]
-
+		print("{:.4f}".format(t_var))
 		# datas regroupe toutes les grandeurs calculées en partie réel
 		for i in range(len(datas)):
 			lines[i].set_data(x, datas[i])

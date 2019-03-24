@@ -49,12 +49,20 @@ class GUI(QDialog):
         self.loaded_1 = False
         self.data_folder_1 = [self.data_init, self.data_init]
         self.ui.folder_status_1.setText("Aucun dossier chargé")
+        self.titles = ["", ""]
+        self.ylabels = ["", ""]
+        self.xlabels = ["", ""]
+
 
     def init_vars_2(self):
         self.folder_2 = ""
         self.loaded_2 = False
         self.data_folder_2 = [self.data_init, self.data_init]
         self.ui.folder_status_2.setText("Aucun dossier chargé")
+        self.titles = ["", ""]
+        self.ylabels = ["", ""]
+        self.xlabels = ["", ""]
+
 
 
     def connectSignals(self):
@@ -122,9 +130,9 @@ class GUI(QDialog):
                     try:
                         data1 = np.loadtxt(folder[i]+"/PowerSpectrum.txt", skiprows=1)
                         data2 = data1
-                        self.titles = ["Spectre", "Spectre"]
-                        self.ylabels = ["Amplitude", "Amplitude"]
-                        self.xlabels = ["Fréquence", "Fréquence"]
+                        self.titles = "Spectre"
+                        self.ylabels = "Amplitude"
+                        self.xlabels = "Fréquence"
 
                     except OSError:
                         noerror = False
@@ -170,37 +178,66 @@ class GUI(QDialog):
     def plot(self):
         #reinitialiser le plot précédent
         self.fig.clear()
-        # create an axis
-        ax1 = self.fig.add_subplot(211)
-        ax2 = self.fig.add_subplot(212)
-        ax = [ax1, ax2]
 
-        for i in range(len(ax)):
-            data1 = self.data_folder_1[i]
-            data2 = self.data_folder_2[i]
-
+        if self.ui.comboBox.currentText() == "Spectre":
+            # create an axis
+            ax = self.fig.add_subplot(111)
+            data1 = self.data_folder_1[0]
+            data2 = self.data_folder_2[0]
             if self.ui.dbX.isChecked() and self.ui.logY.isChecked():
-                ax[i].loglog(data1[:, 0], data1[:, 1], label="Dossier 1")
-                ax[i].loglog(data2[:, 0], data2[:, 1], label="Dossier 2")
+                ax.loglog(data1[:, 0], data1[:, 1], label="Dossier 1")
+                ax.loglog(data2[:, 0], data2[:, 1], label="Dossier 2")
             elif self.ui.dbX.isChecked():
-                ax[i].semilogx(data1[:, 0], data1[:, 1], label="Dossier 1")
-                ax[i].semilogx(data2[:, 0], data2[:, 1], label="Dossier 2")
+                ax.semilogx(data1[:, 0], data1[:, 1], label="Dossier 1")
+                ax.semilogx(data2[:, 0], data2[:, 1], label="Dossier 2")
             elif self.ui.logY.isChecked():
-                ax[i].semilogy(data1[:, 0], data1[:, 1], label="Dossier 1")
-                ax[i].semilogy(data2[:, 0], data2[:, 1], label="Dossier 2")
+                ax.semilogy(data1[:, 0], data1[:, 1], label="Dossier 1")
+                ax.semilogy(data2[:, 0], data2[:, 1], label="Dossier 2")
             else:
-                ax[i].plot(data1[:, 0], data1[:, 1], label="Dossier 1")
-                ax[i].plot(data2[:, 0], data2[:, 1], label="Dossier 2")
+                ax.plot(data1[:, 0], data1[:, 1], label="Dossier 1")
+                ax.plot(data2[:, 0], data2[:, 1], label="Dossier 2")
 
             if self.ui.grid.isChecked():
-                ax[i].grid()
+                ax.grid()
             try:
-                ax[i].set_title(self.titles[i])
-                ax[i].set_xlabel(self.xlabels[i])
-                ax[i].set_ylabel(self.ylabels[i])
+                ax.set_title(self.titles)
+                ax.set_xlabel(self.xlabels)
+                ax.set_ylabel(self.ylabels)
             except AttributeError:
                 pass
-        ax[0].legend()
+            ax.legend()
+
+        else: 
+            ax1 = self.fig.add_subplot(211)
+            ax2 = self.fig.add_subplot(212)
+            ax = [ax1, ax2]
+
+            for i in range(len(ax)):
+                data1 = self.data_folder_1[i]
+                data2 = self.data_folder_2[i]
+
+                if self.ui.dbX.isChecked() and self.ui.logY.isChecked():
+                    ax[i].loglog(data1[:, 0], data1[:, 1], label="Dossier 1")
+                    ax[i].loglog(data2[:, 0], data2[:, 1], label="Dossier 2")
+                elif self.ui.dbX.isChecked():
+                    ax[i].semilogx(data1[:, 0], data1[:, 1], label="Dossier 1")
+                    ax[i].semilogx(data2[:, 0], data2[:, 1], label="Dossier 2")
+                elif self.ui.logY.isChecked():
+                    ax[i].semilogy(data1[:, 0], data1[:, 1], label="Dossier 1")
+                    ax[i].semilogy(data2[:, 0], data2[:, 1], label="Dossier 2")
+                else:
+                    ax[i].plot(data1[:, 0], data1[:, 1], label="Dossier 1")
+                    ax[i].plot(data2[:, 0], data2[:, 1], label="Dossier 2")
+
+                if self.ui.grid.isChecked():
+                    ax[i].grid()
+                try:
+                    ax[i].set_title(self.titles[i])
+                    ax[i].set_xlabel(self.xlabels[i])
+                    ax[i].set_ylabel(self.ylabels[i])
+                except AttributeError:
+                    pass
+            ax[0].legend()
 
         self.fig.tight_layout()
         self.canvas.draw()

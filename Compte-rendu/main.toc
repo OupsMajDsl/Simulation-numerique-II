@@ -1,9 +1,40 @@
 \babel@toc {french}{}
-\contentsline {section}{\numberline {1}La balle}{2}
-\contentsline {subsection}{\numberline {1.1}Calculer la trajectoire}{2}
-\contentsline {subsection}{\numberline {1.2}Ajouter les rebonds}{3}
-\contentsline {subsection}{\numberline {1.3}Plus de balles}{3}
-\contentsline {section}{\numberline {2}Le tube de Kundt}{5}
-\contentsline {section}{\numberline {3}L'interface du reste de ma vie}{5}
-\contentsline {section}{\numberline {4}Traitement du signal et imagerie}{5}
-\contentsline {section}{\numberline {5}Optique g\IeC {\'e}om\IeC {\'e}trique}{5}
+\contentsline {section}{Introduction}{1}
+\contentsline {section}{Table des mati\IeC {\`e}res}{2}
+\contentsline {section}{\numberline {1}La balle}{3}
+\contentsline {subsection}{\numberline {1.1}Calculer la trajectoire}{3}
+\contentsline {subsection}{\numberline {1.2}Ajouter les rebonds}{4}
+\contentsline {subsubsection}{\numberline {1.2.1}Exemple de bug rencontr\IeC {\'e}: rebonds de la balle}{4}
+\contentsline {subsection}{\numberline {1.3}Plus de balles}{4}
+\contentsline {section}{\numberline {2}Le tube de Kundt}{7}
+\contentsline {subsection}{\numberline {2.1}Mise en \IeC {\'e}quation du champ acoustique dans le tube}{7}
+\contentsline {subsubsection}{\numberline {2.1.1}Conditions aux fronti\IeC {\`e}res}{7}
+\contentsline {subsubsection}{\numberline {2.1.2}Champ acoustique de pression et de vitesse dans le tube}{7}
+\contentsline {subsection}{\numberline {2.2}Mod\IeC {\'e}lisation du champ acoustique de pression et de vitesse particulaire sans pertes dans le tube}{8}
+\contentsline {subsection}{\numberline {2.3}Etude du coefficient de r\IeC {\'e}flexion $\mathaccentV {hat}05E{R}_p$}{8}
+\contentsline {subsection}{\numberline {2.4}Simulation du champ acoustique dans le tube avec prise en compte des ph\IeC {\'e}nom\IeC {\`e}nes de pertes}{9}
+\contentsline {section}{\numberline {3}L'interface du reste de ma vie}{12}
+\contentsline {subsection}{\numberline {3.1}Cr\IeC {\'e}er l'interface}{12}
+\contentsline {subsubsection}{\numberline {3.1.1}Disposer les \IeC {\'e}l\IeC {\'e}ments dans une fen\IeC {\^e}tre}{12}
+\contentsline {subsubsection}{\numberline {3.1.2}Chargement de fichiers et trac\IeC {\'e} de donn\IeC {\'e}es}{13}
+\contentsline {subsection}{\numberline {3.2}Mode d'emploi de l'interface}{14}
+\contentsline {section}{\numberline {4}Traitement du signal et imagerie}{15}
+\contentsline {subsection}{\numberline {4.1}Traitement du signal acoustique picoseconde}{15}
+\contentsline {subsection}{\numberline {4.2}Filtrage du signal}{16}
+\contentsline {subsubsection}{\numberline {4.2.1}D\IeC {\'e}riv\IeC {\'e}e du signal}{17}
+\contentsline {subsubsection}{\numberline {4.2.2}Filtrage passe-bande}{17}
+\contentsline {subsubsection}{\numberline {4.2.3}Moyenne glissante}{17}
+\contentsline {subsubsection}{\numberline {4.2.4}Ajustement polynomiale}{17}
+\contentsline {subsubsection}{\numberline {4.2.5}Ajustement en exponentielle d\IeC {\'e}croissante}{17}
+\contentsline {subsection}{\numberline {4.3}Image de fr\IeC {\'e}quence Brillouin}{17}
+\contentsline {section}{\numberline {5}Optique g\IeC {\'e}om\IeC {\'e}trique}{18}
+\contentsline {subsection}{\numberline {5.1}Forme des dioptres}{18}
+\contentsline {subsection}{\numberline {5.2}Trajectoire des rayons pour une lentille convergente}{19}
+\contentsline {subsection}{\numberline {5.3}Trajectoire des rayons pour une lentille divergente}{19}
+\contentsline {subsection}{\numberline {5.4}Simulation de la trajectoire de rayons lumineux dans un syst\IeC {\`e}me optique}{19}
+\contentsline {subsubsection}{\numberline {5.4.1}Miroirs sph\IeC {\'e}riques concave et convexe}{19}
+\contentsline {subsubsection}{\numberline {5.4.2}Lentilles sph\IeC {\'e}riques biconcaves et biconvexes}{20}
+\contentsline {section}{Tables des figures}{22}
+\contentsline {section}{Annexes}{23}
+\contentsline {subsection}{\numberline {A}Comparaison des diff\IeC {\'e}rentes m\IeC {\'e}thodes de filtrages pour le projet 4}{23}
+\contentsline {subsection}{\numberline {B}Repr\IeC {\'e}sentation de la trajectoire des rayons dans les diff\IeC {\'e}rents syst\IeC {\`e}mes optiques}{23}

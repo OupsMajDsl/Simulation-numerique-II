@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2019/dev/Debian) (preloaded format=pdflatex 2018.12.29)  3 MAR 2019 20:42
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2019/dev/Debian) (preloaded format=pdflatex 2018.12.29)  22 MAR 2019 19:12
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -715,35 +715,6 @@ Package: lastpage 2015/03/29 v1.2m Refers to last page's name (HMM; JPG)
 (/usr/share/texlive/texmf-dist/tex/latex/newverbs/newverbs.sty
 Package: newverbs 2012/05/08 v1.3a Define new 'verb' commands and short verb. c
 haracters
-)
-(./pythonhighlight.sty
-Package: pythonhighlight 2011/09/19 python code highlighting; provided by Olivi
-er Verdier <olivier.verdier@gmail.com>
-
-(/usr/share/texlive/texmf-dist/tex/latex/listings/listings.sty
-\lst@mode=\count148
-\lst@gtempboxa=\box45
-\lst@token=\toks45
-\lst@length=\count149
-\lst@currlwidth=\dimen262
-\lst@column=\count150
-\lst@pos=\count151
-\lst@lostspace=\dimen263
-\lst@width=\dimen264
-\lst@newlines=\count152
-\lst@lineno=\count153
-\lst@maxwidth=\dimen265
-
-(/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
-File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
-\c@lstnumber=\count154
-\lst@skipnumbers=\count155
-\lst@framebox=\box46
-)
-(/usr/share/texlive/texmf-dist/tex/latex/listings/listings.cfg
-File: listings.cfg 2015/06/04 1.6 listings configuration
-))
-Package: listings 2015/06/04 1.6 (Carsten Heinz)
 ) (./main.aux)
 \openout1 = `main.aux'.
 
@@ -770,17 +741,17 @@ LaTeX Info: Redefining \up on input line 38.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count156
-\scratchdimen=\dimen266
-\scratchbox=\box47
-\nofMPsegments=\count157
-\nofMParguments=\count158
-\everyMPshowfont=\toks46
-\MPscratchCnt=\count159
-\MPscratchDim=\dimen267
-\MPnumerator=\count160
-\makeMPintoPDFobject=\count161
-\everyMPtoPDFconversion=\toks47
+\scratchcounter=\count148
+\scratchdimen=\dimen262
+\scratchbox=\box45
+\nofMPsegments=\count149
+\nofMParguments=\count150
+\everyMPshowfont=\toks45
+\MPscratchCnt=\count151
+\MPscratchDim=\dimen263
+\MPnumerator=\count152
+\makeMPintoPDFobject=\count153
+\everyMPtoPDFconversion=\toks46
 ) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
 
@@ -867,12 +838,10 @@ Package pgfplots notification 'compat/show suggested version=true': you might b
 enefit from \pgfplotsset{compat=1.16} (current compat level: 1.15).
 
 Package caption Info: Begin \AtBeginDocument code.
-Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
 Package lastpage Info: Please have a look at the pageslts package at
 (lastpage)             https://www.ctan.org/pkg/pageslts
 (lastpage)             ! on input line 38.
-\c@lstlisting=\count162
 LaTeX Font Info:    Try loading font information for T1+lmss on input line 49.
 (/usr/share/texmf/tex/latex/lm/t1lmss.fd
 File: t1lmss.fd 2009/10/30 v1.6 Font defs for Latin Modern
@@ -884,280 +853,234 @@ Package pdftex.def Info: logo_univlemans.png  used on input line 56.
 (pdftex.def)             Requested size: 200.0pt x 54.05843pt.
  [2
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./logo_univlemans.png>] (.
-/main.toc
-LaTeX Font Info:    Try loading font information for OT1+lmr on input line 3.
-
-(/usr/share/texmf/tex/latex/lm/ot1lmr.fd
-File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
-)
-LaTeX Font Info:    Try loading font information for OML+lmm on input line 3.
-
-(/usr/share/texmf/tex/latex/lm/omllmm.fd
-File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
-)
-LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 3.
-
-(/usr/share/texmf/tex/latex/lm/omslmsy.fd
-File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
-)
-LaTeX Font Info:    Try loading font information for OMX+lmex on input line 3.
-
-(/usr/share/texmf/tex/latex/lm/omxlmex.fd
-File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
-)
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10.95> on input line 3.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 3.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 3.
-)
-\tf@toc=\write4
-\openout4 = `main.toc'.
-
-
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./logo_univlemans.png>]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 13.59999pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[1]
-LaTeX Font Info:    Try loading font information for T1+lmtt on input line 78.
- (/usr/share/texmf/tex/latex/lm/t1lmtt.fd
+[1] (./main.toc
+LaTeX Font Info:    Try loading font information for OT1+lmr on input line 5.
+ (/usr/share/texmf/tex/latex/lm/ot1lmr.fd
+File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    Try loading font information for OML+lmm on input line 5.
+
+(/usr/share/texmf/tex/latex/lm/omllmm.fd
+File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 5.
+
+(/usr/share/texmf/tex/latex/lm/omslmsy.fd
+File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    Try loading font information for OMX+lmex on input line 5.
+
+(/usr/share/texmf/tex/latex/lm/omxlmex.fd
+File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <10.95> on input line 5.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <8> on input line 5.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <6> on input line 5.
+)
+\tf@toc=\write4
+\openout4 = `main.toc'.
+
+ [2]
+LaTeX Font Info:    Try loading font information for T1+lmtt on input line 84.
+
+(/usr/share/texmf/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-(/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
-File: lstlang1.sty 2015/06/04 1.6 listings language file
-)
-<imgtraject_fixe.pdf, id=22, 462.52798pt x 346.89601pt>
-File: imgtraject_fixe.pdf Graphic file (type pdf)
-<use imgtraject_fixe.pdf>
-Package pdftex.def Info: imgtraject_fixe.pdf  used on input line 101.
+<Figures/imgtraject_fixe.pdf, id=28, 462.52798pt x 346.89601pt>
+File: Figures/imgtraject_fixe.pdf Graphic file (type pdf)
+<use Figures/imgtraject_fixe.pdf>
+Package pdftex.def Info: Figures/imgtraject_fixe.pdf  used on input line 107.
 (pdftex.def)             Requested size: 231.26341pt x 173.44757pt.
- [2 <./imgtraject_fixe.pdf>]
-<bug_classe_rebond.png, id=86, 553.06625pt x 437.635pt>
-File: bug_classe_rebond.png Graphic file (type png)
-<use bug_classe_rebond.png>
-Package pdftex.def Info: bug_classe_rebond.png  used on input line 118.
+ [3 <./Figures/imgtraject_fixe.pdf>]
+<Figures/bug_classe_rebond.png, id=88, 553.06625pt x 437.635pt>
+File: Figures/bug_classe_rebond.png Graphic file (type png)
+<use Figures/bug_classe_rebond.png>
+Package pdftex.def Info: Figures/bug_classe_rebond.png  used on input line 125.
+
 (pdftex.def)             Requested size: 221.22258pt x 175.05089pt.
- [3 <./bug_classe_rebond.png>]
-LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <9> not available
-(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 142.
 
+[4 <./Figures/bug_classe_rebond.png>]
+<Figures/multiball.png, id=92, 1084.05pt x 505.89pt>
+File: Figures/multiball.png Graphic file (type png)
+<use Figures/multiball.png>
+Package pdftex.def Info: Figures/multiball.png  used on input line 189.
+(pdftex.def)             Requested size: 512.14963pt x 239.01112pt.
+ [5] [6 <./Figures/multiball.png>]
+<Figures/tubeKundt_schema.pdf, id=101, 261.3765pt x 118.041pt>
+File: Figures/tubeKundt_schema.pdf Graphic file (type pdf)
+<use Figures/tubeKundt_schema.pdf>
+Package pdftex.def Info: Figures/tubeKundt_schema.pdf  used on input line 208.
+(pdftex.def)             Requested size: 261.37584pt x 118.0407pt.
 
-! Package inputenc Error: Invalid UTF-8 byte sequence.
+[7 <./Figures/tubeKundt_schema.pdf>]
+<Figures/tubeKundt_ssperte.pdf, id=129, 1340.60847pt x 712.58218pt>
+File: Figures/tubeKundt_ssperte.pdf Graphic file (type pdf)
+<use Figures/tubeKundt_ssperte.pdf>
+Package pdftex.def Info: Figures/tubeKundt_ssperte.pdf  used on input line 257.
 
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.162 ...retourne la position en x de la balle à 
-                                                  t secondes
-The document does not appear to be in UTF-8 encoding.
-Try adding \UseRawInputEncoding as the first line of the file
-or specify an encoding such as \usepackage [latin1]{inputenc}
-in the document preamble.
-Alternatively, save the file in UTF-8 using your editor or another tool
+(pdftex.def)             Requested size: 512.14963pt x 272.23016pt.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <12> on input line 262.
+<Figures/coef_refl.pdf, id=130, 462.52798pt x 346.89601pt>
+File: Figures/coef_refl.pdf Graphic file (type pdf)
+<use Figures/coef_refl.pdf>
+Package pdftex.def Info: Figures/coef_refl.pdf  used on input line 268.
+(pdftex.def)             Requested size: 512.14963pt x 384.13281pt.
+ [8 <./Figures/tubeKundt_ssperte.pdf>]
+[9 <./Figures/coef_refl.pdf>]
+<Figures/tubeKundt_dispers.png, id=232, 1340.6085pt x 712.5822pt>
+File: Figures/tubeKundt_dispers.png Graphic file (type png)
+<use Figures/tubeKundt_dispers.png>
+Package pdftex.def Info: Figures/tubeKundt_dispers.png  used on input line 292.
 
+(pdftex.def)             Requested size: 512.14963pt x 272.23016pt.
+<Figures/dispers.pdf, id=233, 709.69138pt x 346.89601pt>
+File: Figures/dispers.pdf Graphic file (type pdf)
+<use Figures/dispers.pdf>
+Package pdftex.def Info: Figures/dispers.pdf  used on input line 304.
+(pdftex.def)             Requested size: 230.46576pt x 112.64987pt.
+<Figures/atten_dispers.pdf, id=234, 755.9442pt x 346.89601pt>
+File: Figures/atten_dispers.pdf Graphic file (type pdf)
+<use Figures/atten_dispers.pdf>
+Package pdftex.def Info: Figures/atten_dispers.pdf  used on input line 311.
+(pdftex.def)             Requested size: 230.46576pt x 105.75813pt.
+ [10 <./Figures/tubeKundt_dispers.png> <./Figures/dispers.pdf> <./Figures/atten
+_dispers.pdf
 
-! Package inputenc Error: Invalid UTF-8 byte 160.
+pdfTeX warning: /usr/bin/pdflatex (file ./Figures/atten_dispers.pdf): PDF inclu
+sion: multiple pdfs with page group included in a single page
+>] [11] [12]
+<Figures/interf_qt.png, id=356, 732.7375pt x 590.205pt>
+File: Figures/interf_qt.png Graphic file (type png)
+<use Figures/interf_qt.png>
+Package pdftex.def Info: Figures/interf_qt.png  used on input line 357.
+(pdftex.def)             Requested size: 219.82294pt x 177.06287pt.
+ [13 <./Figures/interf_qt.png>]
+<Figures/interf_final.png, id=360, 1174.3875pt x 800.9925pt>
+File: Figures/interf_final.png Graphic file (type png)
+<use Figures/interf_final.png>
+Package pdftex.def Info: Figures/interf_final.png  used on input line 381.
+(pdftex.def)             Requested size: 352.31897pt x 240.29959pt.
+ [14 <./Figures/interf_final.png>]
+<Figures/TDS1.pdf, id=364, 1445.4pt x 1084.05pt>
+File: Figures/TDS1.pdf Graphic file (type pdf)
+<use Figures/TDS1.pdf>
+Package pdftex.def Info: Figures/TDS1.pdf  used on input line 403.
+(pdftex.def)             Requested size: 512.14963pt x 384.10435pt.
+<Figures/TDS1_bad.pdf, id=365, 1445.4pt x 1084.05pt>
+File: Figures/TDS1_bad.pdf Graphic file (type pdf)
+<use Figures/TDS1_bad.pdf>
+Package pdftex.def Info: Figures/TDS1_bad.pdf  used on input line 410.
+(pdftex.def)             Requested size: 512.14963pt x 384.10435pt.
 
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.162 ...retourne la position en x de la balle à 
-                                                  t secondes
-The document does not appear to be in UTF-8 encoding.
-Try adding \UseRawInputEncoding as the first line of the file
-or specify an encoding such as \usepackage [latin1]{inputenc}
-in the document preamble.
-Alternatively, save the file in UTF-8 using your editor or another tool
+[15 <./Figures/TDS1.pdf>] [16 <./Figures/TDS1_bad.pdf>]
+<Figures/Brillouin_freq_map.pdf, id=475, 462.52798pt x 346.89601pt>
+File: Figures/Brillouin_freq_map.pdf Graphic file (type pdf)
+<use Figures/Brillouin_freq_map.pdf>
+Package pdftex.def Info: Figures/Brillouin_freq_map.pdf  used on input line 437
+.
+(pdftex.def)             Requested size: 370.02287pt x 277.51718pt.
+ [17 <./Figures/Brillouin_freq_map.pdf>]
+<Figures/schema_lent_conv.pdf, id=532, 399.40918pt x 410.64415pt>
+File: Figures/schema_lent_conv.pdf Graphic file (type pdf)
+<use Figures/schema_lent_conv.pdf>
+Package pdftex.def Info: Figures/schema_lent_conv.pdf  used on input line 467.
+(pdftex.def)             Requested size: 184.3733pt x 189.55652pt.
+<Figures/schema_lent_div.pdf, id=533, 443.12057pt x 386.84525pt>
+File: Figures/schema_lent_div.pdf Graphic file (type pdf)
+<use Figures/schema_lent_div.pdf>
+Package pdftex.def Info: Figures/schema_lent_div.pdf  used on input line 474.
+(pdftex.def)             Requested size: 184.3733pt x 160.95686pt.
+ [18 <./Figures/schema_lent_conv.pdf> <./Figures/schema_lent_div.pdf>]
+<Figures/Figures_miroirs/conc_pastig.pdf, id=597, 1445.4pt x 1084.05pt>
+File: Figures/Figures_miroirs/conc_pastig.pdf Graphic file (type pdf)
+<use Figures/Figures_miroirs/conc_pastig.pdf>
+Package pdftex.def Info: Figures/Figures_miroirs/conc_pastig.pdf  used on input
+ line 518.
+(pdftex.def)             Requested size: 230.46576pt x 172.83951pt.
+<Figures/Figures_miroirs/conv_pastig.pdf, id=598, 1445.4pt x 1084.05pt>
+File: Figures/Figures_miroirs/conv_pastig.pdf Graphic file (type pdf)
+<use Figures/Figures_miroirs/conv_pastig.pdf>
+Package pdftex.def Info: Figures/Figures_miroirs/conv_pastig.pdf  used on input
+ line 525.
+(pdftex.def)             Requested size: 230.46576pt x 172.83951pt.
+<Figures/Figures_miroirs/conc_stig.pdf, id=599, 1445.4pt x 1084.05pt>
+File: Figures/Figures_miroirs/conc_stig.pdf Graphic file (type pdf)
+<use Figures/Figures_miroirs/conc_stig.pdf>
+Package pdftex.def Info: Figures/Figures_miroirs/conc_stig.pdf  used on input l
+ine 532.
+(pdftex.def)             Requested size: 230.46576pt x 172.83951pt.
+<Figures/Figures_miroirs/conv_stig.pdf, id=600, 1445.4pt x 1084.05pt>
+File: Figures/Figures_miroirs/conv_stig.pdf Graphic file (type pdf)
+<use Figures/Figures_miroirs/conv_stig.pdf>
+Package pdftex.def Info: Figures/Figures_miroirs/conv_stig.pdf  used on input l
+ine 539.
+(pdftex.def)             Requested size: 230.46576pt x 172.83951pt.
+ [19]
+<Figures/bug_lentille.pdf, id=604, 462.52798pt x 346.89601pt>
+File: Figures/bug_lentille.pdf Graphic file (type pdf)
+<use Figures/bug_lentille.pdf>
+Package pdftex.def Info: Figures/bug_lentille.pdf  used on input line 555.
+(pdftex.def)             Requested size: 277.51892pt x 208.1392pt.
+ [20 <./Figures/Figures_miroirs/conc_pastig.pdf> <./Figures/Figures_miroirs/con
+v_pastig.pdf
 
+pdfTeX warning: /usr/bin/pdflatex (file ./Figures/Figures_miroirs/conv_pastig.p
+df): PDF inclusion: multiple pdfs with page group included in a single page
+> <./Figures/Figures_miroirs/conc_stig.pdf
 
-! Package inputenc Error: Invalid UTF-8 byte sequence.
+pdfTeX warning: /usr/bin/pdflatex (file ./Figures/Figures_miroirs/conc_stig.pdf
+): PDF inclusion: multiple pdfs with page group included in a single page
+> <./Figures/Figures_miroirs/conv_stig.pdf
 
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.164 ...retourne la position en y de la balle à 
-                                                  t secondes
-The document does not appear to be in UTF-8 encoding.
-Try adding \UseRawInputEncoding as the first line of the file
-or specify an encoding such as \usepackage [latin1]{inputenc}
-in the document preamble.
-Alternatively, save the file in UTF-8 using your editor or another tool
+pdfTeX warning: /usr/bin/pdflatex (file ./Figures/Figures_miroirs/conv_stig.pdf
+): PDF inclusion: multiple pdfs with page group included in a single page
+>] [21 <./Figures/bug_lentille.pdf>] (./main.lof)
+\tf@lof=\write5
+\openout5 = `main.lof'.
 
+ [22]
 
-! Package inputenc Error: Invalid UTF-8 byte 160.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.164 ...retourne la position en y de la balle à 
-                                                  t secondes
-The document does not appear to be in UTF-8 encoding.
-Try adding \UseRawInputEncoding as the first line of the file
-or specify an encoding such as \usepackage [latin1]{inputenc}
-in the document preamble.
-Alternatively, save the file in UTF-8 using your editor or another tool
-
-
-! Package inputenc Error: Invalid UTF-8 byte sequence.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.166 ...ntenant les positions pour une première 
-                                                  parabole
-The document does not appear to be in UTF-8 encoding.
-Try adding \UseRawInputEncoding as the first line of the file
-or specify an encoding such as \usepackage [latin1]{inputenc}
-in the document preamble.
-Alternatively, save the file in UTF-8 using your editor or another tool
-
-
-! Package inputenc Error: Invalid UTF-8 byte 168.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.166 ...ntenant les positions pour une première 
-                                                  parabole
-The document does not appear to be in UTF-8 encoding.
-Try adding \UseRawInputEncoding as the first line of the file
-or specify an encoding such as \usepackage [latin1]{inputenc}
-in the document preamble.
-Alternatively, save the file in UTF-8 using your editor or another tool
-
-
-! Package inputenc Error: Invalid UTF-8 byte sequence.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.168         # retourne la trajectoire complète 
-                                                  de la balle
-The document does not appear to be in UTF-8 encoding.
-Try adding \UseRawInputEncoding as the first line of the file
-or specify an encoding such as \usepackage [latin1]{inputenc}
-in the document preamble.
-Alternatively, save the file in UTF-8 using your editor or another tool
-
-
-! Package inputenc Error: Invalid UTF-8 byte 168.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.168         # retourne la trajectoire complète 
-                                                  de la balle
-The document does not appear to be in UTF-8 encoding.
-Try adding \UseRawInputEncoding as the first line of the file
-or specify an encoding such as \usepackage [latin1]{inputenc}
-in the document preamble.
-Alternatively, save the file in UTF-8 using your editor or another tool
-
-
-! Package inputenc Error: Invalid UTF-8 byte sequence.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.170         # adapte la liste de la méthode 
-                                               get_rebonds pour que toutes les
-The document does not appear to be in UTF-8 encoding.
-Try adding \UseRawInputEncoding as the first line of the file
-or specify an encoding such as \usepackage [latin1]{inputenc}
-in the document preamble.
-Alternatively, save the file in UTF-8 using your editor or another tool
-
-
-! Package inputenc Error: Invalid UTF-8 byte 169.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.170         # adapte la liste de la méthode 
-                                               get_rebonds pour que toutes les
-The document does not appear to be in UTF-8 encoding.
-Try adding \UseRawInputEncoding as the first line of the file
-or specify an encoding such as \usepackage [latin1]{inputenc}
-in the document preamble.
-Alternatively, save the file in UTF-8 using your editor or another tool
-
-
-! Package inputenc Error: Invalid UTF-8 byte sequence.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.171 ...nces de la classe Balle_2 aient la même 
-                                                  longueur
-The document does not appear to be in UTF-8 encoding.
-Try adding \UseRawInputEncoding as the first line of the file
-or specify an encoding such as \usepackage [latin1]{inputenc}
-in the document preamble.
-Alternatively, save the file in UTF-8 using your editor or another tool
-
-
-! Package inputenc Error: Invalid UTF-8 byte 170.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.171 ...nces de la classe Balle_2 aient la même 
-                                                  longueur
-The document does not appear to be in UTF-8 encoding.
-Try adding \UseRawInputEncoding as the first line of the file
-or specify an encoding such as \usepackage [latin1]{inputenc}
-in the document preamble.
-Alternatively, save the file in UTF-8 using your editor or another tool
-
-[4] 
 AED: lastpage setting LastPage
-[5] (./main.aux) ) 
+[23] (./main.aux) ) 
 Here is how much of TeX's memory you used:
- 27858 strings out of 492641
- 658894 string characters out of 6131786
- 930266 words of memory out of 5000000
- 31243 multiletter control sequences out of 15000+600000
- 65203 words of font info for 46 fonts, out of 8000000 for 9000
+ 25977 strings out of 492641
+ 637091 string characters out of 6131786
+ 810064 words of memory out of 5000000
+ 29356 multiletter control sequences out of 15000+600000
+ 76824 words of font info for 49 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 69i,12n,119p,848b,1537s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/te
-xmf/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-ma
-thit.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf/fonts
-/enc/dvips/lm/lm-mathex.enc}</usr/share/texmf/fonts/type1/public/lm/lmbx10.pfb>
-</usr/share/texmf/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf/fonts/type
-1/public/lm/lmcsc10.pfb></usr/share/texmf/fonts/type1/public/lm/lmex10.pfb></us
-r/share/texmf/fonts/type1/public/lm/lmmi10.pfb></usr/share/texmf/fonts/type1/pu
-blic/lm/lmmi6.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi8.pfb></usr/share
-/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf/fonts/type1/public/lm/
-lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr17.pfb></usr/share/texmf/f
-onts/type1/public/lm/lmr8.pfb></usr/share/texmf/fonts/type1/public/lm/lmri10.pf
-b></usr/share/texmf/fonts/type1/public/lm/lmss10.pfb></usr/share/texmf/fonts/ty
-pe1/public/lm/lmss17.pfb></usr/share/texmf/fonts/type1/public/lm/lmssbx10.pfb><
-/usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1
-/public/lm/lmtk10.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt10.pfb></usr/
-share/texmf/fonts/type1/public/lm/lmtt9.pfb></usr/share/texmf/fonts/type1/publi
-c/lm/lmtto10.pfb>
-Output written on main.pdf (6 pages, 452012 bytes).
+ 69i,12n,119p,1070b,609s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/t
+exmf/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-r
+m.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/share/texmf/font
+s/enc/dvips/lm/lm-mathex.enc}</usr/share/texmf/fonts/type1/public/lm/lmbx10.pfb
+></usr/share/texmf/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf/fonts/typ
+e1/public/lm/lmcsc10.pfb></usr/share/texmf/fonts/type1/public/lm/lmex10.pfb></u
+sr/share/texmf/fonts/type1/public/lm/lmmi10.pfb></usr/share/texmf/fonts/type1/p
+ublic/lm/lmmi12.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi6.pfb></usr/sha
+re/texmf/fonts/type1/public/lm/lmmi8.pfb></usr/share/texmf/fonts/type1/public/l
+m/lmr10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf
+/fonts/type1/public/lm/lmr17.pfb></usr/share/texmf/fonts/type1/public/lm/lmr8.p
+fb></usr/share/texmf/fonts/type1/public/lm/lmri10.pfb></usr/share/texmf/fonts/t
+ype1/public/lm/lmss10.pfb></usr/share/texmf/fonts/type1/public/lm/lmss17.pfb></
+usr/share/texmf/fonts/type1/public/lm/lmssbx10.pfb></usr/share/texmf/fonts/type
+1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy8.pfb></usr/
+share/texmf/fonts/type1/public/lm/lmtt10.pfb>
+Output written on main.pdf (24 pages, 1275282 bytes).
 PDF statistics:
- 167 PDF objects out of 1000 (max. 8388607)
- 95 compressed objects within 1 object stream
+ 749 PDF objects out of 1000 (max. 8388607)
+ 262 compressed objects within 3 object streams
  0 named destinations out of 1000 (max. 500000)
- 28 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 123 words of extra memory for PDF output out of 10000 (max. 10000000)
 

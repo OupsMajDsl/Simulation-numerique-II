@@ -66,11 +66,22 @@ def pre_treatment(time, amp, meth="pol_fit", lst_param=[0, 20]):
         n = 200
         moy_amp = np.zeros_like(amp)
         for i in range(len(time)):
-            dbt_fen = i - n//2
-            fin_fen = i + n//2
-            moy_amp[i] = np.mean(amp[dbt_fen: fin_fen]) 
+            if i < n:
+                dbt_fen = i
+                fin_fen = i + n//2
+            elif i > len(time) - n:
+                dbt_fen = i - n//2
+                fin_fen = i
+            else:
+                dbt_fen = i - n//2
+                fin_fen = i + n//2
+            avg = np.mean(amp[dbt_fen: fin_fen]) 
+            # if i < n: 
+            #     moy_amp[i] = amp[i] 
+            # elif i > len(time) - 200:
+            #     moy_amp[i] = amp[i]
+            moy_amp[i] = avg
         return moy_amp
-
     # Polyfit 
     if meth == meths[3]:
         polyfit = np.polyfit(time, amp, lst_param[1])
@@ -139,13 +150,14 @@ if __name__ == "__main__":
     ax_spl3 = fig.add_subplot(gs[2, 2])             # 0.9 --> 2     ns
 
     #======= Filtrage sur la figure principale
-    meth = "diff"
+    meth = "moy_gliss"
     filt_temp = pre_treatment(time, amp, meth=meth, lst_param=[40, 150])
-    # ax_tp.plot(time, filt_temp, 'k')
-    ax_tp.plot(time, amp)
+    ax_tp.plot(time, filt_temp, 'k', label="Signal filtré", alpha=0.5)
+    ax_tp.plot(time, amp, label="Signal temporel brut")
     ax_tp.set_xlabel("Temps [ns]")
     ax_tp.set_ylabel("Amplitude")
-    ax_tp.set_title("Filtrage = {}".format(meth))
+    ax_tp.set_title("Méthode de filtrage = {}".format(meth))
+    ax_tp.legend()
 
     filt_spec = np.fft.fft(filt_temp)
     filt_spec = np.abs(np.asarray(filt_spec[0:len(time)//2-1]))
@@ -155,18 +167,28 @@ if __name__ == "__main__":
     spec = spec[0:len(time)//2-1]
 
     # Pour tracer seulement les fréquences positives
-    ax_fq.plot(freq, spec)
-    # ax_fq.plot(freq, filt_spec)
+    ax_fq.plot(freq, spec, label="Spectre brut")
+    ax_fq.plot(freq, filt_spec, label="Spectre filtré")
     ax_fq.set_xlabel("Fréquence [GHz]")
     ax_fq.set_ylabel("Amplitude")
+    ax_fq.legend()
 
 
     ax_spl1.plot(fq1[0:len(time[i_015:i_04])//2-1], amp1[0:len(time[i_015:i_04])//2-1])
     ax_spl1.set_title("[0.15; 4]")
+    ax_spl1.set_xlabel("Fréquence [GHz]")
+    ax_spl1.set_ylabel("Amplitude")
+
     ax_spl2.plot(fq2[0:len(time[i_045:i_07])//2-1], amp2[0:len(time[i_045:i_07])//2-1])
     ax_spl2.set_title("[0.45; 0.7]")
+    ax_spl2.set_xlabel("Fréquence [GHz]")
+    ax_spl2.set_ylabel("Amplitude")
+
     ax_spl3.plot(fq3[0:len(time[i_09:i_20])//2-1], amp3[0:len(time[i_09:i_20])//2-1])
     ax_spl3.set_title("[0.9; 2]")
+    ax_spl3.set_xlabel("Fréquence [GHz]")
+    ax_spl3.set_ylabel("Amplitude")
 
-    print(len(time))
+    plt.tight_layout()
+    # plt.savefig("TDS1_bad.pdf")
     plt.show()

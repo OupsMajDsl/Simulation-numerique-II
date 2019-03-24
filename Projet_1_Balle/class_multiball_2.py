@@ -2,6 +2,11 @@ import numpy as np
 import matplotlib.pyplot as plt 
 import matplotlib.animation as animation
 import random
+"""
+Version finale du tracé des balles.
+Ce programme permet de simuler la trajectoire de la chute de plusieurs balles en prenant des paramètres de vitesse initiale et d'angle de départ aléatoire.
+La classe Balle permet de générer les coordonnées des balles et le tracé peut être réalisé après
+"""
 
 class Balle():
     def __init__(self, duration):
@@ -73,8 +78,8 @@ class Balle():
 
 
 #============================
-def run():
-    tot_ball = 50
+if __name__ == "__main__":
+    tot_ball = 200
     duree = 10
     balle_x = []
     balle_y = []
@@ -117,6 +122,3 @@ def run():
     if save:
         ani.save(filename="Projet_1_Balle/MULTIBALL.mp4", writer = 'ffmpeg', fps = 30, bitrate = 750)
     plt.show()
-
-if __name__ == "__main__":
-    run()

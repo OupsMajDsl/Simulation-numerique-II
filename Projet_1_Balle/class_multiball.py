@@ -3,11 +3,14 @@ import matplotlib.pyplot as plt
 import matplotlib.animation as animation
 import matplotlib.colors as pltc
 import random
+"""
+Première version de la simulation de la trajectoire de balles
+"""
 
 class Balle():
     def __init__(self, nb_balle = 25, duration = 20, log = True, save = False):
         """
-        Initialize the Balle class and declare the inputs parameters as well as the useful variables
+        Initialise la classe Balle et déclare les paramètres d'entrée et les variables utiles
         """
         self.t = np.arange(0, duration, 0.01)
         self.fig, self.ax = plt.subplots(figsize = (15, 7))
@@ -19,7 +22,7 @@ class Balle():
 #===========================
     def setup(self):
         """
-        This setup function calculates the trajectories of each ball
+        La fonction setup calcule la trajectoire de chaque balle
         """
         g = 9.8
         r = 0.8
@@ -81,7 +84,7 @@ class Balle():
 
     def draw(self):                                 #fonction de tracé de la classe Balle
         """
-        Plots the calculated data
+       Trace les données calculées
         """
         def init():                                 #initialize the animation
             for nb in range(self.nb_balle):
