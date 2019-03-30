@@ -5,7 +5,8 @@ class Lentille():
     def __init__(self, r=15, a=6):
         self.r = r
         self.a = a
-        self.e = self.r - self.r * np.sqrt(1 - (((2 * self.a) ** 2) / (4 * (self.r **2))))
+        #self.e = self.r - self.r * np.sqrt(1 - (((2 * self.a) ** 2) / (4 * (self.r **2))))
+        self.e = 5
         self.y = np.linspace(-self.a, self.a + 0.01, 100)
         self.x = np.sqrt(self.r**2 - self.y**2) - self.r + self.e
 # équation 2nd degré pour résolution
@@ -78,9 +79,9 @@ class Lentille():
 if __name__ == "__main__":
     # tests pour la classe lentille
     fig, ax = plt.subplots()
-    rays = np.arange(-6, 6.1, 0.1)
+    rays = np.arange(-6, 6.1, 1)
 
-    l = Lentille()
+    l = Lentille(r=10, a=6)
     lent_biconv = l.biconvexe()
     lent_biconc = l.biconcave()
     lent_conv = l.convexe()
@@ -88,11 +89,11 @@ if __name__ == "__main__":
     for i in rays:
         # r_v = l.rayon(type_l="convexe", h=i, n=1.5)
         # ax.plot(r_v[0], r_v[1], 'b-', lw=0.5, alpha=0.5)
-        r_c = l.rayon(type_l="biconcave", h=i, n=1.5)
+        r_c = l.rayon(type_l="convexe", h=i, n=1.5)
         ax.plot(r_c[0], r_c[1], 'g-', lw=0.5)
 
     # ax.plot(lent_conv[0], lent_conv[1], 'k-', alpha=0.5)
-    ax.plot(lent_biconc[0], lent_biconc[1], 'm-')
+    ax.plot(lent_conv[0], lent_conv[1], 'm-')
 
     ax.grid()
     ax.axis([-10, 37.5, -10, 10])
