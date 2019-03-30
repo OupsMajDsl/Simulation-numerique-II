@@ -62,26 +62,22 @@ def pre_treatment(time, amp, meth="pol_fit", lst_param=[0, 20]):
 
     # calcul de moyenne et filtrage
     if meth == meths[2]:
-        print(len(amp))        
-        n = 200
+        n = 20
         moy_amp = np.zeros_like(amp)
         for i in range(len(time)):
             if i < n:
                 dbt_fen = i
                 fin_fen = i + n//2
-            elif i > len(time) - n:
+            elif i > len(time) -n:
                 dbt_fen = i - n//2
                 fin_fen = i
             else:
                 dbt_fen = i - n//2
                 fin_fen = i + n//2
             avg = np.mean(amp[dbt_fen: fin_fen]) 
-            # if i < n: 
-            #     moy_amp[i] = amp[i] 
-            # elif i > len(time) - 200:
-            #     moy_amp[i] = amp[i]
             moy_amp[i] = avg
         return moy_amp
+
     # Polyfit 
     if meth == meths[3]:
         polyfit = np.polyfit(time, amp, lst_param[1])

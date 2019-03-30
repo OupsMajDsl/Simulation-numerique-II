@@ -9,7 +9,7 @@ import TDS
 # chemin du fichier à traiter
 path = "/home/mathieu/OneDrive/Documents/S4/Sim_numerique/Projet_4_tds"
 # nom du fichier à traiter
-filename = "time_rawsignals_84GPa_bad.txt"
+filename = "time_rawsignals_84GPa_nice.txt"
 # avec bad, pic impulsionnel beaucoup plus élevé donc variations moins visibles
 # La fonction retourne un t-uple donc on unpack directement dans les variables dont on a besoin
 
@@ -25,7 +25,7 @@ fs = 1/dt
 nyq = 0.5 * fs
 
 #====== Création de la figure et des axes
-fig, ax = plt.subplots(6, 2, figsize=(15, 25), tight_layout=True)
+fig, ax = plt.subplots(6, 2, figsize=(15, 21.22), tight_layout=True)
 meths = ["diff", "filt", "moy_gliss", "pol_fit", "exp_fit"]
 colors = ["m", "g", "b", "k", "r"]
 
@@ -54,4 +54,5 @@ for i in range(len(ax[:, 0])):
         ax[i, j].grid()
 
 plt.tight_layout()
+plt.savefig("tds_methfilt.pdf")
 plt.show()
