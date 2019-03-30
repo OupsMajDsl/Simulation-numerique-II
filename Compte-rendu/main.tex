@@ -1,31 +1,22 @@
-\documentclass[a4paper,11pt]{article}
+\documentclass[a4paper, 11pt]{article}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
-\usepackage{titlesec}
 \usepackage[french]{babel}
 \usepackage{xcolor}
 \usepackage[runin]{abstract}
 \usepackage[top = 2.5cm, bottom = 2.5cm, left = 1.5cm, right = 1.5cm]{geometry}
-\usepackage{pgfplots, float, graphicx, appendix, subcaption, fancyhdr, footmisc, lmodern, amsmath, array}
-\pgfplotsset{compat = 1.15}
+\usepackage{float, graphicx, appendix, subcaption, fancyhdr, footmisc, lmodern, amsmath, array}
+\usepackage{titlesec}
+\usepackage{pdfpages}
 \usepackage{lastpage}
 \usepackage{newverbs}
 \pagestyle{fancy}
 
+
+% Fonctions =====================
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}
 \renewcommand{\arraystretch}{1.5}
-\cfoot{}
-\lfoot{\textcolor{mycolor}{\textsf{L2 SPI \\ 2018-2019}}}
- \rfoot{\textcolor{mycolor}{\textsf{Page \thepage / \pageref{LastPage}}}}
-\rhead{
-	\textcolor{mycolor}{\textsf{Mathieu MARÉCHAL}}
-} 
-
-\lhead{
-	\textcolor{mycolor}{\textsf{Simulation numérique II -- Compte-rendu des projets}}
-}
-
 
 \definecolor{mycolor}{RGB}{219, 80, 61}
 \titleformat
@@ -34,6 +25,21 @@
 {\textsf{Projet \thesection}}{1em}{}
 \setcounter{tocdepth}{4}
 %\setcounter{secnumdepth}{4}
+
+
+% En-têtes et pieds de pages ================
+\cfoot{}
+\lfoot{\textcolor{mycolor}{\textsf{L2 SPI \\ 2018-2019}}}
+\rfoot{\textcolor{mycolor}{\textsf{Page \thepage / \pageref{LastPage}}}}
+ 
+\rhead{
+	\textcolor{mycolor}{\textsf{Mathieu MARÉCHAL}}
+} 
+
+\lhead{
+	\textcolor{mycolor}{\textsf{Simulation numérique II -- Compte-rendu des projets}}
+}
+
 
 \begin{document}
 	\begin{titlepage}
@@ -88,8 +94,8 @@ Tout d'abord, les premières constantes dont va dépendre la trajectoire sont cr
 Ensuite, on implémente les équations déterminant la position du projectile en fonction des constantes précédentes:
 \[ \left \{
 \begin{array}{c @{= \quad} c}
-	d_x & v_0 t cos (\theta) + d_{0_x}\\
-	d_y &- \frac{1}{2} g t^2 + v_0 t sin(\theta) + d_{0_y}
+	d_x & v_0 t \text{cos} (\theta) + d_{0_x}\\
+	d_y &- \frac{1}{2} g t^2 + v_0 t \text{sin}(\theta) + d_{0_y}
 \end{array}
 \right. \]
 
@@ -138,7 +144,7 @@ Dans cette partie, l'objectif est de pouvoir modéliser la trajectoire de \textb
 
 Afin de simplifier le programme dans son ensemble et l'implémentation de cette fonctionnalité, le code sera mis sous la forme d'une classe. La première version de ce programme est  \verb|class_multiball.py|: ce programme contient une classe "Balle" avec une méthode \verb|setup| qui calcule la trajectoire de toutes les balles et une méthode \verb|draw| qui les anime sur une figure. Cette syntaxe n'est cependant pas très cohérente et n'optimise pas les possibilités d'une classe. De plus, chaque méthode exécute un grand nombre d'action au lieu d'une seule.
 
-Ainsi, une deuxième version a été créée: \verb|class_multiball_2.py|. Ce programme contient une classe qui renvoie seulement une liste contenant les positions décrivant la trajectoire d'une balle. Le tracé est effectué à l'extérieur de la classe et fait bien retourner à la classe un objet qui est une unique balle.
+Ainsi, une deuxième version a été créée: \verb|class_multiball_2.py|. Ce programme contient une classe qui renvoie seulement une liste contenant les positions décrivant la trajectoire d'une balle. Le tracé est effectué à l'extérieur de la classe et fait bien retourner à la classe un objet qui est une unique balle, une illustration de ce que permet la classe est présentée en figure \ref{fig:multiball}.
 
 Ce second programme m'a permis de bien comprendre le fonctionnement d'une classe: ici, la classe représente le "comportement" d'une balle. Néanmoins, l'animation est identique pour les 2 programmes, le seule changement étant la lisibilité et la logique derrière le calcul.
 
@@ -191,8 +197,7 @@ b.get_traject()
 	\label{fig:multiball} 
 \end{figure}
 
-
-
+Les fichiers présents pour ce projet sont: \verb|class_multiball.py| qui contient la première version de la classe Balle, \verb|class_multiball_2.py| avec la seconde version de la classe Balle et le script \verb|trace_balles.py| avec un exemple d'utilisation de la classe pour animer plusieurs balles.
 
 
 
@@ -319,7 +324,7 @@ En observant la figure \ref{fig:dispers}, il est possible de voir, dans un tube 
 
 La simulation numérique du tube de Kundt a permis de mettre en application des connaissances théorique (cours d'acoustique 1D du semestre 3) afin de comprendre visuellement l'évolution du champ acoustique dans ce tube, approfondir le phénomène de pertes et de comprendre de quels facteurs dépend de le coefficient de réflexion.
 
- 
+ Les fichiers utilisés pour ce projet sont: \verb|tubeKundt.py| qui contient l'animation du tube avec la dispersion, \verb|coef_refl| trace le coefficient de réflexion (module, phase, partie réelle et partie imaginaire) et enfin, \verb|tubeKundt_config_dispersion.py| trace la pression dans le tube en prenant en compte l'atténuation et met en évidence ce phénomène.
  
  
  
@@ -363,18 +368,22 @@ Cependant, c'est la seule méthode que je connaissais quand j'ai crée la premi�
 
 Maintenant que l'interface a tous les boutons nécessaires, il faut les connecter à des méthodes. Pour cela, on utilise \verb|button.clicked.connect(methode)|. Cette ligne permet de lier un bouton à une méthode, qui sera appelée au moment du clic sur le bouton "button". Pour commencer, il faut avoir des fichiers à tracer: on peut, par exemple, ouvrir une boîte de dialogue permettant à l'utilisateur de sélectionner les données à tracer. Les méthodes disponibles avec ce module permettent de proposer de charger un fichier ou un ensemble de fichier avec la méthode \verb|QFileDialog.getOpenFileName()| ou de charger un dossier entier \verb|QFileDialog.getExistingDirectory()|. La première version de l'interface permettait de charger un fichier à la fois, mais la version actuelle prend en charge un dossier complet avec plusieurs types de tracés possible. 
 
-Les méthodes ouvrant une boîte de dialogue retourne le chemin absolu du fichier sous forme d'une chaîne de caractères. Une fois que l'on stocke ce chemin dans une variable, on peut l'appeler dans la méthode \verb|np.loadtxt| de numpy pour charger les données d'un fichier précis. En effet, les dossiers générés par le logiciel du CTTM à l'exportation des mesures comportent des fichiers avec des noms toujours identique: 
+Les méthodes ouvrant une boîte de dialogue retourne le chemin absolu du dossier sous forme d'une chaîne de caractères. Une fois que l'on stocke ce chemin dans une variable, on peut demander à l'utilisateur le type de fichier à charger, puis appeler ce fichier dans la méthode \verb|np.loadtxt| de numpy pour en charger les données. En effet, les dossiers générés par le logiciel du CTTM à l'exportation des mesures comportent des fichiers avec des noms toujours identique: 
 \begin{itemize}
 	\item pour une acquisition temporelle, \verb|TemporalData.txt|
 	\item pour une FRF, \verb|FRF_ModPhase.txt|
 	\item pour un spectre, \verb|PowerSpetrum.txt|
 \end{itemize}
 
-En connaissant les noms de chaque type de fichier, il est possible de créer un menu déroulant détaillant le type de fichiers que l'utilisateur souhaite visualiser et d'importer un fichier précis selon ce choix. Le type de tracé et l'import des fichiers est détaillé dans la méthode 	\verb|loadData| de la classe de l'interface. Après l'appel de cette fonction, les fichiers sont importés, il ne reste plus qu'à tracer les courbes!
+Cependant, en testant avec des fichiers volumineux, on remarque rapidement que cette méthode est très longue pour charger des fichiers. Une alternative trouvée pour l'importation de fichiers est la méthode \verb|read_csv| du module \verb|pandas|, qui est beaucoup plus rapide. Pour comparer ces 2 méthodes,  j'ai utilisé la fonction \verb|%timeit| de \textit{ipython} et qui permet de mesurer la durée d'exécution d'un programme. Pour un fichier texte de 250 Mo en lisant le fichier texte avec  un SSD, la méthode \verb|np.loadtxt| prend en moyenne $\approx 40$ s à charger le fichier tandis qu'en utilisant la méthode \verb|pd.read_csv|, le temps de chargement du fichier est de 5 sec au plus. La méthode \verb|np.loadtxt| reste intéressante pour des fichiers légers ou pour pouvoir tracer des fichiers rapidement, comme en TP par exemple, mais, dans le cas de cette interface, la rapidité que permet la seconde méthode est très importante et pertinente pour ce programme. Cependant, les chargements de fichiers peuvent quand même prendre du temps. Ainsi, pour éviter tout risque d'erreur, le bouton "Actualiser" est désactivé le temps de l'import du fichier et un label de texte apparaît à droite pour préciser qu'un chargement est en cours.
 
-La difficulté d'avoir la possibilité de tracer 2 jeux de données en même temps est que, quand l'utilisateur ne veut observer qu'une seule mesure, il faut prendre en compte que seul le dossier 1 ou le dossier 2 contient des données à tracer, et ainsi gérer les erreurs en utilisant des opérateurs booléens renvoyant l'état des différentes étapes comme \verb|loaded_1| et \verb|loaded_2| qui déterminent respectivement si le dossier 1 ou le dossier 2 contient des données à charger. En ajoutant la gestion des erreurs avec les structures \verb|try:| \verb|except|, le programme s'adapte à toutes les conditions possible: selon l'erreur, le programme renvoie un message d'erreur, c'est-à-dire une fenêtre qui s'ouvre et qui précise la source de l'erreur. L'essentiel de la gestion d'erreur est de faire en sorte que l'interface ne \textit{crash} pas. 
+La méthode \verb|pd.read_csv| retourne donc un ensemble de données du type \verb|DataFrame|. L'avantage de ce type de variable est qu'il permet de retourner le texte de l'en-tête de chaque fichier pour légender les figures à tracer avec l'attribut \verb|DataFrame.axes| et \verb|DataFrame.values| retourne une matrice numpy contenant les données structurées de la même manière que ce que renvoie \verb|np.loadtxt|).
 
-Le résultat final est présenté dans une capture d'écran en figure \ref{fig:interf_final}. Des réponses en fréquences de l'excitation d'une plaque en plexiglas par un pot vibrant en 2 points différents sont chargés pour cet exemple.
+En connaissant les noms de chaque type de fichier créés en sortie du logiciel CTTM, il est possible de créer un menu déroulant détaillant le type de fichiers que l'utilisateur souhaite visualiser et d'importer un fichier précis selon ce choix. Le type de tracé et l'import des fichiers est détaillé dans la méthode 	\verb|loadData| de la classe de l'interface. Après l'appel de cette fonction, les fichiers sont importés, il ne reste plus qu'à tracer les courbes!
+
+La difficulté d'avoir la possibilité de tracer 2 jeux de données en même temps est que, quand l'utilisateur ne veut observer qu'une seule mesure, il faut prendre en compte que seul le dossier 1 ou le dossier 2 contient des données à tracer, et ainsi gérer les erreurs en utilisant des opérateurs booléens renvoyant l'état des différentes étapes comme \verb|loaded_1| et \verb|loaded_2| qui déterminent respectivement si le dossier 1 ou le dossier 2 contient des données à charger. En ajoutant la gestion des erreurs avec les structures \verb|try:| \verb|except|, le programme s'adapte à toutes les conditions possible: selon l'erreur, le programme renvoie un message d'erreur, c'est-à-dire une fenêtre qui s'ouvre et qui précise la source de l'erreur. L'essentiel de la gestion d'erreur est de faire en sorte que l'interface ne se ferme pas à cause d'une erreur. 
+
+Le résultat final est présenté dans une capture d'écran en figure \ref{fig:interf_final}. Des réponses en fréquences de l'excitation d'une plaque en plexiglas par un pot vibrant en 2 points différents mesuré par un accéléromètre sont chargées pour cet exemple.
 
 \begin{figure}[H]
 	\centering
@@ -386,7 +395,13 @@ Le résultat final est présenté dans une capture d'écran en figure \ref{fig:i
 \subsection{Mode d'emploi de l'interface}
 Le but de ce programme est de tracer les mesures issues d'acquisitions du logiciel \textit{Analyseur CTTM} exclusivement. Pour commencer, il faut cliquer sur le bouton "Dossier 1" ou "Dossier 2" situé en haut de l'interface. Une boîte de dialogue s'ouvre alors et demande de sélectionner un dossier. Une fois sélectionné, le chemin du fichier s'affiche à droite du bouton. Il faut maintenant sélectionner le mode de tracé souhaité dans la zone "Options de tracé" et ensuite cliquer sur le bouton "Actualiser". Les données peuvent être déchargées du programme en cliquant sur le bouton "-" situé à droite du bouton de chargement. Jusqu'à 2 jeux de données peuvent être chargés à la fois. Finalement, les fonctionnalités proposées par les figures matplotlib classiques sont disponibles ici: zoom, sauvegarde des figures, ...
 
-
+Les fichiers présentés pour ce projet sont:
+\begin{itemize}
+	\item un dossier "TestMesures" qui contient des dossiers issus de l'Analyseur CTTM avec différents formats et différentes tailles de fichiers
+	\item un fichier \verb|GUI_template|, en \verb|.ui| qui vient du logiciel Qt Designer et qui contient les éléments de l'interface graphique et l'autre en \verb|.py| qui permet d'importer ces éléments dans le script
+	\item un fichier \verb|GUI_v1.py| qui est la première version de l'interface graphique sans utiliser le \textit{template}
+	\item les deux versions suivantes du projet dans les fichiers \verb|GUI_v2.py| et \verb|GUI_v3.py|. La version finale de ce projet est bien la version 3.	
+\end{itemize}
 
 
 
@@ -401,14 +416,14 @@ Le résultat de cette partie est représenté en figure \ref{fig:tds1}. Le spect
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\linewidth]{Figures/TDS1.pdf}
-	\caption{Représentation et traitement du signal acoustique picoseconde selon les différentes méthodes demandées}
+	\caption{Représentation et traitement du signal acoustique picoseconde selon les différentes méthodes demandées avec un filtrage passe-bande}
 	\label{fig:tds1}
 \end{figure}
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\linewidth]{Figures/TDS1_bad.pdf}
-	\caption{Représentation et traitement du signal acoustique picoseconde selon les différentes méthodes demandées}
+	\caption{Représentation et traitement du signal acoustique picoseconde selon les différentes méthodes demandées avec un filtrage passe-bande}
 	\label{fig:tds1_bad} 
 \end{figure}
 
@@ -419,19 +434,28 @@ Avec le signal \verb|time_rawsignals_84GPa_bad.txt.|, la même figure que préc�
 On constate qu'avec les 2 signaux tracés précédemment, les fréquences de résonances n'apparaissent pas clairement: l'amplitude du pic est faible, tout comme au niveau du tracé temporel où les oscillations suivant le pic au début du signal sont faibles par rapport à ce pic. Pour faire ressortir le pic de résonance, une méthode de filtrage peut être appliquée à la mesure avant le calcul de la FFT. 
 
 \subsection{Filtrage du signal}
-Dans le cas de cette mesure, le filtrage doit être effectué afin de supprimer les basses fréquences de ce signal. Nous allons donc voir plusieurs méthodes pour appliquer numériquement un filtre basse-fréquence.
+Dans le cas de cette mesure, utiliser un filtrage sera utile afin de supprimer les basses fréquences de ce signal. Nous allons donc voir plusieurs méthodes pour appliquer numériquement un filtre basse-fréquence. Toutes ces méthodes peuvent être comparées avec la figure présentée en annexe A.
 
 \subsubsection{Dérivée du signal}
-Pour filtrer les 
+Pour filtrer les basses fréquences, une première méthode peut consister à calculer numériquement la dérivée du signal. Pour cela, il est commun d'utiliser la formule du taux d'acroissement qui donne la dérivée:
+\begin{equation}
+	f'(a) = \lim_{h \rightarrow 0} \frac{f(a + h) - f(a)}{h}
+\end{equation}
+Cette méthode ayant déjà été implémentée au cours d'un TP au S2, le code a été réutilisé pour cette méthode de filtrage. La dérivation permet effectivement de filtrer les basses-fréquences, car dériver un signal du type $f(x, t) = g(x) e^{j \omega t}$, c'est-à-dire dépendant du temps, revient en fait à le multiplier par $j \omega$. Or, quand $\omega \rightarrow 0$, $f(x, t) \rightarrow 0$. Seulement, pour un pic ayant une pente très élevée, l'allure de la dérivée résulte en un pic avec une amplitude plus élevée, donc il est impossible de filtrer une impulsion avec cette méthode, comme l'illustre la figure en annexe A. Cependant, en regardant le spectre, les fréquences de résonances sont bien mises en évidence.
+
 \subsubsection{Filtrage passe-bande}
+La seconde méthode consiste à utiliser une méthode de filtrage passe-bande fournie par le module \textit{SciPy}. La fonction utilisée est \verb|signal.butter| et permet de calculer les coefficients nécessaires à l'application d'un filtre de Butterworth, qui est un filtre linéaire avec une réponse en fréquence très plate. Pour cela, il suffit d'entrer en argument l'ordre du filtre souhaité, le mode de filtrage, ici "bandpass", ainsi. Ensuite, les coefficients sont exploités par la fonction \verb|signal.filtfilt| dans laquelle on précise les 2 coefficients calculés précédemment et le vecteur/liste auquel on doit l'adapter. Le résultat est encore une fois présenté en annexe et la spectre obtenu avec ce traitement met en évidence les fréquences de résonances sur la bande-passante du filtre (40 à 150 GHz). L'avantage par rapport à la méthode précédente est que les hautes fréquences ne sont pas bruitées: le tracé apparaît très linéaire au-dessus de 280 GHz.
+
 \subsubsection{Moyenne glissante}
-\subsubsection{Ajustement polynomiale}
-\subsubsection{Ajustement en exponentielle décroissante} 
+Une autre méthode de filtrage permettant de supprimer les composantes basses-fréquences du signal est la moyenne glissante. Une fenêtre centrée sur chaque point est sélectionné et la valeur de chacun de ces points est la moyenne de cette fenêtre. La méthode est très simple à implémenter, mais il faut prendre en compte les premiers et derniers points. Pour cela, le choix retenu est d'utiliser une fenêtre pour calculer un point $i$ dont le point est situé à gauche de la fenêtre pour les points ayant un indice inférieur à la largeur de la fenêtre et situé à droite pour les points situés à droite du signal. Dans ce cas, la largeur de la fenêtre sélectionnée est de 40 points. Cette méthode conserve l'allure du signal, qui semble très similaire au signal brut. Cependant, en traçant le spectre, les fréquences de résonances sont moins visibles que pour les traitements précédents et le filtre basse-fréquence est peu efficace puisque l'amplitude maximale du spectre se situe toujours en très basses fréquences.
+  
+\subsubsection{Ajustements: polynomiale \& exponentielle décroissante}
+Les 2 méthodes restantes consistent à ajuster le signal selon des courbes définies mathématiquement: ici un polynôme de degré 80 et une exponentielle décroissante. Ces méthodes sont efficaces pour des signaux simples et l'avantage est que l'implémentation de ces méthodes est très simple mais dans ce cas, elles apparaissent totalement inefficaces: les fréquences de résonances disparaissent totalement, le filtrage est plutôt efficace en basse-fréquences.
 
 \subsection{Image de fréquence Brillouin}
+Cette partie consiste à exploiter d'autres fichiers en utilisant les méthodes mises en place précédemment. Dans ce cas, il s'agit de tracer l'image des fréquences Brillouins pour l'échantillon, quand il y a excitation par le laser de génération. Cette image de fréquence contient la fréquence de résonance de l'échantillon selon la position (x, y) de l'excitation laser. Les fréquences Brillouin d'un milieu sont mesurées en excitant un matériau et en identifiant le décalage fréquentiel de la lumière ainsi diffusée. La mesure de ce décalage permet d'identifier certaines propriétés d'un matériau, ou peut être aussi un outil de contrôle non destructif.
 
-Cette partie consiste à exploiter d'autres fichiers en utilisant les méthodes mises en place précédemment. Dans ce cas, il s'agit de tracer l'image des fréquences Brillouins pour l'échantillon, quand il y a excitation par le laser de génération. Cette image de fréquence contient la fréquence de résonance de l'échantillon selon la position (x, y) de l'excitation laser. Le processus de traitement contient alors: le chargement de chacun des 3600 fichiers, l'extraction de la fréquence de résonance et le stockage de celui-ci dans une matrice qu'on tracera par la suite pour obtenir le résultat présenté en figure \ref{fig:tds2}. 
-Le nommage des fichiers est du type \verb|Image/x_y.txt| où x et y sont les positions en x,y de la mesure. Les fichiers peuvent donc être importés via une double boucle \verb|for|. Ensuite, on remarque certains de ces fichiers ont une amplitude constante de -1000: il faut donc tracer ces points en blanc, c'est-à-dire leur attribuer la valeur \verb|None| 
+Le processus de traitement contient alors: le chargement de chacun des 3600 fichiers, l'extraction de la fréquence de résonance et le stockage de celui-ci dans une matrice qu'on tracera par la suite pour obtenir le résultat présenté en figure \ref{fig:tds2}. Le nommage des fichiers est du type \verb|Image/x_y.txt| où x et y sont les positions en x,y de la mesure. Les fichiers peuvent donc être importés via une double boucle \verb|for|. Ensuite, on remarque certains de ces fichiers ont une amplitude constante de -1000: il faut donc tracer ces points en blanc, c'est-à-dire leur attribuer la valeur \verb|None|. Finalement, la fréquence de résonance peut être extraite en identifiant pour quelle fréquence l'amplitude du spectre est maximale sur l'intervalle souhaité, ici entre 57 GHz et 73 GHz.
 
 \begin{figure}[H]
 	\centering
@@ -439,6 +463,15 @@ Le nommage des fichiers est du type \verb|Image/x_y.txt| où x et y sont les pos
 	\caption{Image de fréquence Brillouin}
 	\label{fig:tds2} 
 \end{figure}
+
+La subtilité de cette partie est de déterminer le pas fréquentiel des signaux à traiter: en effet, à cause de la méthode de mesure par échantillonnage optique asynchrone, qui mesure le signal coup après coup, le taux d'échantillonnage ne dépend pas seulement de l'écart entre chaque point mais aussi du décalage entre la répétition du laser de génération et de détection, de la fréquence du laser et de la fréquence d'échantillonnage sélectionnée lors de l'acquisition du signal. Finalement, en remplissant une matrice avec chaque fréquence de résonance identifiée selon sa position, on obtient la cartographie des fréquences pour l'échantillon mesuré, en figure \ref{fig:tds2}.\\
+
+Dans le dossier de ce projet, on retrouve les fichiers:
+\begin{itemize}
+	\item \verb|TDS.py| qui contient les 3 premières parties du projet
+	\item \verb|TDS_MethFiltrage.py| qui trace l'évolution temporel du fichier "bad" ou "nice" ainsi que son spectre avec toutes les méthodes de filtrage implémentées dans le fichier principal
+	\item \verb|TDS_part4.py| qui importe les fichiers du dossier "Image" et trace l'image des fréquences Brillouin.
+\end{itemize}
 
 
 
@@ -562,19 +595,21 @@ La seconde classe à développer dans ce projet est la classe \verb|Lentille| co
 
 
 
+
+
 \newpage
 \addcontentsline{toc}{section}{Tables des figures}
 \listoffigures
 \newpage
 
 
-
-
-\section*{Annexes}
 \addcontentsline{toc}{section}{Annexes}
 \renewcommand{\thesubsection}{\Alph{subsection}}
 \appendix
-\subsection{Comparaison des différentes méthodes de filtrages pour le projet 4}
-\subsection{Représentation de la trajectoire des rayons dans les différents systèmes optiques}
+
+
+\includepdf[pagecommand={\subsection{Comparaison des différentes méthodes de filtrages pour le projet 4}}, scale=.8]{Figures/tds_methfilt.pdf}
+
+%\subsection{Représentation de la trajectoire des rayons dans les différents systèmes optiques}
 \end{document}
 

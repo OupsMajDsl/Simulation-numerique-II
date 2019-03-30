@@ -18,23 +18,21 @@
 \contentsline {subsubsection}{\numberline {3.1.1}Disposer les \IeC {\'e}l\IeC {\'e}ments dans une fen\IeC {\^e}tre}{12}
 \contentsline {subsubsection}{\numberline {3.1.2}Chargement de fichiers et trac\IeC {\'e} de donn\IeC {\'e}es}{13}
 \contentsline {subsection}{\numberline {3.2}Mode d'emploi de l'interface}{14}
-\contentsline {section}{\numberline {4}Traitement du signal et imagerie}{15}
-\contentsline {subsection}{\numberline {4.1}Traitement du signal acoustique picoseconde}{15}
-\contentsline {subsection}{\numberline {4.2}Filtrage du signal}{16}
-\contentsline {subsubsection}{\numberline {4.2.1}D\IeC {\'e}riv\IeC {\'e}e du signal}{17}
-\contentsline {subsubsection}{\numberline {4.2.2}Filtrage passe-bande}{17}
-\contentsline {subsubsection}{\numberline {4.2.3}Moyenne glissante}{17}
-\contentsline {subsubsection}{\numberline {4.2.4}Ajustement polynomiale}{17}
-\contentsline {subsubsection}{\numberline {4.2.5}Ajustement en exponentielle d\IeC {\'e}croissante}{17}
-\contentsline {subsection}{\numberline {4.3}Image de fr\IeC {\'e}quence Brillouin}{17}
-\contentsline {section}{\numberline {5}Optique g\IeC {\'e}om\IeC {\'e}trique}{18}
-\contentsline {subsection}{\numberline {5.1}Forme des dioptres}{18}
-\contentsline {subsection}{\numberline {5.2}Trajectoire des rayons pour une lentille convergente}{19}
-\contentsline {subsection}{\numberline {5.3}Trajectoire des rayons pour une lentille divergente}{19}
-\contentsline {subsection}{\numberline {5.4}Simulation de la trajectoire de rayons lumineux dans un syst\IeC {\`e}me optique}{19}
-\contentsline {subsubsection}{\numberline {5.4.1}Miroirs sph\IeC {\'e}riques concave et convexe}{19}
-\contentsline {subsubsection}{\numberline {5.4.2}Lentilles sph\IeC {\'e}riques biconcaves et biconvexes}{20}
-\contentsline {section}{Tables des figures}{22}
-\contentsline {section}{Annexes}{23}
-\contentsline {subsection}{\numberline {A}Comparaison des diff\IeC {\'e}rentes m\IeC {\'e}thodes de filtrages pour le projet 4}{23}
-\contentsline {subsection}{\numberline {B}Repr\IeC {\'e}sentation de la trajectoire des rayons dans les diff\IeC {\'e}rents syst\IeC {\`e}mes optiques}{23}
+\contentsline {section}{\numberline {4}Traitement du signal et imagerie}{16}
+\contentsline {subsection}{\numberline {4.1}Traitement du signal acoustique picoseconde}{16}
+\contentsline {subsection}{\numberline {4.2}Filtrage du signal}{17}
+\contentsline {subsubsection}{\numberline {4.2.1}D\IeC {\'e}riv\IeC {\'e}e du signal}{18}
+\contentsline {subsubsection}{\numberline {4.2.2}Filtrage passe-bande}{18}
+\contentsline {subsubsection}{\numberline {4.2.3}Moyenne glissante}{18}
+\contentsline {subsubsection}{\numberline {4.2.4}Ajustements: polynomiale \& exponentielle d\IeC {\'e}croissante}{18}
+\contentsline {subsection}{\numberline {4.3}Image de fr\IeC {\'e}quence Brillouin}{18}
+\contentsline {section}{\numberline {5}Optique g\IeC {\'e}om\IeC {\'e}trique}{20}
+\contentsline {subsection}{\numberline {5.1}Forme des dioptres}{20}
+\contentsline {subsection}{\numberline {5.2}Trajectoire des rayons pour une lentille convergente}{21}
+\contentsline {subsection}{\numberline {5.3}Trajectoire des rayons pour une lentille divergente}{21}
+\contentsline {subsection}{\numberline {5.4}Simulation de la trajectoire de rayons lumineux dans un syst\IeC {\`e}me optique}{21}
+\contentsline {subsubsection}{\numberline {5.4.1}Miroirs sph\IeC {\'e}riques concave et convexe}{21}
+\contentsline {subsubsection}{\numberline {5.4.2}Lentilles sph\IeC {\'e}riques biconcaves et biconvexes}{22}
+\contentsline {section}{Tables des figures}{24}
+\contentsline {section}{Annexes}{25}
+\contentsline {subsection}{\numberline {A}Comparaison des diff\IeC {\'e}rentes m\IeC {\'e}thodes de filtrages pour le projet 4}{25}
