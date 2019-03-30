@@ -32,7 +32,6 @@ class GUI(QDialog):
         self.ax = self.fig.add_subplot(111)
         self.data_init = np.zeros((10, 2))
 
-
         self.init_vars_1()
         self.init_vars_2()
         self.connectSignals()
@@ -43,6 +42,9 @@ class GUI(QDialog):
         msg = QMessageBox.warning(self, 'Erreur', "Le dossier chargé ne contient pas ce type de données")
     def NoDataLoaded(self):
         msg = QMessageBox.warning(self, 'Erreur', "Aucune donnée n'a été chargée")
+    
+    def waitingWindow(self):
+        self.wait = QMessageBox.warning(self, "Patientez...", "Veuillez patienter pendant le chargement du fichier")
 
     def init_vars_1(self):
         self.folder_1 = ""
@@ -52,7 +54,7 @@ class GUI(QDialog):
         self.titles = ["", ""]
         self.ylabels = ["", ""]
         self.xlabels = ["", ""]
-
+        self.ui.remove_1.setEnabled(False)
 
     def init_vars_2(self):
         self.folder_2 = ""
@@ -62,6 +64,7 @@ class GUI(QDialog):
         self.titles = ["", ""]
         self.ylabels = ["", ""]
         self.xlabels = ["", ""]
+        self.ui.remove_2.setEnabled(False)
 
 
 
@@ -98,10 +101,14 @@ class GUI(QDialog):
             self.ui.folder_status_1.setText("Dossier chargé -->"+folder)
             self.folder_1 = folder
             self.loaded_1 = True
+            self.ui.remove_1.setEnabled(True)
+
         elif sender.text() == "Dossier 2":
             self.ui.folder_status_2.setText("Dossier chargé -->"+folder)
             self.folder_2 = folder
             self.loaded_2 = True
+            self.ui.remove_2.setEnabled(True)
+
 
     def loadData(self):
         folder, data1, data2 = [[], [], []]
@@ -116,6 +123,9 @@ class GUI(QDialog):
 
         else:
             for i in range(len(folder)):
+                self.ui.waiting.setText("Chargement en cours...")
+                self.ui.actualiser.setEnabled(False)
+                self.ui.waiting.repaint()
                 if self.ui.comboBox.currentText() == "FRF":
                     try:
                         data1 = np.loadtxt(folder[i]+"/FRF_ModPhase.txt", skiprows=1)
@@ -151,6 +161,8 @@ class GUI(QDialog):
                 if i == 1:
                     self.data_folder_2 = [data1, data2]
 
+            self.ui.waiting.setText("")
+            self.ui.actualiser.setEnabled(True)
             if noerror:
                 self.plot()
             else:
@@ -237,7 +249,8 @@ class GUI(QDialog):
                     ax[i].set_ylabel(self.ylabels[i])
                 except AttributeError:
                     pass
-            ax[0].legend()
+
+                ax[i].legend()
 
         self.fig.tight_layout()
         self.canvas.draw()
@@ -246,8 +259,10 @@ class GUI(QDialog):
         sender = self.sender()
         if sender.objectName() == "remove_1":
             self.init_vars_1()
+
         elif sender.objectName() == "remove_2":
             self.init_vars_2()
+
         self.plot()
 
 def main():

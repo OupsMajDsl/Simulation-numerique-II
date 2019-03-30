@@ -164,27 +164,6 @@
      <item row="7" column="0" colspan="2">
       <widget class="QGroupBox" name="groupBox">
        <layout class="QGridLayout" name="gridLayout_3">
-        <item row="1" column="3">
-         <widget class="QCheckBox" name="logY">
-          <property name="text">
-           <string>log Y</string>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="2">
-         <widget class="QCheckBox" name="grid">
-          <property name="text">
-           <string>Quadrillage </string>
-          </property>
-         </widget>
-        </item>
-        <item row="0" column="3">
-         <widget class="QCheckBox" name="dbX">
-          <property name="text">
-           <string>log X</string>
-          </property>
-         </widget>
-        </item>
         <item row="1" column="0">
          <widget class="QPushButton" name="actualiser">
           <property name="maximumSize">
@@ -195,6 +174,29 @@
           </property>
           <property name="text">
            <string>Actualiser</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <spacer name="horizontalSpacer">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeType">
+           <enum>QSizePolicy::Fixed</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>50</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item row="1" column="3">
+         <widget class="QCheckBox" name="logY">
+          <property name="text">
+           <string>log Y</string>
           </property>
          </widget>
         </item>
@@ -209,6 +211,20 @@
           </property>
           <property name="text">
            <string>Options de tracé</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="2">
+         <widget class="QCheckBox" name="grid">
+          <property name="text">
+           <string>Quadrillage </string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="3">
+         <widget class="QCheckBox" name="dbX">
+          <property name="text">
+           <string>log X</string>
           </property>
          </widget>
         </item>
@@ -237,21 +253,12 @@
           </item>
          </widget>
         </item>
-        <item row="0" column="1">
-         <spacer name="horizontalSpacer">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
+        <item row="1" column="4">
+         <widget class="QLabel" name="waiting">
+          <property name="text">
+           <string/>
           </property>
-          <property name="sizeType">
-           <enum>QSizePolicy::Fixed</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>50</width>
-            <height>20</height>
-           </size>
-          </property>
-         </spacer>
+         </widget>
         </item>
        </layout>
       </widget>
