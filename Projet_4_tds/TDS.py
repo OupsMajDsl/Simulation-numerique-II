@@ -29,9 +29,15 @@ def find_nearest(array, value):
     return (np.abs(array - value)).argmin() 
 
 def pre_treatment(time, amp, meth="pol_fit", lst_param=[0, 20]):
+    # Noms des filtres proposés
     meths = ["diff", "filt", "moy_gliss", "pol_fit", "exp_fit"]
+    
+    # échantillonnage du vecteur temps 
     dt = time[1] - time[0]
+    # pas fréquentiel
     fs = 1/dt
+    # valeur de shannon-nyquist utilisée pour déterminer les low et 
+    # high - cut pour le filtre de butterworth 
     nyq = 0.5 * fs
 
     # méthode de la dérivée 
@@ -51,29 +57,36 @@ def pre_treatment(time, amp, meth="pol_fit", lst_param=[0, 20]):
     
     # if meth == meths[0]:
     #     return np.diff(amp)
+    # dérivation avec la méthode de numpy
 
     # Filtrage avec scipy
     if meth == meths[1]:    
         lowcut = lst_param[0] / nyq
         highcut = lst_param[1] / nyq
+        # coefficients pour le filtre
         num, denom = sig.butter(3, [lowcut, highcut], btype="bandpass")
+        # application des coefs au vect amp
         filtre = sig.filtfilt(num, denom, amp)
         return filtre
 
     # calcul de moyenne et filtrage
     if meth == meths[2]:
+        # 2 * n correspond au nombre de points de la fenêtre
         n = 20
         moy_amp = np.zeros_like(amp)
         for i in range(len(time)):
             if i < n:
+                # Fenêtre centrée sur la droite au début 
                 dbt_fen = i
                 fin_fen = i + n//2
             elif i > len(time) -n:
+                # centrée sur la gauche à la fin
                 dbt_fen = i - n//2
                 fin_fen = i
             else:
                 dbt_fen = i - n//2
                 fin_fen = i + n//2
+            # moyenne des points de la fenêtre
             avg = np.mean(amp[dbt_fen: fin_fen]) 
             moy_amp[i] = avg
         return moy_amp
