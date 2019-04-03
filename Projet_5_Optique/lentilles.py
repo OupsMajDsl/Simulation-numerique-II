@@ -5,8 +5,8 @@ class Lentille():
     def __init__(self, r=15, a=6):
         self.r = r
         self.a = a
-        #self.e = self.r - self.r * np.sqrt(1 - (((2 * self.a) ** 2) / (4 * (self.r **2))))
-        self.e = 5
+        self.e = self.r - self.r * np.sqrt(1 - (((2 * self.a) ** 2) / (4 * (self.r **2))))
+        # self.e = 10
         self.y = np.linspace(-self.a, self.a + 0.01, 100)
         self.x = np.sqrt(self.r**2 - self.y**2) - self.r + self.e
 # équation 2nd degré pour résolution
@@ -47,11 +47,16 @@ class Lentille():
                 x_r1 = self.r * np.cos(i_1) - self.r - self.e
                 x_r2 = - self.r * np.cos(i_2) + self.r + self.e
                 y_r1 = h + (x_r2 - x_r1) * np.tan(i_2 - i_1)
-
+                if abs(y_r1) > abs(self.a):
+                    x_r2 = lim
+                    y_r1 = h + (x_r2 - x_r1) * np.tan(i_2 - i_1)
                 i_2 = np.arcsin(n * (y_r1 / self.r))
                 y_r2 = y_r1 + (lim - x_r2) * np.tan(i_2 - i_1)
                 x = [-lim, x_r1, x_r2, lim]
-                y = [h, h, y_r1, y_r2]
+                y = [h   ,    h, y_r1, y_r2]
+                x_virt = [x_r2, -lim]
+                y_r2_virt = y_r1 - (lim - x_r2) * np.tan(i_2 - i_1)
+                y_virt = [y_r1, y_r2_virt]
 
             elif type_l == "convexe":
                 i_1 = np.arcsin(h / self.r)
@@ -60,26 +65,28 @@ class Lentille():
                 y_inf = h - (lim - x_r) * np.tan(i_2 - i_1)
                 x = [-10, x_r, lim]
                 y = [h, h, y_inf]
+                x_virt = []
+                y_virt = []
 
             elif type_l == "biconvexe":
-                i_1 = np.arcsin(h / self.r)
+                i_1 = np.arcsin((1/n) * (h / self.r))
                 i_2 = np.arcsin(n * (h / self.r))
-                x_r1 = - self.r * np.cos(i_1) + self.r - self.e
-                x_r2 = self.r * np.cos(i_1) - self.r + self.e
+                x_r1 = - self.r * np.cos(n * i_1) + self.r - self.e
+                x_r2 = - x_r1
                 y_r1 = h - (x_r2 - x_r1) * np.tan(i_2 - i_1)
                 i_1 = np.arcsin(n * (y_r1 / self.r))
                 i_2 = np.arcsin(y_r1 / self.r)
-                y_r2 = y_r1 + (lim - x_r2) * np.tan(i_2 - i_1)
+                y_r2 = y_r1 + (lim - x_r2) * np.tan(i_2 - n * i_1)
                 x = [-lim, x_r1, x_r2, lim]
                 y = [h, h, y_r1, y_r2]
-
-
-            return [x, y]
+                x_virt = []
+                y_virt = []
+            return [x, y, x_virt, y_virt]
 
 if __name__ == "__main__":
     # tests pour la classe lentille
-    fig, ax = plt.subplots()
-    rays = np.arange(-6, 6.1, 1)
+    fig, ax = plt.subplots(1, 1, figsize=(20, 15))
+    rays = np.arange(-6, 6.1, 0.1)
 
     l = Lentille(r=10, a=6)
     lent_biconv = l.biconvexe()
@@ -87,47 +94,14 @@ if __name__ == "__main__":
     lent_conv = l.convexe()
 
     for i in rays:
-        # r_v = l.rayon(type_l="convexe", h=i, n=1.5)
-        # ax.plot(r_v[0], r_v[1], 'b-', lw=0.5, alpha=0.5)
         r_c = l.rayon(type_l="convexe", h=i, n=1.5)
-        ax.plot(r_c[0], r_c[1], 'g-', lw=0.5)
+        # rayon réel
+        ax.plot(r_c[0], r_c[1], 'b', lw=0.5)
+        # rayon virtuel
+        ax.plot(r_c[2], r_c[3], 'r--', lw=0.5)
 
-    # ax.plot(lent_conv[0], lent_conv[1], 'k-', alpha=0.5)
-    ax.plot(lent_conv[0], lent_conv[1], 'm-')
+    ax.plot(lent_conv[0], lent_conv[1], 'k', lw=6)
 
     ax.grid()
-    ax.axis([-10, 37.5, -10, 10])
+    ax.axis([-15, 15, -10, 10])
     plt.show()
-
-
-    # def rayon_convexe(self, h=3, n=1.5):
-    #     lim = 200
-    #     if abs(h) > abs(self.a):
-    #         x = [-lim, lim]
-    #         y = [h, h]
-    #     else:
-    #         i_1 = np.arcsin(h / self.r)
-    #         i_2 = np.arcsin(n * (h / self.r))
-    #         x_refrac = self.r * np.cos(i_1) - self.r + self.e
-    #         x = [-10, x_refrac, fin_trace]
-    #         y_inf = h - (x[2] - x_refrac) * np.tan(i_2 - i_1)
-    #         y = [h, h, y_inf]
-    #     return [x, y]
-    
-    # def rayon_concave(self, h=3, n=1.5):
-    #     lim = 200
-    #     if abs(h) > abs(self.a):
-    #         x = [-10, lim]
-    #         y = [h, h]
-    #         refl = [None]
-    #     else:
-    #         i_1 = np.arcsin(h / self.r)
-    #         i_2 = np.arcsin(n * (h / self.r))
-    #         x_refrac = self.r * np.cos(i_1) - self.r + self.e
-    #         x = [-10, x_refrac, lim]
-    #         tanangle = np.tan(i_2 - i_1)
-    #         y_inf = ( (h / tanangle) - self.r * np.cos(i_1)) * tanangle
-    #         x_refl = (self.r - self.r * np.cos(i_1)) - (h / tanangle)
-    #         refl = [x_refrac, x_refl]
-    #         y = [h, h, y_inf]
-    #     return[x, y, refl]
