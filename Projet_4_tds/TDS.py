@@ -108,7 +108,7 @@ def pre_treatment(time, amp, meth="pol_fit", lst_param=[0, 20]):
 
 if __name__ == "__main__":
     # chemin du fichier à traiter
-    path = "/home/mathieu/OneDrive/Documents/S4/Sim_numerique/Projet_4_tds"
+    path = "Projet_4_tds"
     # nom du fichier à traiter
     filename = "time_rawsignals_84GPa_nice.txt"
     # avec bad, pic impulsionnel beaucoup plus élevé donc variations moins visibles

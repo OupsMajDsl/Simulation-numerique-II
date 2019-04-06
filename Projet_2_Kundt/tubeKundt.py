@@ -7,7 +7,7 @@ L = 10                          # Longueur du tube de Kundt en m
 r = 0.006                           # Diamètre du tube en m
 V_0 = 10                        # Vitesse d'oscillation du piston en x = 0
 f = 520                         # Fréquence du signal en Hz
-eta = 0.0						# tube ouvert pour 0
+eta = 0.3						# tube ouvert pour 0
 rho = 1.2                       # Densité du milieu en kg.m^-3
 c = 340                         # Célérité de l'onde 
 omega = 2 * np.pi * f           # Pulsation

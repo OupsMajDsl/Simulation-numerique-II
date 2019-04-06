@@ -7,7 +7,7 @@ import matplotlib.animation as animation
 Utilise la classe Balle du script 'class_multiball_2.py' pour tracer la trajectoire des balles
 """
 
-tot_ball = 50
+tot_ball = 15
 duree = 20
 x_pos = []
 y_pos = []
