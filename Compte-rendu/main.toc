@@ -1,38 +1,38 @@
 \babel@toc {french}{}
-\contentsline {section}{Introduction}{1}
-\contentsline {section}{Table des mati\IeC {\`e}res}{2}
-\contentsline {section}{\numberline {1}La balle}{3}
-\contentsline {subsection}{\numberline {1.1}Calculer la trajectoire}{3}
-\contentsline {subsection}{\numberline {1.2}Ajouter les rebonds}{4}
-\contentsline {subsubsection}{\numberline {1.2.1}Exemple de bug rencontr\IeC {\'e}: rebonds de la balle}{4}
-\contentsline {subsection}{\numberline {1.3}Plus de balles}{4}
-\contentsline {section}{\numberline {2}Le tube de Kundt}{7}
-\contentsline {subsection}{\numberline {2.1}Mise en \IeC {\'e}quation du champ acoustique dans le tube}{7}
-\contentsline {subsubsection}{\numberline {2.1.1}Conditions aux fronti\IeC {\`e}res}{7}
-\contentsline {subsubsection}{\numberline {2.1.2}Champ acoustique de pression et de vitesse dans le tube}{7}
-\contentsline {subsection}{\numberline {2.2}Mod\IeC {\'e}lisation du champ acoustique de pression et de vitesse particulaire sans pertes dans le tube}{8}
-\contentsline {subsection}{\numberline {2.3}Etude du coefficient de r\IeC {\'e}flexion $\mathaccentV {hat}05E{R}_p$}{8}
-\contentsline {subsection}{\numberline {2.4}Simulation du champ acoustique dans le tube avec prise en compte des ph\IeC {\'e}nom\IeC {\`e}nes de pertes}{9}
-\contentsline {section}{\numberline {3}L'interface du reste de ma vie}{12}
-\contentsline {subsection}{\numberline {3.1}Cr\IeC {\'e}er l'interface}{12}
-\contentsline {subsubsection}{\numberline {3.1.1}Disposer les \IeC {\'e}l\IeC {\'e}ments dans une fen\IeC {\^e}tre}{12}
-\contentsline {subsubsection}{\numberline {3.1.2}Chargement de fichiers et trac\IeC {\'e} de donn\IeC {\'e}es}{13}
-\contentsline {subsection}{\numberline {3.2}Mode d'emploi de l'interface}{14}
-\contentsline {section}{\numberline {4}Traitement du signal et imagerie}{16}
-\contentsline {subsection}{\numberline {4.1}Traitement du signal acoustique picoseconde}{16}
-\contentsline {subsection}{\numberline {4.2}Filtrage du signal}{17}
-\contentsline {subsubsection}{\numberline {4.2.1}D\IeC {\'e}riv\IeC {\'e}e du signal}{18}
-\contentsline {subsubsection}{\numberline {4.2.2}Filtrage passe-bande}{18}
-\contentsline {subsubsection}{\numberline {4.2.3}Moyenne glissante}{18}
-\contentsline {subsubsection}{\numberline {4.2.4}Ajustements: polynomiale \& exponentielle d\IeC {\'e}croissante}{18}
-\contentsline {subsection}{\numberline {4.3}Image de fr\IeC {\'e}quence Brillouin}{18}
-\contentsline {section}{\numberline {5}Optique g\IeC {\'e}om\IeC {\'e}trique}{20}
-\contentsline {subsection}{\numberline {5.1}Forme des dioptres}{20}
-\contentsline {subsection}{\numberline {5.2}Trajectoire des rayons pour une lentille convergente}{21}
-\contentsline {subsection}{\numberline {5.3}Trajectoire des rayons pour une lentille divergente}{21}
-\contentsline {subsection}{\numberline {5.4}Simulation de la trajectoire de rayons lumineux dans un syst\IeC {\`e}me optique}{21}
-\contentsline {subsubsection}{\numberline {5.4.1}Miroirs sph\IeC {\'e}riques concave et convexe}{21}
-\contentsline {subsubsection}{\numberline {5.4.2}Lentilles sph\IeC {\'e}riques biconcaves et biconvexes}{22}
+\contentsline {section}{Table des mati\IeC {\`e}res}{1}
+\contentsline {section}{\numberline {1}La balle}{2}
+\contentsline {subsection}{\numberline {1.1}Calculer la trajectoire}{2}
+\contentsline {subsection}{\numberline {1.2}Ajouter les rebonds}{3}
+\contentsline {subsubsection}{\numberline {1.2.1}Exemple de bug rencontr\IeC {\'e}: rebonds de la balle}{3}
+\contentsline {subsection}{\numberline {1.3}Plus de balles}{3}
+\contentsline {section}{\numberline {2}Le tube de Kundt}{6}
+\contentsline {subsection}{\numberline {2.1}Mise en \IeC {\'e}quation du champ acoustique dans le tube}{6}
+\contentsline {subsubsection}{\numberline {2.1.1}Conditions aux fronti\IeC {\`e}res}{6}
+\contentsline {subsubsection}{\numberline {2.1.2}Champ acoustique de pression et de vitesse dans le tube}{6}
+\contentsline {subsection}{\numberline {2.2}Mod\IeC {\'e}lisation du champ acoustique de pression et de vitesse particulaire sans pertes dans le tube}{7}
+\contentsline {subsection}{\numberline {2.3}Etude du coefficient de r\IeC {\'e}flexion $\mathaccentV {hat}05E{R}_p$}{7}
+\contentsline {subsection}{\numberline {2.4}Simulation du champ acoustique dans le tube avec prise en compte des ph\IeC {\'e}nom\IeC {\`e}nes de pertes}{8}
+\contentsline {section}{\numberline {3}L'interface du reste de ma vie}{11}
+\contentsline {subsection}{\numberline {3.1}Cr\IeC {\'e}er l'interface}{11}
+\contentsline {subsubsection}{\numberline {3.1.1}Disposition des \IeC {\'e}l\IeC {\'e}ments dans une fen\IeC {\^e}tre}{11}
+\contentsline {subsubsection}{\numberline {3.1.2}Chargement de fichiers et trac\IeC {\'e} de donn\IeC {\'e}es}{12}
+\contentsline {subsection}{\numberline {3.2}Mode d'emploi de l'interface}{13}
+\contentsline {section}{\numberline {4}Traitement du signal et imagerie}{15}
+\contentsline {subsection}{\numberline {4.1}Traitement du signal acoustique picoseconde}{15}
+\contentsline {subsection}{\numberline {4.2}Filtrage du signal}{16}
+\contentsline {subsubsection}{\numberline {4.2.1}D\IeC {\'e}riv\IeC {\'e}e du signal}{17}
+\contentsline {subsubsection}{\numberline {4.2.2}Filtrage passe-bande}{17}
+\contentsline {subsubsection}{\numberline {4.2.3}Moyenne glissante}{17}
+\contentsline {subsubsection}{\numberline {4.2.4}Ajustements: polynomiale \& exponentielle d\IeC {\'e}croissante}{17}
+\contentsline {subsection}{\numberline {4.3}Image de fr\IeC {\'e}quence Brillouin}{17}
+\contentsline {section}{\numberline {5}Optique g\IeC {\'e}om\IeC {\'e}trique}{19}
+\contentsline {subsection}{\numberline {5.1}Equations de la trajectoire d'un rayon lumineux}{19}
+\contentsline {subsubsection}{\numberline {5.1.1}Trajectoire des rayons pour une lentille convergente}{20}
+\contentsline {subsubsection}{\numberline {5.1.2}Trajectoire des rayons pour une lentille divergente}{20}
+\contentsline {subsection}{\numberline {5.2}Simulation de la trajectoire de rayons lumineux dans un syst\IeC {\`e}me optique}{20}
+\contentsline {subsubsection}{\numberline {5.2.1}Miroirs sph\IeC {\'e}riques concave et convexe}{20}
+\contentsline {subsubsection}{\numberline {5.2.2}Lentilles sph\IeC {\'e}riques biconcaves et biconvexes}{21}
+\contentsline {subsection}{\numberline {5.3}Perspectives de ce projet}{23}
 \contentsline {section}{Tables des figures}{24}
 \contentsline {section}{Annexes}{25}
 \contentsline {subsection}{\numberline {A}Comparaison des diff\IeC {\'e}rentes m\IeC {\'e}thodes de filtrages pour le projet 4}{25}

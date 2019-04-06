@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2019/dev/Debian) (preloaded format=pdflatex 2018.12.29)  30 MAR 2019 12:46
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2019/dev/Debian) (preloaded format=pdflatex 2018.12.29)  6 APR 2019 12:41
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -379,7 +379,32 @@ Package: lastpage 2015/03/29 v1.2m Refers to last page's name (HMM; JPG)
 (/usr/share/texlive/texmf-dist/tex/latex/newverbs/newverbs.sty
 Package: newverbs 2012/05/08 v1.3a Define new 'verb' commands and short verb. c
 haracters
-) (./main.aux)
+) (./main.aux
+
+LaTeX Warning: Label `fig:conc_pastig' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:conc_pastig' multiply defined.
+
+
+LaTeX Warning: Label `fig:conv_pastig' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:conv_pastig' multiply defined.
+
+
+LaTeX Warning: Label `fig:conc_stig' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:conc_stig' multiply defined.
+
+
+LaTeX Warning: Label `fig:conv_stig' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:conv_stig' multiply defined.
+
+)
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 44.
@@ -395,8 +420,7 @@ LaTeX Font Info:    ... okay on input line 44.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 44.
 LaTeX Font Info:    ... okay on input line 44.
 LaTeX Font Info:    Try loading font information for T1+lmr on input line 44.
-
-(/usr/share/texmf/tex/latex/lm/t1lmr.fd
+ (/usr/share/texmf/tex/latex/lm/t1lmr.fd
 File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Info: Redefining \degres on input line 44.
@@ -505,11 +529,6 @@ Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
 Package lastpage Info: Please have a look at the pageslts package at
 (lastpage)             https://www.ctan.org/pkg/pageslts
 (lastpage)             ! on input line 44.
-LaTeX Font Info:    Try loading font information for T1+lmss on input line 55.
-
-(/usr/share/texmf/tex/latex/lm/t1lmss.fd
-File: t1lmss.fd 2009/10/30 v1.6 Font defs for Latin Modern
-)
 <logo_univlemans.png, id=1, 1284.8pt x 347.2975pt>
 File: logo_univlemans.png Graphic file (type png)
 <use logo_univlemans.png>
@@ -518,38 +537,37 @@ Package pdftex.def Info: logo_univlemans.png  used on input line 62.
  [2
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./logo_univlemans.png>]
+LaTeX Font Info:    Try loading font information for T1+lmss on input line 76.
 
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 13.59999pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
+(/usr/share/texmf/tex/latex/lm/t1lmss.fd
+File: t1lmss.fd 2009/10/30 v1.6 Font defs for Latin Modern
+) (./main.toc
+LaTeX Font Info:    Try loading font information for OT1+lmr on input line 4.
 
-[1] (./main.toc
-LaTeX Font Info:    Try loading font information for OT1+lmr on input line 5.
- (/usr/share/texmf/tex/latex/lm/ot1lmr.fd
+(/usr/share/texmf/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OML+lmm on input line 5.
+LaTeX Font Info:    Try loading font information for OML+lmm on input line 4.
 
 (/usr/share/texmf/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 5.
+LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 4.
 
 (/usr/share/texmf/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMX+lmex on input line 5.
+LaTeX Font Info:    Try loading font information for OMX+lmex on input line 4.
 
 (/usr/share/texmf/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10.95> on input line 5.
+(Font)              <10.95> on input line 4.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 5.
+(Font)              <8> on input line 4.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 5.
+(Font)              <6> on input line 4.
 )
 \tf@toc=\write3
 \openout3 = `main.toc'.
@@ -561,15 +579,15 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[2]
-LaTeX Font Info:    Try loading font information for T1+lmtt on input line 90.
+[1]
+LaTeX Font Info:    Try loading font information for T1+lmtt on input line 88.
  (/usr/share/texmf/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-<Figures/imgtraject_fixe.pdf, id=25, 462.52798pt x 346.89601pt>
+<Figures/imgtraject_fixe.pdf, id=21, 462.52798pt x 346.89601pt>
 File: Figures/imgtraject_fixe.pdf Graphic file (type pdf)
 <use Figures/imgtraject_fixe.pdf>
-Package pdftex.def Info: Figures/imgtraject_fixe.pdf  used on input line 113.
+Package pdftex.def Info: Figures/imgtraject_fixe.pdf  used on input line 111.
 (pdftex.def)             Requested size: 231.26341pt x 173.44757pt.
 
 
@@ -578,11 +596,11 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[3 <./Figures/imgtraject_fixe.pdf>]
-<Figures/bug_classe_rebond.png, id=85, 553.06625pt x 437.635pt>
+[2 <./Figures/imgtraject_fixe.pdf>]
+<Figures/bug_classe_rebond.png, id=81, 553.06625pt x 437.635pt>
 File: Figures/bug_classe_rebond.png Graphic file (type png)
 <use Figures/bug_classe_rebond.png>
-Package pdftex.def Info: Figures/bug_classe_rebond.png  used on input line 131.
+Package pdftex.def Info: Figures/bug_classe_rebond.png  used on input line 129.
 
 (pdftex.def)             Requested size: 221.22258pt x 175.05089pt.
 
@@ -592,11 +610,11 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[4 <./Figures/bug_classe_rebond.png>]
-<Figures/multiball.png, id=89, 1084.05pt x 505.89pt>
+[3 <./Figures/bug_classe_rebond.png>]
+<Figures/multiball.png, id=85, 1084.05pt x 505.89pt>
 File: Figures/multiball.png Graphic file (type png)
 <use Figures/multiball.png>
-Package pdftex.def Info: Figures/multiball.png  used on input line 195.
+Package pdftex.def Info: Figures/multiball.png  used on input line 193.
 (pdftex.def)             Requested size: 512.14963pt x 239.01112pt.
 
 
@@ -605,18 +623,18 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[5]
+[4]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 13.59999pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[6 <./Figures/multiball.png>]
-<Figures/tubeKundt_schema.pdf, id=98, 261.3765pt x 118.041pt>
+[5 <./Figures/multiball.png>]
+<Figures/tubeKundt_schema.pdf, id=93, 261.3765pt x 118.041pt>
 File: Figures/tubeKundt_schema.pdf Graphic file (type pdf)
 <use Figures/tubeKundt_schema.pdf>
-Package pdftex.def Info: Figures/tubeKundt_schema.pdf  used on input line 213.
+Package pdftex.def Info: Figures/tubeKundt_schema.pdf  used on input line 211.
 (pdftex.def)             Requested size: 261.37584pt x 118.0407pt.
 
 
@@ -625,19 +643,19 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[7 <./Figures/tubeKundt_schema.pdf>]
-<Figures/tubeKundt_ssperte.pdf, id=126, 1340.60847pt x 712.58218pt>
+[6 <./Figures/tubeKundt_schema.pdf>]
+<Figures/tubeKundt_ssperte.pdf, id=122, 1340.60847pt x 712.58218pt>
 File: Figures/tubeKundt_ssperte.pdf Graphic file (type pdf)
 <use Figures/tubeKundt_ssperte.pdf>
-Package pdftex.def Info: Figures/tubeKundt_ssperte.pdf  used on input line 262.
+Package pdftex.def Info: Figures/tubeKundt_ssperte.pdf  used on input line 260.
 
 (pdftex.def)             Requested size: 512.14963pt x 272.23016pt.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 267.
-<Figures/coef_refl.pdf, id=127, 462.52798pt x 346.89601pt>
+(Font)              <12> on input line 265.
+<Figures/coef_refl.pdf, id=123, 462.52798pt x 346.89601pt>
 File: Figures/coef_refl.pdf Graphic file (type pdf)
 <use Figures/coef_refl.pdf>
-Package pdftex.def Info: Figures/coef_refl.pdf  used on input line 273.
+Package pdftex.def Info: Figures/coef_refl.pdf  used on input line 271.
 (pdftex.def)             Requested size: 512.14963pt x 384.13281pt.
 
 
@@ -646,29 +664,29 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[8 <./Figures/tubeKundt_ssperte.pdf>]
+[7 <./Figures/tubeKundt_ssperte.pdf>]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 13.59999pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[9 <./Figures/coef_refl.pdf>]
-<Figures/tubeKundt_dispers.png, id=229, 1340.6085pt x 712.5822pt>
+[8 <./Figures/coef_refl.pdf>]
+<Figures/tubeKundt_dispers.png, id=225, 1340.6085pt x 712.5822pt>
 File: Figures/tubeKundt_dispers.png Graphic file (type png)
 <use Figures/tubeKundt_dispers.png>
-Package pdftex.def Info: Figures/tubeKundt_dispers.png  used on input line 297.
+Package pdftex.def Info: Figures/tubeKundt_dispers.png  used on input line 295.
 
 (pdftex.def)             Requested size: 512.14963pt x 272.23016pt.
-<Figures/dispers.pdf, id=230, 709.69138pt x 346.89601pt>
+<Figures/dispers.pdf, id=226, 709.69138pt x 346.89601pt>
 File: Figures/dispers.pdf Graphic file (type pdf)
 <use Figures/dispers.pdf>
-Package pdftex.def Info: Figures/dispers.pdf  used on input line 309.
+Package pdftex.def Info: Figures/dispers.pdf  used on input line 307.
 (pdftex.def)             Requested size: 230.46576pt x 112.64987pt.
-<Figures/atten_dispers.pdf, id=231, 755.9442pt x 346.89601pt>
+<Figures/atten_dispers.pdf, id=227, 755.9442pt x 346.89601pt>
 File: Figures/atten_dispers.pdf Graphic file (type pdf)
 <use Figures/atten_dispers.pdf>
-Package pdftex.def Info: Figures/atten_dispers.pdf  used on input line 316.
+Package pdftex.def Info: Figures/atten_dispers.pdf  used on input line 314.
 (pdftex.def)             Requested size: 230.46576pt x 105.75813pt.
 
 
@@ -677,8 +695,8 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[10 <./Figures/tubeKundt_dispers.png> <./Figures/dispers.pdf> <./Figures/atten_
-dispers.pdf
+[9 <./Figures/tubeKundt_dispers.png> <./Figures/dispers.pdf> <./Figures/atten_d
+ispers.pdf
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Figures/atten_dispers.pdf): PDF inclu
 sion: multiple pdfs with page group included in a single page
@@ -689,18 +707,18 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[11]
+[10]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 13.59999pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[12]
-<Figures/interf_qt.png, id=353, 732.7375pt x 590.205pt>
+[11]
+<Figures/interf_qt.png, id=348, 732.7375pt x 590.205pt>
 File: Figures/interf_qt.png Graphic file (type png)
 <use Figures/interf_qt.png>
-Package pdftex.def Info: Figures/interf_qt.png  used on input line 362.
+Package pdftex.def Info: Figures/interf_qt.png  used on input line 360.
 (pdftex.def)             Requested size: 219.82294pt x 177.06287pt.
 
 
@@ -709,11 +727,11 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[13 <./Figures/interf_qt.png>]
-<Figures/interf_final.png, id=357, 1174.3875pt x 800.9925pt>
+[12 <./Figures/interf_qt.png>]
+<Figures/interf_final.png, id=353, 1174.3875pt x 800.9925pt>
 File: Figures/interf_final.png Graphic file (type png)
 <use Figures/interf_final.png>
-Package pdftex.def Info: Figures/interf_final.png  used on input line 390.
+Package pdftex.def Info: Figures/interf_final.png  used on input line 388.
 (pdftex.def)             Requested size: 352.31897pt x 240.29959pt.
 
 
@@ -722,23 +740,23 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[14 <./Figures/interf_final.png>]
+[13 <./Figures/interf_final.png>]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 13.59999pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[15]
-<Figures/TDS1.pdf, id=364, 1445.4pt x 1084.05pt>
+[14]
+<Figures/TDS1.pdf, id=360, 1445.4pt x 1084.05pt>
 File: Figures/TDS1.pdf Graphic file (type pdf)
 <use Figures/TDS1.pdf>
-Package pdftex.def Info: Figures/TDS1.pdf  used on input line 418.
+Package pdftex.def Info: Figures/TDS1.pdf  used on input line 416.
 (pdftex.def)             Requested size: 512.14963pt x 384.10435pt.
-<Figures/TDS1_bad.pdf, id=365, 1445.4pt x 1084.05pt>
+<Figures/TDS1_bad.pdf, id=361, 1445.4pt x 1084.05pt>
 File: Figures/TDS1_bad.pdf Graphic file (type pdf)
 <use Figures/TDS1_bad.pdf>
-Package pdftex.def Info: Figures/TDS1_bad.pdf  used on input line 425.
+Package pdftex.def Info: Figures/TDS1_bad.pdf  used on input line 423.
 (pdftex.def)             Requested size: 512.14963pt x 384.10435pt.
 
 
@@ -747,29 +765,29 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[16 <./Figures/TDS1.pdf>]
+[15 <./Figures/TDS1.pdf>]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 13.59999pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[17 <./Figures/TDS1_bad.pdf>]
+[16 <./Figures/TDS1_bad.pdf>]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 13.59999pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[18]
-<Figures/Brillouin_freq_map.pdf, id=479, 462.52798pt x 346.89601pt>
+[17]
+<Figures/Brillouin_freq_map.pdf, id=474, 462.52798pt x 346.89601pt>
 File: Figures/Brillouin_freq_map.pdf Graphic file (type pdf)
 <use Figures/Brillouin_freq_map.pdf>
-Package pdftex.def Info: Figures/Brillouin_freq_map.pdf  used on input line 462
+Package pdftex.def Info: Figures/Brillouin_freq_map.pdf  used on input line 460
 .
 (pdftex.def)             Requested size: 370.02287pt x 277.51718pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 467--468
+Underfull \hbox (badness 10000) in paragraph at lines 465--466
 
  []
 
@@ -779,16 +797,16 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[19 <./Figures/Brillouin_freq_map.pdf>]
-<Figures/schema_lent_conv.pdf, id=536, 399.40918pt x 410.64415pt>
+[18 <./Figures/Brillouin_freq_map.pdf>]
+<Figures/schema_lent_conv.pdf, id=532, 399.40918pt x 410.64415pt>
 File: Figures/schema_lent_conv.pdf Graphic file (type pdf)
 <use Figures/schema_lent_conv.pdf>
-Package pdftex.def Info: Figures/schema_lent_conv.pdf  used on input line 501.
+Package pdftex.def Info: Figures/schema_lent_conv.pdf  used on input line 499.
 (pdftex.def)             Requested size: 184.3733pt x 189.55652pt.
-<Figures/schema_lent_div.pdf, id=537, 443.12057pt x 386.84525pt>
+<Figures/schema_lent_div.pdf, id=533, 443.12057pt x 386.84525pt>
 File: Figures/schema_lent_div.pdf Graphic file (type pdf)
 <use Figures/schema_lent_div.pdf>
-Package pdftex.def Info: Figures/schema_lent_div.pdf  used on input line 508.
+Package pdftex.def Info: Figures/schema_lent_div.pdf  used on input line 506.
 (pdftex.def)             Requested size: 184.3733pt x 160.95686pt.
 
 
@@ -797,30 +815,30 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[20 <./Figures/schema_lent_conv.pdf> <./Figures/schema_lent_div.pdf>]
-<Figures/Figures_miroirs/conc_pastig.pdf, id=600, 1445.4pt x 1084.05pt>
+[19 <./Figures/schema_lent_conv.pdf> <./Figures/schema_lent_div.pdf>]
+<Figures/Figures_miroirs/conc_pastig.pdf, id=596, 1445.4pt x 1084.05pt>
 File: Figures/Figures_miroirs/conc_pastig.pdf Graphic file (type pdf)
 <use Figures/Figures_miroirs/conc_pastig.pdf>
 Package pdftex.def Info: Figures/Figures_miroirs/conc_pastig.pdf  used on input
- line 552.
+ line 551.
 (pdftex.def)             Requested size: 230.46576pt x 172.83951pt.
-<Figures/Figures_miroirs/conv_pastig.pdf, id=601, 1445.4pt x 1084.05pt>
+<Figures/Figures_miroirs/conv_pastig.pdf, id=597, 1445.4pt x 1084.05pt>
 File: Figures/Figures_miroirs/conv_pastig.pdf Graphic file (type pdf)
 <use Figures/Figures_miroirs/conv_pastig.pdf>
 Package pdftex.def Info: Figures/Figures_miroirs/conv_pastig.pdf  used on input
- line 559.
+ line 558.
 (pdftex.def)             Requested size: 230.46576pt x 172.83951pt.
-<Figures/Figures_miroirs/conc_stig.pdf, id=602, 1445.4pt x 1084.05pt>
+<Figures/Figures_miroirs/conc_stig.pdf, id=598, 1445.4pt x 1084.05pt>
 File: Figures/Figures_miroirs/conc_stig.pdf Graphic file (type pdf)
 <use Figures/Figures_miroirs/conc_stig.pdf>
 Package pdftex.def Info: Figures/Figures_miroirs/conc_stig.pdf  used on input l
-ine 566.
+ine 565.
 (pdftex.def)             Requested size: 230.46576pt x 172.83951pt.
-<Figures/Figures_miroirs/conv_stig.pdf, id=603, 1445.4pt x 1084.05pt>
+<Figures/Figures_miroirs/conv_stig.pdf, id=599, 1445.4pt x 1084.05pt>
 File: Figures/Figures_miroirs/conv_stig.pdf Graphic file (type pdf)
 <use Figures/Figures_miroirs/conv_stig.pdf>
 Package pdftex.def Info: Figures/Figures_miroirs/conv_stig.pdf  used on input l
-ine 573.
+ine 572.
 (pdftex.def)             Requested size: 230.46576pt x 172.83951pt.
 
 
@@ -829,12 +847,35 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[21]
-<Figures/bug_lentille.pdf, id=607, 462.52798pt x 346.89601pt>
-File: Figures/bug_lentille.pdf Graphic file (type pdf)
-<use Figures/bug_lentille.pdf>
-Package pdftex.def Info: Figures/bug_lentille.pdf  used on input line 589.
-(pdftex.def)             Requested size: 277.51892pt x 208.1392pt.
+[20]
+<Figures/Figures_lentilles/biconcave_pastig.pdf, id=603, 1339.16313pt x 691.623
+87pt>
+File: Figures/Figures_lentilles/biconcave_pastig.pdf Graphic file (type pdf)
+<use Figures/Figures_lentilles/biconcave_pastig.pdf>
+Package pdftex.def Info: Figures/Figures_lentilles/biconcave_pastig.pdf  used o
+n input line 591.
+(pdftex.def)             Requested size: 230.46576pt x 119.02031pt.
+<Figures/Figures_lentilles/biconvexe_pastig.pdf, id=604, 1339.16313pt x 691.623
+87pt>
+File: Figures/Figures_lentilles/biconvexe_pastig.pdf Graphic file (type pdf)
+<use Figures/Figures_lentilles/biconvexe_pastig.pdf>
+Package pdftex.def Info: Figures/Figures_lentilles/biconvexe_pastig.pdf  used o
+n input line 598.
+(pdftex.def)             Requested size: 230.46576pt x 119.02031pt.
+<Figures/Figures_lentilles/biconcave_stig.pdf, id=605, 1339.16313pt x 691.62387
+pt>
+File: Figures/Figures_lentilles/biconcave_stig.pdf Graphic file (type pdf)
+<use Figures/Figures_lentilles/biconcave_stig.pdf>
+Package pdftex.def Info: Figures/Figures_lentilles/biconcave_stig.pdf  used on 
+input line 605.
+(pdftex.def)             Requested size: 230.46576pt x 119.02031pt.
+<Figures/Figures_lentilles/biconvexe_stig.pdf, id=606, 1339.16313pt x 691.62387
+pt>
+File: Figures/Figures_lentilles/biconvexe_stig.pdf Graphic file (type pdf)
+<use Figures/Figures_lentilles/biconvexe_stig.pdf>
+Package pdftex.def Info: Figures/Figures_lentilles/biconvexe_stig.pdf  used on 
+input line 612.
+(pdftex.def)             Requested size: 230.46576pt x 119.02031pt.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -842,7 +883,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[22 <./Figures/Figures_miroirs/conc_pastig.pdf> <./Figures/Figures_miroirs/conv
+[21 <./Figures/Figures_miroirs/conc_pastig.pdf> <./Figures/Figures_miroirs/conv
 _pastig.pdf
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Figures/Figures_miroirs/conv_pastig.p
@@ -855,6 +896,35 @@ pdfTeX warning: /usr/bin/pdflatex (file ./Figures/Figures_miroirs/conc_stig.pdf
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Figures/Figures_miroirs/conv_stig.pdf
 ): PDF inclusion: multiple pdfs with page group included in a single page
+>]
+<Figures/bug_lentille.pdf, id=659, 462.52798pt x 346.89601pt>
+File: Figures/bug_lentille.pdf Graphic file (type pdf)
+<use Figures/bug_lentille.pdf>
+Package pdftex.def Info: Figures/bug_lentille.pdf  used on input line 634.
+(pdftex.def)             Requested size: 277.51892pt x 208.1392pt.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[22 <./Figures/Figures_lentilles/biconcave_pastig.pdf> <./Figures/Figures_lenti
+lles/biconvexe_pastig.pdf
+
+pdfTeX warning: /usr/bin/pdflatex (file ./Figures/Figures_lentilles/biconvexe_p
+astig.pdf): PDF inclusion: multiple pdfs with page group included in a single p
+age
+> <./Figures/Figures_lentilles/biconcave_stig.pdf
+
+pdfTeX warning: /usr/bin/pdflatex (file ./Figures/Figures_lentilles/biconcave_s
+tig.pdf): PDF inclusion: multiple pdfs with page group included in a single pag
+e
+> <./Figures/Figures_lentilles/biconvexe_stig.pdf
+
+pdfTeX warning: /usr/bin/pdflatex (file ./Figures/Figures_lentilles/biconvexe_s
+tig.pdf): PDF inclusion: multiple pdfs with page group included in a single pag
+e
 >]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -874,35 +944,35 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [24]
-<Figures/tds_methfilt.pdf, id=682, 1084.05pt x 1533.56937pt>
+<Figures/tds_methfilt.pdf, id=735, 1084.05pt x 1533.56937pt>
 File: Figures/tds_methfilt.pdf Graphic file (type pdf)
 <use Figures/tds_methfilt.pdf>
-Package pdftex.def Info: Figures/tds_methfilt.pdf  used on input line 611.
+Package pdftex.def Info: Figures/tds_methfilt.pdf  used on input line 653.
 (pdftex.def)             Requested size: 1084.04736pt x 1533.56564pt.
 File: Figures/tds_methfilt.pdf Graphic file (type pdf)
 <use Figures/tds_methfilt.pdf>
-Package pdftex.def Info: Figures/tds_methfilt.pdf  used on input line 611.
+Package pdftex.def Info: Figures/tds_methfilt.pdf  used on input line 653.
 (pdftex.def)             Requested size: 1084.04736pt x 1533.56564pt.
-<Figures/tds_methfilt.pdf, id=685, page=1, 1084.05pt x 1533.56937pt>
+<Figures/tds_methfilt.pdf, id=738, page=1, 1084.05pt x 1533.56937pt>
 File: Figures/tds_methfilt.pdf Graphic file (type pdf)
 <use Figures/tds_methfilt.pdf, page 1>
-Package pdftex.def Info: Figures/tds_methfilt.pdf , page1 used on input line 61
-1.
+Package pdftex.def Info: Figures/tds_methfilt.pdf , page1 used on input line 65
+3.
 (pdftex.def)             Requested size: 1084.04736pt x 1533.56564pt.
 File: Figures/tds_methfilt.pdf Graphic file (type pdf)
 <use Figures/tds_methfilt.pdf, page 1>
-Package pdftex.def Info: Figures/tds_methfilt.pdf , page1 used on input line 61
-1.
+Package pdftex.def Info: Figures/tds_methfilt.pdf , page1 used on input line 65
+3.
 (pdftex.def)             Requested size: 867.2412pt x 1226.8572pt.
 File: Figures/tds_methfilt.pdf Graphic file (type pdf)
 <use Figures/tds_methfilt.pdf, page 1>
-Package pdftex.def Info: Figures/tds_methfilt.pdf , page1 used on input line 61
-1.
+Package pdftex.def Info: Figures/tds_methfilt.pdf , page1 used on input line 65
+3.
 (pdftex.def)             Requested size: 867.2412pt x 1226.8572pt.
 File: Figures/tds_methfilt.pdf Graphic file (type pdf)
 <use Figures/tds_methfilt.pdf, page 1>
-Package pdftex.def Info: Figures/tds_methfilt.pdf , page1 used on input line 61
-1.
+Package pdftex.def Info: Figures/tds_methfilt.pdf , page1 used on input line 65
+3.
 (pdftex.def)             Requested size: 867.2412pt x 1226.8572pt.
 
 
@@ -913,40 +983,43 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
 File: Figures/tds_methfilt.pdf Graphic file (type pdf)
 <use Figures/tds_methfilt.pdf, page 1>
-Package pdftex.def Info: Figures/tds_methfilt.pdf , page1 used on input line 61
-1.
+Package pdftex.def Info: Figures/tds_methfilt.pdf , page1 used on input line 65
+3.
 (pdftex.def)             Requested size: 867.2412pt x 1226.8572pt.
 [25 <./Figures/tds_methfilt.pdf>] 
 AED: lastpage setting LastPage
-(./main.aux) ) 
+(./main.aux)
+
+LaTeX Warning: There were multiply-defined labels.
+
+ ) 
 Here is how much of TeX's memory you used:
- 7617 strings out of 492641
- 113425 string characters out of 6131786
- 207225 words of memory out of 5000000
- 11309 multiletter control sequences out of 15000+600000
- 76824 words of font info for 49 fonts, out of 8000000 for 9000
+ 7639 strings out of 492641
+ 114428 string characters out of 6131786
+ 207245 words of memory out of 5000000
+ 11326 multiletter control sequences out of 15000+600000
+ 74035 words of font info for 48 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 42i,19n,46p,1296b,485s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texmf/
-fonts/enc/dvips/lm/lm-mathit.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-rm.enc
-}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/share/texmf/fonts/enc
-/dvips/lm/lm-mathex.enc}</usr/share/texmf/fonts/type1/public/lm/lmbx10.pfb></us
-r/share/texmf/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf/fonts/type1/pu
-blic/lm/lmcsc10.pfb></usr/share/texmf/fonts/type1/public/lm/lmex10.pfb></usr/sh
-are/texmf/fonts/type1/public/lm/lmmi10.pfb></usr/share/texmf/fonts/type1/public
-/lm/lmmi12.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi6.pfb></usr/share/te
-xmf/fonts/type1/public/lm/lmmi8.pfb></usr/share/texmf/fonts/type1/public/lm/lmr
-10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf/font
-s/type1/public/lm/lmr17.pfb></usr/share/texmf/fonts/type1/public/lm/lmr8.pfb></
-usr/share/texmf/fonts/type1/public/lm/lmri10.pfb></usr/share/texmf/fonts/type1/
-public/lm/lmss10.pfb></usr/share/texmf/fonts/type1/public/lm/lmss17.pfb></usr/s
-hare/texmf/fonts/type1/public/lm/lmssbx10.pfb></usr/share/texmf/fonts/type1/pub
-lic/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy8.pfb></usr/share
-/texmf/fonts/type1/public/lm/lmtt10.pfb>
-Output written on main.pdf (26 pages, 1410798 bytes).
+ 42i,19n,46p,1296b,496s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texmf/fonts/enc/dv
+ips/lm/lm-mathit.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share
+/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm
+-mathex.enc}</usr/share/texmf/fonts/type1/public/lm/lmbx10.pfb></usr/share/texm
+f/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf/fonts/type1/public/lm/lmcs
+c10.pfb></usr/share/texmf/fonts/type1/public/lm/lmex10.pfb></usr/share/texmf/fo
+nts/type1/public/lm/lmmi10.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi12.p
+fb></usr/share/texmf/fonts/type1/public/lm/lmmi6.pfb></usr/share/texmf/fonts/ty
+pe1/public/lm/lmmi8.pfb></usr/share/texmf/fonts/type1/public/lm/lmr10.pfb></usr
+/share/texmf/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf/fonts/type1/publ
+ic/lm/lmr17.pfb></usr/share/texmf/fonts/type1/public/lm/lmr8.pfb></usr/share/te
+xmf/fonts/type1/public/lm/lmri10.pfb></usr/share/texmf/fonts/type1/public/lm/lm
+ss10.pfb></usr/share/texmf/fonts/type1/public/lm/lmssbx10.pfb></usr/share/texmf
+/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy8
+.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt10.pfb>
+Output written on main.pdf (26 pages, 1418979 bytes).
 PDF statistics:
- 808 PDF objects out of 1000 (max. 8388607)
- 270 compressed objects within 3 object streams
+ 857 PDF objects out of 1000 (max. 8388607)
+ 288 compressed objects within 3 object streams
  0 named destinations out of 1000 (max. 500000)
- 131 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 151 words of extra memory for PDF output out of 10000 (max. 10000000)
 

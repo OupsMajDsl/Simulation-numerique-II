@@ -33,11 +33,11 @@
 \rfoot{\textcolor{mycolor}{\textsf{Page \thepage / \pageref{LastPage}}}}
  
 \rhead{
-	\textcolor{mycolor}{\textsf{Mathieu MARÉCHAL}}
+	\textcolor{mycolor}{\textsf{\rightmark}}
 } 
 
 \lhead{
-	\textcolor{mycolor}{\textsf{Simulation numérique II -- Compte-rendu des projets}}
+	\textcolor{mycolor}{\textsf{Simulation numérique II -- Mathieu MARÉCHAL}}
 }
 
 
@@ -52,7 +52,7 @@
 				\vskip 3.5cm
 					\rule{\linewidth}{0.2mm}\vspace{6mm}\\
 			\textbf{\Huge{}}
-			\Huge{\textsf{Compte-rendu des projets}}
+			\Huge{Compte-rendu des projets}
 						\rule{\linewidth}{0.2mm}\vspace{3mm}\\
 				\vskip 4.5cm
 			\LARGE{Encadrants: C. Desjouy, S. Raetz\\L2 SPI\\ 2018 - 2019\\}
@@ -66,17 +66,15 @@
 		\end{center}
 	\end{titlepage}
 	
-\newpage
-\addcontentsline{toc}{section}{Introduction}
-\section*{Introduction}
+%\newpage
+%\addcontentsline{toc}{section}{Introduction}
+%\section*{Introduction}
 
 
 \newpage
 \addcontentsline{toc}{section}{Table des matières}
 \tableofcontents
 \newpage
-
-
 
 
 
@@ -338,7 +336,7 @@ Pour ce troisième projet, nous allons créer une interface permettant de charge
 
 La première étape est assez simple: demander à l'utilisateur le chemin du fichier à charger et le tracer demande seulement quelques lignes en utilisant l'instruction \verb|data = np.loadtxt(filename)| où \verb|filename| est une chaîne de caractères contenant le chemin du fichier texte à charger. Ensuite, il suffit de créer une figure avec matplotlib pour la tracer.
 
-La seconde et principale étape est plus délicate: il faut utiliser un module permettant de créer une interface graphique pour qui utilise ces fonctions. Il existe de nombreux modules qui permettent de créer des GUI (graphical user interface) tels que Tkinter, PyQt, Kivy ou beaucoup d'autres. Mon choix s'est porté sur le module PyQt pour sa simplicité à utiliser avec des classes, et pour le fait qu'il permette de faire plus simplement une belle interface que Tkinter, qui est assez brut. La difficulté de ce module reste tout de même que la documentation est en C et non en python, mais de nombreux exemples et tutoriels existent pour prendre en main ce module. Enfin, j'ai choisi ce module car il comprend une intégration plutôt simple de Matplotlib, que ce soit pour la figure ou la barre d'outils.
+La seconde et principale étape est plus délicate: il faut utiliser un module permettant de créer une interface graphique pour qui utilise ces fonctions. Il existe de nombreux modules qui permettent de créer des GUI (graphical user interface) tels que Tkinter, PyQt, Kivy ou beaucoup d'autres. Mon choix s'est porté sur le module PyQt pour sa simplicité à utiliser avec des classes. La difficulté de ce module reste tout de même que la documentation est en C et non en python, mais de nombreux exemples et tutoriels existent pour prendre en main ce module. Enfin, j'ai choisi ce module car il comprend une intégration plutôt simple de Matplotlib, que ce soit pour la figure ou la barre d'outils.
 
 \subsection{Créer l'interface}
 
@@ -351,7 +349,7 @@ Le programme de l'interface est donc construit sous la forme d'une classe "GUI",
 
 Le choix d'utiliser \verb|QDialog| est relativement arbitraire mais est justifié par le fait que pour le développement de cette interface, il nous faut avoir la possibilité de faire afficher une fenêtre "enfant" pour afficher l'arborescence du disque et choisir un fichier à tracer au lieu de devoir chercher le chemin de chaque fichier, c'est l'objectif premier de cette interface. Il n'est pas possible d'ouvrir une boîte de dialogue avec \verb|QWidget|. Enfin, \verb|QMainWindow| paraît un peu exagéré: une barre d'outils/ de menus est inutile pour une interface de cette taille.
 
-\subsubsection{Disposer les éléments dans une fenêtre}
+\subsubsection{Disposition des éléments dans une fenêtre}
 
 Pour commencer et avant de travailler l'algorithmique derrière l'interface, il s'agit de créer les boutons et les différents espaces de la fenêtre. Pour cela, PyQt possède une fonctionnalité intéressante: les layouts. Les layouts sont des espaces pouvant contenir des objets comme des boutons, un menu déroulant, du texte ou des cases à cocher, permettant d'utiliser un placement relatif pour tous ces objets plutôt qu'une disposition absolue (où chaque bouton est placé selon des coordonnées précises sur la fenêtre). Pour créer la fenêtre initiale, il y a 2 méthodes: la première est de tout faire en ligne de code et à la main. Chaque bouton est ainsi créé, paramétré et placé manuellement dans son layout. Cette méthode est assez longue et rend le programme de l'interface très long et peu lisible. 
 
@@ -485,7 +483,7 @@ L'objectif de ce projet est donc de mettre en évidence ce phénomène pour: les
 
 Par la suite, en réfléchissant aux différentes étapes du problème, j'ai réalisé que la difficulté de ce projet n'est pas de nature algorithmique mais géométrique. En effet, pour calculer la trajectoire de rayons lumineux à travers ces lentilles et miroirs, il s'agit d'abord d'établir des relations géométriques donnant la trajectoire de ces rayons. En implémentant ces trajectoires, il ne reste plus qu'à tracer les systèmes optiques avec les rayons associés.
 
-\subsection{Forme des dioptres}
+\subsection{Equations de la trajectoire d'un rayon lumineux}
 Tout d'abord, il s'agit de tracer les différents éléments optique. Tous les éléments pour lesquels les conditions de stigmatisme sont à illustrer sont constitués d'un ou plusieurs dioptre, qui est soit concave, soit convexe. Pour déterminer toutes les relations mathématiques et géométrique nécessaire au calcul de la trajectoire des rayons, des schémas sont présentés en figure \ref{fig:schema_lentilles}. Il est possible de réaliser les calculs de trajectoires pour ces 2 objets seulement et d'en déduire tous les autres à partir des relations mathématiques et géométrique établies pour ces 2 lentilles. Pour cela, des schémas sont présentés en figure \ref{fig:schema_lentilles}.
 
 Tout d'abord, il s'agit d'établir l'équation décrivant la portion de cercle du dioptre en question. L'équation est donc, à partir de l'équation cartésienne du cercle,
@@ -513,7 +511,7 @@ puisque l'origine du repère considéré est placé au niveau du point minimum d
     \caption{Schémas et notations pour les 2 types de dioptres, ici des lentilles}\label{fig:schema_lentilles}
 \end{figure}
 
-\subsection{Trajectoire des rayons pour une lentille convergente}
+\subsubsection{Trajectoire des rayons pour une lentille convergente}
 Pour connaître la trajectoire des rayons dans ce cas, le schéma de la figure \ref{fig:schema_lent_conv} est utilisé. Le schéma permet de remarquer que seulement 3 points sont nécessaire pour tracer un rayon: le point d'origine (considéré à l'infini), le point d'intersection sur le dioptre et le point à l'infini vers les x croissants. Dans le programme, deux listes seront alors déclarées:
 \begin{verbatim}
 	x = [-lim, x_m, lim]
@@ -536,8 +534,9 @@ Pour calculer la hauteur du point F, on pose un point C représenté sur le sch�
 
 Enfin, d'après la loi de Snell-Descartes, $\text{sin}(i_1) = n \text{sin}(i_2)$, avec n, l'indice de réfraction du matériau. Or, $i_1 = \text{arcsin}\big( \frac{h}{r}\big)$, donc $i_2 = \text{arcsin}\big( n \frac{h}{r}\big)$
 
-\subsection{Trajectoire des rayons pour une lentille divergente}
-Pour une lentille divergente, les calculs sont identiques mais comme le rayon réel diverge de l'axe optique, $y_f$ s'exprime comme étant $y_f = h + (x_{max} - x_m) \: \text{tan} (i_2 - i_1)$, ce qui est logique avec la représentation visuelle. L'autre point à exprimer dans ce cas, est la trajectoire du rayon virtuel réfléchi. Cependant ce rayon a la trajectoire inverse du rayon divergent réel, donc le tracé ne pose pas de problème: on pourra déclarer la hauteur du rayon virtuel réfléchi comme \verb|y_refl = -y_f|.
+\subsubsection{Trajectoire des rayons pour une lentille divergente}
+Pour une lentille divergente, les calculs sont identiques mais comme le rayon réel diverge de l'axe optique, $y_f$ s'exprime comme étant $y_f = h + (x_{max} - x_m) \: \text{tan} (i_2 - i_1)$,
+c'est-à-dire que le rayon a une pente positive au lieu d'une pente négative comme le cas d'une lentille convergente, ce qui est logique avec la représentation visuelle. L'autre point à exprimer dans ce cas, est la trajectoire du rayon virtuel réfléchi. Cependant ce rayon a la trajectoire inverse du rayon divergent réel, donc le tracé ne pose pas de problème: on pourra déclarer la hauteur du rayon virtuel réfléchi comme \verb|y_refl = -y_f|.
 
 \subsection{Simulation de la trajectoire de rayons lumineux dans un système optique}
 Pour cette dernière étape, il reste à créer le programme. L'idée est de créer 2 classes, une pour les miroirs et l'autres pour les lentilles. 
@@ -575,27 +574,71 @@ La classe \verb|Miroir| est très simple: les variables d'initialisation sont le
 		\label{fig:conv_stig}
     \end{subfigure}
 
-    \caption{Miroirs sphériques concave et convexe dans les cas où le faisceau lumineux est large ou fin}\label{fig:mir_nnstig}
+    \caption{Miroirs sphériques concave et convexe dans les cas où le faisceau lumineux est large ou fin}
+    \label{fig:miroirs}
 \end{figure}
 
-Les figures n'étant pas suffisamment visibles dans ce format, elles sont aussi présentées en annexe et peuvent être affichés en compilant les scripts python dans le dossier du projet 5. Il apparaît ici que les dioptres en question (ici des miroirs) peuvent être considérés comme des systèmes stigmatiques approchés quand les rayons lumineux sont situés vers le centre du miroir sphérique. Pour la hauteur du faisceau, le rayon de la lentille est très élevé (on peut même dire que $r \longrightarrow \infty$) donc le miroir sphérique se comporte comme un miroir plan, qui est un système stigmatique. Or, d'après le cours d'optique géométrique de L1 SPI, si la taille du faisceau est négligeable devant le rayon du dioptre, alors le système est dit "dans les conditions de Gauss". On peut donc en conclure à l'aide de ces illustrations qu'un système optique peut être considéré comme stigmatique dans les conditions de Gauss, c'est-à-dire quand le faisceau est localisé au centre du système optique et pas sur les bords.
+Il apparaît ici que les dioptres en question (ici des miroirs) peuvent être considérés comme des systèmes stigmatiques approchés quand les rayons lumineux sont situés vers le centre du miroir sphérique. Pour la hauteur du faisceau, le rayon de la lentille est très élevé (on peut même dire que $r \longrightarrow \infty$) donc le miroir sphérique se comporte comme un miroir plan, qui est un système stigmatique. Or, d'après le cours d'optique géométrique de L1 SPI, si la taille du faisceau est négligeable devant le rayon du dioptre, alors le système est dit "dans les conditions de Gauss". On peut donc en conclure à l'aide de ces illustrations qu'un système optique peut être considéré comme stigmatique dans les conditions de Gauss, c'est-à-dire quand le faisceau est localisé au centre du système optique et pas sur les bords.
 
 
 \subsubsection{Lentilles sphériques biconcaves et biconvexes}
-La seconde classe à développer dans ce projet est la classe \verb|Lentille| comprenant des méthodes afin de tracer les différents types de lentilles: \verb|biconcave|, \verb|biconvexe| et \verb|convexe| (pour tester les formules trigonométrique établies précédemment) ainsi qu'une méthode \verb|rayon| qui calcule les trajectoires pour chaque cas.
+La seconde classe à développer dans ce projet est la classe \verb|Lentille| comprenant des méthodes afin de tracer les différents types de lentilles: \verb|biconcave| et \verb|biconvexe| ainsi qu'une méthode \verb|rayon| qui calcule les trajectoires des rayons lumineux pour chaque cas. Les cas permettant de mettre en évidence le stigmatisme sont réutilisés ici, donc il y a une figure pour chacun des 2 dioptres pour chaque cas: pour un faisceau large et un faisceau fin. Ces 4 cas sont présentés en figure \ref{fig:lentilles}. 
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[t]{0.45\linewidth}
+    	\centering
+		\includegraphics[width=\linewidth]{Figures/Figures_lentilles/biconcave_pastig.pdf}
+		\caption{Lentille biconcave avec faisceau large}
+		\label{fig:conc_pastig} 
+    \end{subfigure}
+    ~
+    \begin{subfigure}[t]{0.45\linewidth}
+    	\centering
+		\includegraphics[width=\linewidth]{Figures/Figures_lentilles/biconvexe_pastig.pdf}
+		\caption{Lentille biconvexe avec faisceau large}
+		\label{fig:conv_pastig} 
+    \end{subfigure}
+\hfill
+    \begin{subfigure}[t]{0.45\linewidth}
+    	\centering
+		\includegraphics[width=\linewidth]{Figures/Figures_lentilles/biconcave_stig.pdf}
+		\caption{Lentille biconcave avec faisceau fin}
+		\label{fig:conc_stig}
+    \end{subfigure}
+    ~
+    \begin{subfigure}[t]{0.45\linewidth}
+    	\centering
+		\includegraphics[width=\linewidth]{Figures/Figures_lentilles/biconvexe_stig.pdf}
+		\caption{Lentille biconvexe avec faisceau fin}
+		\label{fig:conv_stig}
+    \end{subfigure}
+
+    \caption{Lentilles sphériques biconcave et biconvexe dans les cas où le faisceau lumineux est large ou fin}
+    \label{fig:lentilles}
+\end{figure}
+
+Pour obtenir ces figures, les mêmes relations géométrique que celles définies pour la partie des miroirs sphériques sont réutilisées, avec quelques variations. Ainsi, on peut réutiliser le code créé pour les miroirs pour calculer les coordonnées des points pour ces 2 types de lentilles. Les coordonnées des points et angles à définir sont:
+\begin{itemize}
+	\item la coordonnée en $x$ du rayon, où celui-ci est transmis, \verb|x_r1|
+	\item l'angle de réflexion sur le premier dioptre, \verb|i_2|
+	\item les coordonnées $x$ et $y$ du rayon quand il atteint le deuxième dioptre, \verb|x_r2| et \verb|y_r1|
+	\item l'angle de réflexion sur le deuxième dioptre, \verb|i_2|
+	\item la hauteur du rayon à la limite \verb|y_r2|
+\end{itemize}
+
+Tous les calculs de ces points sont réalisés en réutilisant les formules utilisées pour les miroirs avec quelques changements. Cette méthode est certes rapide, mais peu précise et rend le code permettant de tracer ces figures difficile à lire et à exploiter. De plus, l'adaptation des formules demande de changer les signes des formules, engendrant quelques bugs tel que celui représenté en figure \ref{fig:bug_lentille}.
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.6]{Figures/bug_lentille.pdf}
-	\caption{Bug lentille}
+	\caption{Problème rencontré lors du calcul des différents points nécessaire au tracé des rayons à travers une lentille biconvexe}
 	\label{fig:bug_lentille}
 \end{figure}
 
 
-
-
-
-
+\subsection{Perspectives de ce projet}
+A partir de ces simulations simples, de nouvelles méthodes pourraient être implémentées afin de créer un programme plus complexe et plus complet sur l'optique géométrique. Tout d'abord, les paramètres pouvant être changé dans cette version pourraient l'être plus simplement dans une interface où l'utilisateur pourrait choisir le type de lentille, son épaisseur, son rayon, etc. ainsi que la hauteur du faisceau traversant ce dioptre. Il serait possible d'ajouter la possibilité de calculer la trajectoire d'un rayon lumineux d'un objet ponctuel et non à l'infini. Finalement, une des fonctionnalités les plus intéressantes à ajouter serait la possibilité de placer plusieurs dioptres les uns à la suite des autres, pour pouvoir simuler des systèmes optiques plus complexes tels qu'un télescope par exemple.
 
 \newpage
 \addcontentsline{toc}{section}{Tables des figures}
@@ -606,7 +649,6 @@ La seconde classe à développer dans ce projet est la classe \verb|Lentille| co
 \addcontentsline{toc}{section}{Annexes}
 \renewcommand{\thesubsection}{\Alph{subsection}}
 \appendix
-
 
 \includepdf[pagecommand={\subsection{Comparaison des différentes méthodes de filtrages pour le projet 4}}, scale=.8]{Figures/tds_methfilt.pdf}
 

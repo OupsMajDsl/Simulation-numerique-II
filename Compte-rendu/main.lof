@@ -1,18 +1,19 @@
 \babel@toc {french}{}
-\contentsline {figure}{\numberline {1}{\ignorespaces Trajectoire fixe d'une balle\relax }}{3}
-\contentsline {figure}{\numberline {2}{\ignorespaces Exemple de bug au moment de prendre en compte les rebonds pour la balle\relax }}{4}
-\contentsline {figure}{\numberline {3}{\ignorespaces Comparaison des 2 versions du programme animant plusieurs projectiles\relax }}{5}
-\contentsline {figure}{\numberline {4}{\ignorespaces Capture d'\IeC {\'e}cran \IeC {\`a} un instant de la simulation pour 200 balles\relax }}{6}
-\contentsline {figure}{\numberline {5}{\ignorespaces Sch\IeC {\'e}matisation du tube de Kundt\relax }}{7}
-\contentsline {figure}{\numberline {6}{\ignorespaces Capture d'\IeC {\'e}cran de la simulation du tube de Kundt sans pertes\relax }}{8}
-\contentsline {figure}{\numberline {7}{\ignorespaces Repr\IeC {\'e}sentation des modules, phase, parties r\IeC {\'e}elles et imaginaire du coefficient de r\IeC {\'e}flexion dans un plan ($\eta $, $f$)\relax }}{9}
-\contentsline {figure}{\numberline {8}{\ignorespaces Capture d'\IeC {\'e}cran de la simulation du champ acoustique dans le tube en prenant en compte les ph\IeC {\'e}nom\IeC {\`e}nes de pertes\relax }}{10}
-\contentsline {figure}{\numberline {9}{\ignorespaces Ph\IeC {\'e}nom\IeC {\`e}nes de pertes dans diff\IeC {\'e}rentes configurations pour un tube de Kundt\relax }}{10}
-\contentsline {figure}{\numberline {10}{\ignorespaces Capture d'\IeC {\'e}cran de l'interface du projet 3 r\IeC {\'e}alis\IeC {\'e}e avec Qt Designer\relax }}{13}
-\contentsline {figure}{\numberline {11}{\ignorespaces Capture d'\IeC {\'e}cran de l'interface final du projet 3\relax }}{14}
-\contentsline {figure}{\numberline {12}{\ignorespaces Repr\IeC {\'e}sentation et traitement du signal acoustique picoseconde selon les diff\IeC {\'e}rentes m\IeC {\'e}thodes demand\IeC {\'e}es avec un filtrage passe-bande\relax }}{16}
-\contentsline {figure}{\numberline {13}{\ignorespaces Repr\IeC {\'e}sentation et traitement du signal acoustique picoseconde selon les diff\IeC {\'e}rentes m\IeC {\'e}thodes demand\IeC {\'e}es avec un filtrage passe-bande\relax }}{17}
-\contentsline {figure}{\numberline {14}{\ignorespaces Image de fr\IeC {\'e}quence Brillouin\relax }}{19}
-\contentsline {figure}{\numberline {15}{\ignorespaces Sch\IeC {\'e}mas et notations pour les 2 types de dioptres, ici des lentilles\relax }}{20}
-\contentsline {figure}{\numberline {16}{\ignorespaces Miroirs sph\IeC {\'e}riques concave et convexe dans les cas o\IeC {\`u} le faisceau lumineux est large ou fin\relax }}{22}
-\contentsline {figure}{\numberline {17}{\ignorespaces Bug lentille\relax }}{23}
+\contentsline {figure}{\numberline {1}{\ignorespaces Trajectoire fixe d'une balle\relax }}{2}
+\contentsline {figure}{\numberline {2}{\ignorespaces Exemple de bug au moment de prendre en compte les rebonds pour la balle\relax }}{3}
+\contentsline {figure}{\numberline {3}{\ignorespaces Comparaison des 2 versions du programme animant plusieurs projectiles\relax }}{4}
+\contentsline {figure}{\numberline {4}{\ignorespaces Capture d'\IeC {\'e}cran \IeC {\`a} un instant de la simulation pour 200 balles\relax }}{5}
+\contentsline {figure}{\numberline {5}{\ignorespaces Sch\IeC {\'e}matisation du tube de Kundt\relax }}{6}
+\contentsline {figure}{\numberline {6}{\ignorespaces Capture d'\IeC {\'e}cran de la simulation du tube de Kundt sans pertes\relax }}{7}
+\contentsline {figure}{\numberline {7}{\ignorespaces Repr\IeC {\'e}sentation des modules, phase, parties r\IeC {\'e}elles et imaginaire du coefficient de r\IeC {\'e}flexion dans un plan ($\eta $, $f$)\relax }}{8}
+\contentsline {figure}{\numberline {8}{\ignorespaces Capture d'\IeC {\'e}cran de la simulation du champ acoustique dans le tube en prenant en compte les ph\IeC {\'e}nom\IeC {\`e}nes de pertes\relax }}{9}
+\contentsline {figure}{\numberline {9}{\ignorespaces Ph\IeC {\'e}nom\IeC {\`e}nes de pertes dans diff\IeC {\'e}rentes configurations pour un tube de Kundt\relax }}{9}
+\contentsline {figure}{\numberline {10}{\ignorespaces Capture d'\IeC {\'e}cran de l'interface du projet 3 r\IeC {\'e}alis\IeC {\'e}e avec Qt Designer\relax }}{12}
+\contentsline {figure}{\numberline {11}{\ignorespaces Capture d'\IeC {\'e}cran de l'interface final du projet 3\relax }}{13}
+\contentsline {figure}{\numberline {12}{\ignorespaces Repr\IeC {\'e}sentation et traitement du signal acoustique picoseconde selon les diff\IeC {\'e}rentes m\IeC {\'e}thodes demand\IeC {\'e}es avec un filtrage passe-bande\relax }}{15}
+\contentsline {figure}{\numberline {13}{\ignorespaces Repr\IeC {\'e}sentation et traitement du signal acoustique picoseconde selon les diff\IeC {\'e}rentes m\IeC {\'e}thodes demand\IeC {\'e}es avec un filtrage passe-bande\relax }}{16}
+\contentsline {figure}{\numberline {14}{\ignorespaces Image de fr\IeC {\'e}quence Brillouin\relax }}{18}
+\contentsline {figure}{\numberline {15}{\ignorespaces Sch\IeC {\'e}mas et notations pour les 2 types de dioptres, ici des lentilles\relax }}{19}
+\contentsline {figure}{\numberline {16}{\ignorespaces Miroirs sph\IeC {\'e}riques concave et convexe dans les cas o\IeC {\`u} le faisceau lumineux est large ou fin\relax }}{21}
+\contentsline {figure}{\numberline {17}{\ignorespaces Lentilles sph\IeC {\'e}riques biconcave et biconvexe dans les cas o\IeC {\`u} le faisceau lumineux est large ou fin\relax }}{22}
+\contentsline {figure}{\numberline {18}{\ignorespaces Probl\IeC {\`e}me rencontr\IeC {\'e} lors du calcul des diff\IeC {\'e}rents points n\IeC {\'e}cessaire au trac\IeC {\'e} des rayons \IeC {\`a} travers une lentille biconvexe\relax }}{23}
